@@ -1,4 +1,5 @@
 import java.util.Scanner;
+import java.util.Arrays;
 
 class Solution {
     private int topDownHelper(int n, int[] memo) {
