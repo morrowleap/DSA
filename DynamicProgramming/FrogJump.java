@@ -25,11 +25,11 @@ public class FrogJump {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
-        int[] heights = {20, 30, 40, 20};
-        int n = heights.length;
+        int[] height = {20, 30, 40, 20};
+        int n = height.length;
 
         Solution sol = new Solution();
-        System.out.println(sol.topDown(heights));
+        System.out.println(sol.topDown(height));
 
         scanner.close();
     }
