@@ -1,9 +1,13 @@
 import java.util.Scanner;
 
 class Solution {
-    private int topDownHelper(int n, int[] height) {
+    private int topDownHelper(int n, int[] height, int[] memo) {
         if(n <= 0) {
             return 0;
+        }
+
+        if(memo[n] != -1) {
+            return memo[n];
         }
         
         int oneStep = Integer.MAX_VALUE, twoStep = Integer.MAX_VALUE;
@@ -13,13 +17,14 @@ class Solution {
         if(n - 2 >= 0) {
             twoStep = Math.abs(height[n] - height[n - 2]) + topDownHelper(n - 2, height);
         }
-
-        return Math.min(oneStep, twoStep);
+        memo[n] = Math.min(oneStep, twoStep);
+        return memo[n];
     }
 
     private int topDown(int[] height) {
         int n = height.length;
-        return topDownHelper(n - 1, height);
+        int[] memo = new int[n];
+        return topDownHelper(n - 1, height, memo);
     }
 }
 
