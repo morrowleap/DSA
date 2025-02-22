@@ -28,6 +28,27 @@ class Solution {
         for(int i=0;i<n;i++) {memo[i]=-1;}
         return topDownHelper(n - 1, height, memo); 
     }
+
+    public int bottomUp(int[] heights) {
+        int n = height.length;
+        int[] memo = new int[n];
+
+        memo[0] = 0;
+
+        for(int i=1;i<n;i++) {
+            int oneStep = Integer.MAX_VALUE, twoStep = Integer.MAX_VALUE;
+            if(i - 1 >= 0) {
+                oneStep = Math.abs(height[i] - height[i - 1]) + memo[i - 1];
+            }
+            if(i - 2 >= 0) {
+                twoStep = Math.abs(height[i] - height[i - 2]) + memo[i - 2];
+            }
+
+            memo[i] = Math.min(oneStep, twoStep);
+        }
+
+        return memo[n - 1];
+    }
 }
 
 public class FrogJump {
@@ -42,6 +63,7 @@ public class FrogJump {
 
         Solution sol = new Solution();
         System.out.println(sol.topDown(heights));
+        System.out.println(sol.bottomUp(heights));
         
         scanner.close();
     }
