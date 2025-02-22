@@ -29,7 +29,7 @@ class Solution {
         return topDownHelper(n - 1, height, memo); 
     }
 
-    public int bottomUp(int[] heights) {
+    public int bottomUp(int[] height) {
         int n = height.length;
         int[] memo = new int[n];
 
