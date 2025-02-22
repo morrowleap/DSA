@@ -22,6 +22,18 @@ class Solution {
         for(int i=0;i<=n;i++) {memo[i] = -1;}
         return topDownHelper(n, memo);
     }
+
+    public int bottomUp(int n) {
+        int[] memo = new int[n + 1];
+        memo[0] = 1;
+        memo[1] = 1;
+
+        for(int i=2;i<=n;i++) {
+            memo[i] = memo[i - 1] + memo[i - 2];
+        }
+
+        return memo[n];
+    }
 }
 
 public class ClimbingStairs {
@@ -32,7 +44,8 @@ public class ClimbingStairs {
 
         Solution sol = new Solution();
         System.out.println(sol.topDown(n));
-
+        System.out.println(sol.bottomUp(n));
+        
         scanner.close();
     }
 }
