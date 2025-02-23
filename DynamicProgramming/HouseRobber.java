@@ -23,6 +23,27 @@ class Solution {
         for(int i=0;i<n;i++) {memo[i] = -1;}
         return topDownHelper(n - 1, nums, memo);
     }
+
+    public int bottomUp(int[] nums) {
+        int n = nums.length;
+        int[] dp = new int[n];
+
+        for(int i=0;i<n;i++) {
+            int pick = nums[i];
+            if(i - 2 >= 0) {
+                pick += dp[i - 2];
+            }
+
+            int notPick = 0;
+            if(i - 1 >= 0) {
+                notPick += dp[i - 1];
+            }
+
+            dp[i] = Math.max(pick, notPick);
+        }
+
+        return dp[n - 1];
+    }
 }
 
 public class HouseRobber {
@@ -37,6 +58,7 @@ public class HouseRobber {
 
         Solution sol = new Solution();
         System.out.println(sol.topDown(nums));
+        System.out.println(sol.bottomUp(nums));
 
         scanner.close();
     }
