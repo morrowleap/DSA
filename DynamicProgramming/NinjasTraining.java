@@ -79,7 +79,7 @@ public class NinjasTraining {
         }
 
         Solution sol = new Solution();
-        // System.out.println(sol.topDown(arr));
+        System.out.println(sol.topDown(arr));
         System.out.println(sol.bottomUp(arr));
 
         scanner.close();
