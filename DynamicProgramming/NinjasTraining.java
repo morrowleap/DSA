@@ -33,6 +33,37 @@ class Solution {
         
         return topDownHelper(n, 3, arr, memo);
     }
+
+    public int bottomUp(int[][] arr) {
+        int n = arr.length;
+        int[][] memo = new int[n+1][4];
+
+        for(int day=1;day<n;day++) {
+            for(int todayActivity=0;todayActivity<3;todayActivity++) {
+
+                int maxPoints = Integer.MIN_VALUE;
+
+                for(int nextActivity=0;nextActivity<3;nextActivity++) {
+                    if(nextActivity != todayActivity) {
+                        int points = arr[day - 1][nextActivity] + memo[day - 1][nextActivity];
+                        maxPoints = Math.max(maxPoints, points);
+                    }
+                }
+
+                memo[day][todayActivity] = maxPoints;
+            }
+        }
+
+        int day = n;
+        int maxPoints = Integer.MIN_VALUE;
+        for(int activity=0;activity<3;activity++) {
+            int points = arr[day - 1][activity] + memo[day - 1][activity];
+            maxPoints = Math.max(maxPoints, points);
+        }
+        memo[day][3] = maxPoints;
+
+        return maxPoints;
+    }
 }
 
 public class NinjasTraining {
@@ -48,7 +79,8 @@ public class NinjasTraining {
         }
 
         Solution sol = new Solution();
-        System.out.println(sol.topDown(arr));
+        // System.out.println(sol.topDown(arr));
+        System.out.println(sol.bottomUp(arr));
 
         scanner.close();
     }
