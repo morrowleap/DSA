@@ -33,6 +33,36 @@ class Solution {
 
         return topDownHelper(m - 1, n - 1, grid, memo);
     }
+
+    public int bottomUp(int[][] grid) {
+        int m = grid.length;
+        int n = grid[0].length;
+
+        int[][] memo = new int[m][n];
+
+        memo[0][0] = grid[0][0];
+
+        for(int i=0;i<m;i++) {
+            for(int j=0;j<n;j++) {
+                if(i == 0 && j == 0) {
+                    continue;
+                }
+
+                int up = Integer.MAX_VALUE, left = Integer.MAX_VALUE;
+
+                if(i - 1 >= 0) {
+                    up = memo[i - 1][j];
+                }
+                if(j - 1 >= 0) {
+                    left = memo[i][j - 1];
+                }
+
+                memo[i][j] = grid[i][j] + Math.min(up, left);
+            }
+        }
+
+        return memo[m - 1][n - 1];
+    }
 }
 
 public class MinimumPathSum {
@@ -52,7 +82,8 @@ public class MinimumPathSum {
 
         Solution sol = new Solution();
         System.out.println(sol.topDown(grid));
-
+        System.out.println(sol.bottomUp(grid));
+        
         scanner.close();
     }
 }
