@@ -1,0 +1,60 @@
+import java.util.Scanner;
+import java.util.ArrayList;
+import java.util.List;
+
+class Solution {
+    private int topDownHelper(List<List<Integer>> triangle, int i, int j, int[][] memo) {
+        int m = triangle.size();
+        if(i == m - 1) {
+            return triangle.get(i).get(j);
+        }
+
+        if(memo[i][j] != -1) {
+            return memo[i][j];
+        }
+
+        int down = topDownHelper(triangle, i + 1, j, memo);
+        int diagnol = topDownHelper(triangle, i + 1, j + 1, memo);
+
+        memo[i][j] = triangle.get(i).get(j) + Math.min(down, diagnol);
+        return memo[i][j];
+    }
+    
+    public int topDown(List<List<Integer>> triangle) {
+        int m = triangle.size();
+        int i = 0, j = 0;
+        int[][] memo = new int[m][m];
+        for(int x=0;x<m;x++) {
+            for(int y=0;y<m;y++) {
+                memo[x][y] = -1;
+            }
+        }
+        return topDownHelper(triangle, i, j, memo);
+    }
+}
+
+public class Triangle {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        int m = sc.nextInt();
+        List<List<Integer>> triangle = new ArrayList<>();
+
+        for(int i=0;i<m;i++) {
+            List<Integer> row = new ArrayList<>();
+            for(int j=0;j<i+1;j++) {
+                row.add(sc.nextInt());
+            }
+            triangle.add(row);
+        }
+
+        for (List<Integer> row : triangle) {
+            System.out.println(row);
+        }
+
+        Solution sol = new Solution();
+        System.out.println(sol.topDown(triangle));
+
+        sc.close();
+    }
+}
