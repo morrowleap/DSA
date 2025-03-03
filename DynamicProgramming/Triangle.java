@@ -31,6 +31,26 @@ class Solution {
         }
         return topDownHelper(triangle, i, j, memo);
     }
+
+    public int bottomUp(List<List<Integer>> triangle) {
+        int m = triangle.size();
+        int[][] memo = new int[m][m];
+
+        for(int j=0;j<m;j++) {
+            memo[m - 1][j] = triangle.get(m - 1).get(j);
+        }
+
+        for(int j=m-2;j>=0;j--) {
+            for(int i=0;i<=j;i++) {
+                int down = memo[j+1][i];
+                int diagnol = memo[j+1][i+1];
+
+                memo[j][i] = triangle.get(j).get(i) + Math.min(down, diagnol);
+            }
+        }
+
+        return memo[0][0];
+    }
 }
 
 public class Triangle {
