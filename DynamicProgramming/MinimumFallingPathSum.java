@@ -44,6 +44,38 @@ class Solution {
         }
         return mini;
     }
+
+    public int bottomUp(int[][] matrix) {
+        int n = matrix.length;
+        int[][] memo = new int[n][n];
+
+        for(int col=0;col<n;col++) {
+            memo[n - 1][col] = matrix[n - 1][col];
+        }
+
+        for(int row = n - 2; row >= 0; row--) {
+            for(int col = 0; col < n; col++) {
+                int mini = Integer.MAX_VALUE;
+                if(row + 1 < n && col - 1 >= 0) {
+                    mini = Math.min(mini, memo[row + 1][col - 1]);
+                }
+                if(row + 1 < n && col < n) {
+                    mini = Math.min(mini, memo[row + 1][col]);
+                }
+                if(row + 1 < n && col + 1 < n) {
+                    mini = Math.min(mini, memo[row + 1][col + 1]);
+                }
+
+                memo[row][col] = matrix[row][col] + mini;
+            }
+        }
+
+        int mini = Integer.MAX_VALUE;
+        for(int col = 0; col < n; col++) {
+            mini = Math.min(mini, memo[0][col]);
+        }
+        return mini;
+    }
 }
 
 public class MinimumFallingPathSum {
@@ -60,6 +92,7 @@ public class MinimumFallingPathSum {
 
         Solution sol = new Solution();
         System.out.println(sol.topDown(matrix));
+        System.out.println(sol.bottomUp(matrix));
 
         sc.close();
     }
