@@ -102,7 +102,7 @@ class ChocolatesPickupSolution {
             }
         }
 
-        return memo[0][0][0] + memo[0][n - 1][n - 1];
+        return memo[0][0][n - 1];
     }
 }
 
