@@ -2,7 +2,7 @@ package dynamic_programming;
 
 import java.util.Scanner;
 
-class Solution {
+class FrogJumpSolution {
     private int topDownHelper(int n, int[] height, int[] memo) {
         if(n == 0) {
             return 0;
@@ -63,7 +63,7 @@ public class FrogJump {
             heights[i] = scanner.nextInt();
         }
 
-        Solution sol = new Solution();
+        FrogJumpSolution sol = new FrogJumpSolution();
         System.out.println(sol.topDown(heights));
         System.out.println(sol.bottomUp(heights));
         

@@ -2,7 +2,7 @@ package dynamic_programming;
 
 import java.util.Scanner;
 
-class Solution {
+class MinimumFallingPathSumSolution {
     private int topDownHelper(int[][] matrix, int row, int col, int[][] memo) {
         int n = matrix.length;
 
@@ -90,7 +90,7 @@ public class MinimumFallingPathSum {
             }
         }
 
-        Solution sol = new Solution();
+        MinimumFallingPathSumSolution sol = new MinimumFallingPathSumSolution();
         System.out.println(sol.topDown(matrix));
         System.out.println(sol.bottomUp(matrix));
 

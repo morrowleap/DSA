@@ -3,7 +3,7 @@ package dynamic_programming;
 import java.util.Scanner;
 import java.util.Arrays;
 
-class Solution {
+class HouseRobber2Solution {
     private int topDownHelper(int n, int[] nums, int[] memo) {
         if(n < 0) {
             return 0;
@@ -50,7 +50,7 @@ public class HouseRobber2 {
             nums[i] = scanner.nextInt();
         }
 
-        Solution sol = new Solution();
+        HouseRobber2Solution sol = new HouseRobber2Solution();
         System.out.println(sol.topDown(nums));
 
         scanner.close();

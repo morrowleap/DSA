@@ -2,7 +2,7 @@ package dynamic_programming;
 
 import java.util.Scanner;
 
-class Solution {
+class ClimbingStairsSolution {
     private int topDownHelper(int n, int[] memo) {
         if(n == 0) {
             return 1;
@@ -44,7 +44,7 @@ public class ClimbingStairs {
 
         int n = scanner.nextInt();
 
-        Solution sol = new Solution();
+        ClimbingStairsSolution sol = new ClimbingStairsSolution();
         System.out.println(sol.topDown(n));
         System.out.println(sol.bottomUp(n));
         

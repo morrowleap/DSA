@@ -2,7 +2,7 @@ package dynamic_programming;
 
 import java.util.Scanner;
 
-class Solution {
+class MinimalCostSolution {
     private int topDownHelper(int n, int k, int[] arr, int[] memo) {
         if(n == 0) {
             return 0;
@@ -65,7 +65,7 @@ public class MinimalCost {
             heights[i] = scanner.nextInt();
         }
 
-        Solution sol = new Solution();
+        MinimalCostSolution sol = new MinimalCostSolution();
         System.out.println(sol.topDown(k, heights));
 
         scanner.close();

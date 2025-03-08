@@ -2,7 +2,7 @@ package dynamic_programming;
 
 import java.util.Scanner;
 
-class Solution {
+class NinjasTrainingSolution {
     private int topDownHelper(int n, int last, int[][] arr, int[][] memo) {
         if(n == 0) {
             return 0;
@@ -80,7 +80,7 @@ public class NinjasTraining {
             }
         }
 
-        Solution sol = new Solution();
+        NinjasTrainingSolution sol = new NinjasTrainingSolution();
         System.out.println(sol.topDown(arr));
         System.out.println(sol.bottomUp(arr));
 

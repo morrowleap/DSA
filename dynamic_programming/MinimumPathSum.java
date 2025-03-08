@@ -3,7 +3,7 @@ package dynamic_programming;
 import java.util.Scanner;
 import java.util.Arrays;
 
-class Solution {
+class MinimumPathSumSolution {
     private int topDownHelper(int m, int n, int[][] grid, int[][] memo) {
         if(m == 0 && n == 0) {
             return grid[0][0];
@@ -82,7 +82,7 @@ public class MinimumPathSum {
             }
         }
 
-        Solution sol = new Solution();
+        MinimumPathSumSolution sol = new MinimumPathSumSolution();
         System.out.println(sol.topDown(grid));
         System.out.println(sol.bottomUp(grid));
         

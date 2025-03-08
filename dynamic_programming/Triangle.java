@@ -4,7 +4,7 @@ import java.util.Scanner;
 import java.util.ArrayList;
 import java.util.List;
 
-class Solution {
+class TriangleSolution {
     private int topDownHelper(List<List<Integer>> triangle, int i, int j, int[][] memo) {
         int m = triangle.size();
         if(i == m - 1) {
@@ -74,7 +74,7 @@ public class Triangle {
             System.out.println(row);
         }
 
-        Solution sol = new Solution();
+        TriangleSolution sol = new TriangleSolution();
         System.out.println(sol.topDown(triangle));
 
         sc.close();

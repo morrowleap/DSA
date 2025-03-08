@@ -2,7 +2,7 @@ package dynamic_programming;
 
 import java.util.Scanner;
 
-class Solution {
+class HouseRobberSolution {
     private int topDownHelper(int n, int[] nums, int[] memo) {
         if(n < 0) {
             return 0;
@@ -58,7 +58,7 @@ public class HouseRobber {
             nums[i] = scanner.nextInt();
         }
 
-        Solution sol = new Solution();
+        HouseRobberSolution sol = new HouseRobberSolution();
         System.out.println(sol.topDown(nums));
         System.out.println(sol.bottomUp(nums));
 

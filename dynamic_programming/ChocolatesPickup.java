@@ -1,7 +1,7 @@
 package dynamic_programming;
 import java.util.Scanner;
 
-class Solution {
+class ChocolatesPickupSolution {
     private int topDownHelper(int row, int col1, int col2, int[][] grid, int[][][] memo) {
         int m = grid.length;
         int n = grid[0].length;
@@ -120,7 +120,7 @@ public class ChocolatesPickup {
             }
         }
 
-        Solution sol = new Solution();
+        ChocolatesPickupSolution sol = new ChocolatesPickupSolution();
         System.out.println(sol.topDown(grid));
         System.out.println(sol.bottomUp(grid));
 

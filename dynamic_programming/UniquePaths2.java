@@ -3,7 +3,7 @@ package dynamic_programming;
 import java.util.Scanner;
 import java.util.Arrays;
 
-class Solution {
+class UniquePaths2Solution {
     private int topDownHelper(int m, int n, int[][] grid, int[][] memo) {
         if(m < 0 || n < 0) {
             return 0;
@@ -94,7 +94,7 @@ public class UniquePaths2 {
             }
         }
 
-        Solution sol = new Solution();
+        UniquePaths2Solution sol = new UniquePaths2Solution();
         System.out.println(sol.topDown(grid));
 
         scanner.close();
