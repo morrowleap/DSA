@@ -1,4 +1,5 @@
 package dynamic_programming;
+
 import java.util.Scanner;
 
 class ChocolatesPickupSolution {
