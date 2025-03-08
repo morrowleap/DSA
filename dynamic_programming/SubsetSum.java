@@ -5,22 +5,28 @@ import java.util.Scanner;
 class SubsetSumSolution {
     public Boolean topDown(int[] nums, int target) {
         int n = nums.length;
-        return topDownHelper(nums, n - 1, target);
+        Boolean[][] memo = new Boolean[n][target + 1];
+        return topDownHelper(nums, n - 1, target, memo);
     }
 
-    private Boolean topDownHelper(int[] nums, int n, int target) {
-        if (n < 0 || target < 0) {
-            return false;
-        }
-
+    private Boolean topDownHelper(int[] nums, int n, int target, Boolean[][] memo) {
         if (target == 0) {
             return true;
         }
 
-        boolean pick = topDownHelper(nums, n - 1, target - nums[n]);
-        boolean notPick = topDownHelper(nums, n - 1, target);
+        if (n < 0 || target < 0) {
+            return false;
+        }
 
-        return pick || notPick;
+        if (memo[n][target] != null) {
+            return memo[n][target];
+        }
+
+        boolean pick = topDownHelper(nums, n - 1, target - nums[n], memo);
+        boolean notPick = topDownHelper(nums, n - 1, target, memo);
+
+        memo[n][target] = pick || notPick;
+        return memo[n][target];
     }
 }
 
@@ -34,10 +40,10 @@ public class SubsetSum {
             nums[i] = sc.nextInt();
         }
 
-        int x = sc.nextInt();
+        int target = sc.nextInt();
 
         SubsetSumSolution sol = new SubsetSumSolution();
-        System.out.println(sol.topDown(nums, x));
+        System.out.println(sol.topDown(nums, target));
 
         sc.close();
     }
