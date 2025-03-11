@@ -18,23 +18,23 @@ import java.util.Scanner;
 class SubsequencesWithSumKSolution {
     public void topDown(int[] nums, int target) {
         int n = nums.length;
-        List<Integer> temp = new ArrayList<>();
-        topDownHelper(nums, n - 1, target, temp);
+        List<Integer> curr = new ArrayList<>();
+        topDownHelper(nums, n - 1, target, curr);
     }
 
-    private void topDownHelper(int[] nums, int n, int target, List<Integer> temp) {
+    private void topDownHelper(int[] nums, int n, int target, List<Integer> curr) {
         if (n == -1) {
             if (target == 0) {
-                System.out.println(temp);
+                System.out.println(curr);
             }
             return;
         }
 
-        temp.add(nums[n]);
-        topDownHelper(nums, n - 1, target - nums[n], temp);
-        temp.remove(temp.size() - 1);
+        curr.add(nums[n]);
+        topDownHelper(nums, n - 1, target - nums[n], curr);
+        curr.remove(curr.size() - 1);
 
-        topDownHelper(nums, n - 1, target, temp);
+        topDownHelper(nums, n - 1, target, curr);
     }
 }
 

@@ -15,21 +15,21 @@ import java.util.Scanner;
 class SubsequencesSolution {
     public void topDown(int[] nums) {
         int n = nums.length;
-        List<Integer> temp = new ArrayList<>();
-        topDownHelper(nums, n - 1, temp);
+        List<Integer> curr = new ArrayList<>();
+        topDownHelper(nums, n - 1, curr);
     }
 
-    private void topDownHelper(int[] nums, int n, List<Integer> temp) {
-        if(n == -1) {
-            System.out.println(temp);
+    private void topDownHelper(int[] nums, int n, List<Integer> curr) {
+        if (n == -1) {
+            System.out.println(curr);
             return;
         }
 
-        temp.add(nums[n]);
-        topDownHelper(nums, n - 1, temp);
-        temp.remove(temp.size() - 1);
+        curr.add(nums[n]);
+        topDownHelper(nums, n - 1, curr);
+        curr.remove(curr.size() - 1);
 
-        topDownHelper(nums, n - 1, temp);
+        topDownHelper(nums, n - 1, curr);
     }
 }
 
