@@ -61,7 +61,7 @@ class SubsetSumSolution {
     }
 }
 
-public class SubsetSum {
+public class SubsetSumEqualToTarget {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
