@@ -23,13 +23,39 @@ class PartitionEqualSubsetSumSolution {
         }
 
         boolean pick = false;
-        if(nums[n] <= target) {
+        if (nums[n] <= target) {
             pick = topDownHelper(nums, n - 1, target - nums[n], memo);
         }
         boolean notPick = topDownHelper(nums, n - 1, target, memo);
 
         memo[n][target] = pick || notPick;
         return memo[n][target];
+    }
+
+    private boolean bottomUp(int[] nums, int target) {
+        int n = nums.length;
+        boolean[][] dp = new boolean[n][target + 1];
+
+        for (int i = 0; i < n; i++) {
+            dp[i][0] = true;
+        }
+
+        if (nums[0] <= target) {
+            dp[0][nums[0]] = true;
+        }
+
+        for (int i = 1; i < n; i++) {
+            for (int k = 1; k <= target; k++) {
+                boolean pick = false;
+                if (nums[i] <= k) {
+                    pick = dp[i - 1][k - nums[i]];
+                }
+                boolean notPick = dp[i - 1][k];
+                dp[i][k] = pick || notPick;
+            }
+        }
+
+        return dp[n - 1][target];
     }
 
     public boolean canPartition(int[] nums) {
@@ -42,7 +68,8 @@ class PartitionEqualSubsetSumSolution {
 
         if (sum % 2 == 0) {
             int target = sum / 2;
-            return topDown(nums, target);
+            topDown(nums, target);
+            return bottomUp(nums, target);
         } else {
             return false;
         }
