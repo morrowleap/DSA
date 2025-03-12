@@ -23,17 +23,26 @@ class SubsequencesWithSumKSolution {
     }
 
     private void topDownHelper(int[] nums, int n, int target, List<Integer> curr) {
-        if (n == -1) {
-            if (target == 0) {
+        if(target == 0) {
+            System.out.println(curr);
+            return;
+        }
+
+        if (n == 0) {
+            if (target == nums[0]) {
+                curr.add(nums[n]);
                 System.out.println(curr);
+                curr.remove(curr.size() - 1);
             }
             return;
         }
 
-        curr.add(nums[n]);
-        topDownHelper(nums, n - 1, target - nums[n], curr);
-        curr.remove(curr.size() - 1);
-
+        if(target - nums[n] >= 0) {
+            curr.add(nums[n]);
+            topDownHelper(nums, n - 1, target - nums[n], curr);
+            curr.remove(curr.size() - 1);
+        }
+        
         topDownHelper(nums, n - 1, target, curr);
     }
 }
