@@ -2,7 +2,7 @@ package dynamic_programming;
 
 import java.util.Scanner;
 
-class SubsetSumEqualToTargetSolution {
+class CheckSubsetsWithSumKSolution {
     public Boolean topDown(int[] nums, int target) {
         int n = nums.length;
         Boolean[][] memo = new Boolean[n][target + 1];
@@ -61,7 +61,7 @@ class SubsetSumEqualToTargetSolution {
     }
 }
 
-public class SubsetSumEqualToTarget {
+public class CheckSubsetsWithSumK {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
@@ -73,7 +73,7 @@ public class SubsetSumEqualToTarget {
 
         int target = sc.nextInt();
 
-        SubsetSumEqualToTargetSolution sol = new SubsetSumEqualToTargetSolution();
+        CheckSubsetsWithSumKSolution sol = new CheckSubsetsWithSumKSolution();
         System.out.println(sol.topDown(nums, target));
         System.out.println(sol.bottomUp(nums, target));
 
