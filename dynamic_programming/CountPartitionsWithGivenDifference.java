@@ -57,13 +57,13 @@ class CountPartitionsWithGivenDifferenceSolution {
 
             int[][] dp = new int[n][target + 1];
 
-            dp[0][0] = 1;
-            if (nums[0] <= target) {
-                dp[0][nums[0]] = 1;
-            }
-            if (nums[0] == 0) {
-                dp[0][0] = 2;
-            }
+            if (nums[0] == 0)
+                dp[0][0] = 2; // 2 cases -pick and not pick
+            else
+                dp[0][0] = 1; // 1 case - not pick
+
+            if (nums[0] != 0 && nums[0] <= target)
+                dp[0][nums[0]] = 1; // 1 case -pick
 
             for (int i = 1; i < n; i++) {
                 for (int k = 0; k <= target; k++) {

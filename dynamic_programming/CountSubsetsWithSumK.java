@@ -11,12 +11,16 @@ class CountSubsetsWithSumKSolution {
 
     private int topDownHelper(int[] nums, int n, int target, Integer[][] memo) {
         if (n == 0) {
-            if(target == 0 && nums[0] == 0) {return 2;}
-            if(target == 0 || nums[0] == target) {return 1;}
+            if (target == 0 && nums[0] == 0) {
+                return 2;
+            }
+            if (target == 0 || nums[0] == target) {
+                return 1;
+            }
             return 0;
         }
 
-        if(memo[n][target] != null) {
+        if (memo[n][target] != null) {
             return memo[n][target];
         }
 
@@ -34,17 +38,16 @@ class CountSubsetsWithSumKSolution {
         int n = nums.length;
         int[][] dp = new int[n][target + 1];
 
-        dp[0][0] = 1;
-        if(nums[0] <= target) {
-            dp[0][nums[0]] = 1;
-        }
-        
-        if(nums[0] == 0) {
-            dp[0][0] = 2;
-        }
+        if (nums[0] == 0)
+            dp[0][0] = 2; // 2 cases -pick and not pick
+        else
+            dp[0][0] = 1; // 1 case - not pick
 
-        for(int i=1;i<n;i++) {
-            for(int k=0;k<=target;k++) {
+        if (nums[0] != 0 && nums[0] <= target)
+            dp[0][nums[0]] = 1; // 1 case -pick
+
+        for (int i = 1; i < n; i++) {
+            for (int k = 0; k <= target; k++) {
                 int notPick = dp[i - 1][k];
                 int pick = 0;
                 if (nums[i] <= k) {
