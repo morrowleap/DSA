@@ -29,6 +29,34 @@ class CountSubsetsWithSumKSolution {
         memo[n][target] = pick + notPick;
         return memo[n][target];
     }
+
+    public int bottomUp(int[] nums, int target) {
+        int n = nums.length;
+        int[][] dp = new int[n][target + 1];
+
+        dp[0][0] = 1;
+        if(nums[0] <= target) {
+            dp[0][nums[0]] = 1;
+        }
+        
+        if(nums[0] == 0) {
+            dp[0][0] = 2;
+        }
+
+        for(int i=1;i<n;i++) {
+            for(int k=0;k<=target;k++) {
+                int notPick = dp[i - 1][k];
+                int pick = 0;
+                if (nums[i] <= k) {
+                    pick = dp[i - 1][k - nums[i]];
+                }
+
+                dp[i][k] = pick + notPick;
+            }
+        }
+
+        return dp[n - 1][target];
+    }
 }
 
 public class CountSubsetsWithSumK {
@@ -44,7 +72,7 @@ public class CountSubsetsWithSumK {
         int target = sc.nextInt();
 
         CountSubsetsWithSumKSolution sol = new CountSubsetsWithSumKSolution();
-        System.out.println(sol.topDown(nums, target));
+        System.out.println(sol.bottomUp(nums, target));
 
         sc.close();
     }
