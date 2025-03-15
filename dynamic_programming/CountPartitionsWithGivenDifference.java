@@ -46,6 +46,41 @@ class CountPartitionsWithGivenDifferenceSolution {
         memo[n][target] = notPick + pick;
         return memo[n][target];
     }
+
+    public int bottomUp(int[] nums, int diff) {
+        int n = nums.length;
+
+        int totalSum = Arrays.stream(nums).sum();
+
+        if ((totalSum - diff) >= 0 && (totalSum - diff) % 2 == 0) {
+            int target = (totalSum - diff) / 2;
+
+            int[][] dp = new int[n][target + 1];
+
+            dp[0][0] = 1;
+            if (nums[0] <= target) {
+                dp[0][nums[0]] = 1;
+            }
+            if (nums[0] == 0) {
+                dp[0][0] = 2;
+            }
+
+            for (int i = 1; i < n; i++) {
+                for (int k = 0; k <= target; k++) {
+                    int notPick = dp[i - 1][k];
+                    int pick = 0;
+                    if (nums[i] <= k) {
+                        pick = dp[i - 1][k - nums[i]];
+                    }
+                    dp[i][k] = notPick + pick;
+                }
+            }
+
+            return dp[n - 1][target];
+        } else {
+            return 0;
+        }
+    }
 }
 
 public class CountPartitionsWithGivenDifference {
@@ -60,7 +95,7 @@ public class CountPartitionsWithGivenDifference {
         int diff = sc.nextInt();
 
         CountPartitionsWithGivenDifferenceSolution sol = new CountPartitionsWithGivenDifferenceSolution();
-        System.out.println(sol.topDown(nums, diff));
+        System.out.println(sol.bottomUp(nums, diff));
 
         sc.close();
     }
