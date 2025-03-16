@@ -1,12 +1,18 @@
 package dynamic_programming;
 
+import java.util.Arrays;
 import java.util.Scanner;
 
 class MinimumCoinsSolution {
 
     public int topDown(int[] coins, int amount) {
         int n = coins.length;
-        int count = topDownHelper(coins, n - 1, amount);
+
+        int[][] memo = new int[n][amount + 1];
+        for (int[] row : memo)
+            Arrays.fill(row, -1);
+
+        int count = topDownHelper(coins, n - 1, amount, memo);
         if (count == Integer.MAX_VALUE) {
             return -1;
         } else {
@@ -14,7 +20,7 @@ class MinimumCoinsSolution {
         }
     }
 
-    private int topDownHelper(int[] coins, int n, int amount) {
+    private int topDownHelper(int[] coins, int n, int amount, int[][] memo) {
         if (n == 0) {
             if (amount == 0) {
                 return 0;
@@ -25,16 +31,21 @@ class MinimumCoinsSolution {
             }
         }
 
-        int notPick = topDownHelper(coins, n - 1, amount);
+        if (memo[n][amount] != -1) {
+            return memo[n][amount];
+        }
+
+        int notPick = topDownHelper(coins, n - 1, amount, memo);
         int pick = Integer.MAX_VALUE;
         if (coins[n] <= amount) {
-            int subRes = topDownHelper(coins, n, amount - coins[n]);
+            int subRes = topDownHelper(coins, n, amount - coins[n], memo);
             if (subRes != Integer.MAX_VALUE) {
                 pick = 1 + subRes;
             }
         }
 
-        return Math.min(pick, notPick);
+        memo[n][amount] = Math.min(pick, notPick);
+        return memo[n][amount];
     }
 
 }
