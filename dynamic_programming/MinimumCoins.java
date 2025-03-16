@@ -61,10 +61,9 @@ class MinimumCoinsSolution {
             }
         }
         dp[0][0] = 0;
-        
 
-        for(int i=1;i<n;i++) {
-            for(int k=0;k<=amount; k++) {
+        for (int i = 1; i < n; i++) {
+            for (int k = 0; k <= amount; k++) {
                 int notPick = dp[i - 1][k];
                 int pick = Integer.MAX_VALUE;
                 if (coins[i] <= k) {
