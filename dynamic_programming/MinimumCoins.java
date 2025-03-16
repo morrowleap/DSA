@@ -40,7 +40,7 @@ class MinimumCoinsSolution {
         if (coins[n] <= amount) {
             int subRes = topDownHelper(coins, n, amount - coins[n], memo);
             if (subRes != Integer.MAX_VALUE) {
-                pick = 1 + subRes;
+                pick = 1 + subRes; // adding one ata time, otherwise it will be a greedy approach
             }
         }
 
@@ -48,6 +48,44 @@ class MinimumCoinsSolution {
         return memo[n][amount];
     }
 
+    public int bottomUp(int[] coins, int amount) {
+        int n = coins.length;
+
+        int[][] dp = new int[n][amount + 1];
+
+        for (int k = 0; k <= amount; k++) {
+            if (k % coins[0] == 0) {
+                dp[0][k] = (int) (k / coins[0]);
+            } else {
+                dp[0][k] = Integer.MAX_VALUE;
+            }
+        }
+        dp[0][0] = 0;
+        
+
+        for(int i=1;i<n;i++) {
+            for(int k=0;k<=amount; k++) {
+                int notPick = dp[i - 1][k];
+                int pick = Integer.MAX_VALUE;
+                if (coins[i] <= k) {
+                    int subRes = dp[i][k - coins[i]];
+                    if (subRes != Integer.MAX_VALUE) {
+                        pick = 1 + subRes;
+                    }
+                }
+
+                dp[i][k] = Math.min(notPick, pick);
+            }
+        }
+
+        int count = dp[n - 1][amount];
+
+        if (count == Integer.MAX_VALUE) {
+            return -1;
+        } else {
+            return count;
+        }
+    }
 }
 
 public class MinimumCoins {
@@ -63,7 +101,7 @@ public class MinimumCoins {
         int k = sc.nextInt();
 
         MinimumCoinsSolution sol = new MinimumCoinsSolution();
-        System.out.println(sol.topDown(nums, k));
+        System.out.println(sol.bottomUp(nums, k));
 
         sc.close();
     }
