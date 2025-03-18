@@ -14,31 +14,39 @@ class TargetSumSolution1 {
         int n = nums.length;
         int sum = Arrays.stream(nums).sum();
         int offset = Math.abs(sum);
+
+        if (Math.abs(target) > offset)
+            return 0;
+
         Integer[][] memo = new Integer[n][2 * offset + 1];
-        return topDownHelper(nums, n - 1, 0, target, memo, offset);
+        return topDownHelper(nums, n - 1, target, memo, offset);
     }
 
-    private int topDownHelper(int[] nums, int n, int sum, int target, Integer[][] memo, int offset) {
+    private int topDownHelper(int[] nums, int n, int target, Integer[][] memo, int offset) {
         if (n == 0) {
-            if (nums[0] == Math.abs(target - sum)) {
-                if (nums[0] == 0) {
-                    return 2;
-                } else {
-                    return 1;
-                }
-            } else {
-                return 0;
+            int count = 0;
+            if (target - nums[0] == 0) {
+                count++;
             }
+            if (target + nums[0] == 0) {
+                count++;
+            }
+            return count;
         }
-        
-        if (memo[n][sum + offset] != null) 
-            return memo[n][sum + offset];
-        
-        int pos = topDownHelper(nums, n - 1, sum + nums[n], target, memo, offset);
-        int neg = topDownHelper(nums, n - 1, sum - nums[n], target, memo, offset);
 
-        memo[n][sum + offset] = pos + neg;
-        return memo[n][sum + offset];
+        if (target + offset < 0 || target + offset > 2 * offset) {
+            return 0;
+        }
+
+        if (memo[n][target + offset] != null) {
+            return memo[n][target + offset];
+        }
+
+        int pos = topDownHelper(nums, n - 1, target - nums[n], memo, offset);
+        int neg = topDownHelper(nums, n - 1, target + nums[n], memo, offset);
+
+        memo[n][target + offset] = pos + neg;
+        return memo[n][target + offset];
     }
 }
 
