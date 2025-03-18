@@ -1,3 +1,8 @@
+/*
+ * https://takeuforward.org/data-structure/minimum-path-sum-in-triangular-grid-dp-11/
+ * https://leetcode.com/problems/triangle/description/
+*/
+
 package dynamic_programming;
 
 import java.util.Scanner;
@@ -55,7 +60,7 @@ class TriangleSolution {
     }
 }
 
-public class Triangle {
+public class MinimumPathSumInTriangularGrid {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
