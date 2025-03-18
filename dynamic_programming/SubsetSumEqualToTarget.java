@@ -1,3 +1,8 @@
+/*
+ * https://takeuforward.org/data-structure/subset-sum-equal-to-target-dp-14/
+ * https://www.geeksforgeeks.org/problems/subset-sum-problem-1611555638/1
+*/
+
 package dynamic_programming;
 
 import java.util.Scanner;
@@ -61,7 +66,7 @@ class CheckSubsetsWithSumKSolution {
     }
 }
 
-public class CheckSubsetsWithSumK {
+public class SubsetSumEqualToTarget {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
