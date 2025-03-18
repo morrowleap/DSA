@@ -1,3 +1,8 @@
+/*
+ * https://takeuforward.org/data-structure/partition-equal-subset-sum-dp-15/
+ * https://leetcode.com/problems/partition-equal-subset-sum/description/
+*/
+
 package dynamic_programming;
 
 import java.util.Scanner;
