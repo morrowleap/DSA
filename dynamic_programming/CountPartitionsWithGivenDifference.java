@@ -1,3 +1,8 @@
+/*
+ * https://takeuforward.org/data-structure/count-partitions-with-given-difference-dp-18/
+ * https://www.geeksforgeeks.org/problems/partitions-with-given-difference/1?utm_source=youtube&utm_medium=collab_striver_ytdescription&utm_campaign=partitions-with-given-difference
+*/
+
 package dynamic_programming;
 
 import java.util.Arrays;
