@@ -1,3 +1,8 @@
+/*
+ * https://takeuforward.org/data-structure/dynamic-programming-frog-jump-with-k-distances-dp-4/
+ * https://www.geeksforgeeks.org/problems/minimal-cost/1?utm_source=youtube&utm_medium=collab_striver_ytdescription&utm_campaign=minimal-cost
+*/
+
 package dynamic_programming;
 
 import java.util.Scanner;
