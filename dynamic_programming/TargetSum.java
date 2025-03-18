@@ -7,16 +7,14 @@ package dynamic_programming;
 
 import java.util.Scanner;
 
-class TargetSumSolution {
+class TargetSumSolution1 {
 
     public int topDown(int[] nums, int target) {
         int n = nums.length;
-        int offset = Math.abs(target);
-        Integer[][] memo = new Integer[n][2 * offset + 1];
-        return topDownHelper(nums, n - 1, target, memo, offset);
+        return topDownHelper(nums, n - 1, target);
     }
 
-    private int topDownHelper(int[] nums, int n, int target, Integer[][] memo, int offset) {
+    private int topDownHelper(int[] nums, int n, int target) {
         if (n == 0) {
             if (nums[0] == Math.abs(target)) {
                 if (nums[0] == 0) {
@@ -28,17 +26,12 @@ class TargetSumSolution {
                 return 0;
             }
         }
-
-        if (memo[n][target + offset] != null) 
-            return memo[n][target + offset];
         
-        int pos = topDownHelper(nums, n - 1, target + nums[n], memo, offset);
-        int neg = topDownHelper(nums, n - 1, target - nums[n], memo, offset);
+        int pos = topDownHelper(nums, n - 1, target + nums[n]);
+        int neg = topDownHelper(nums, n - 1, target - nums[n]);
 
-        memo[n][target + offset] = pos + neg;
-        return memo[n][target + offset];
+        return pos + neg;
     }
-
 }
 
 public class TargetSum {
@@ -53,7 +46,7 @@ public class TargetSum {
 
         int target = sc.nextInt();
 
-        TargetSumSolution sol = new TargetSumSolution();
+        TargetSumSolution1 sol = new TargetSumSolution1();
         System.out.println(sol.topDown(nums, target));
 
         sc.close();
