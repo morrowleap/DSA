@@ -59,7 +59,7 @@ class MinimalCostSolution {
     }
 }
 
-public class MinimalCost {
+public class FrogJumpWithKdistances {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 

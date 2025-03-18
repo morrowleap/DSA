@@ -1,3 +1,8 @@
+/*
+ * https://takeuforward.org/data-structure/maximum-sum-of-non-adjacent-elements-dp-5/
+ * https://leetcode.com/problems/house-robber/description/
+*/
+
 package dynamic_programming;
 
 import java.util.Scanner;
@@ -48,7 +53,7 @@ class HouseRobberSolution {
     }
 }
 
-public class HouseRobber {
+public class MaximumSumOfNonAdjacentElements {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
