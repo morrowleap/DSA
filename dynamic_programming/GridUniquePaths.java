@@ -1,3 +1,8 @@
+/*
+ * https://takeuforward.org/data-structure/grid-unique-paths-dp-on-grids-dp8/
+ * https://leetcode.com/problems/unique-paths/description/
+*/
+
 package dynamic_programming;
 
 import java.util.Scanner;
@@ -59,7 +64,7 @@ class UniquePathsSolution {
     }
 }
 
-public class UniquePaths {
+public class GridUniquePaths {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
