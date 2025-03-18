@@ -1,3 +1,8 @@
+/*
+ * https://takeuforward.org/data-structure/dynamic-programming-frog-jump-dp-3/
+ * https://www.geeksforgeeks.org/problems/geek-jump/1?utm_source=youtube&utm_medium=collab_striver_ytdescription&utm_campaign=geek-jump
+*/
+
 package dynamic_programming;
 
 import java.util.Scanner;
