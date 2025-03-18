@@ -1,3 +1,8 @@
+/*
+ * https://takeuforward.org/data-structure/count-subsets-with-sum-k-dp-17/
+ * https://www.geeksforgeeks.org/problems/perfect-sum-problem5633/1?utm_source=youtube&utm_medium=collab_striver_ytdescription&utm_campaign=perfect-sum-problem
+*/
+
 package dynamic_programming;
 
 import java.util.Scanner;
