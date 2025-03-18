@@ -15,8 +15,9 @@ class TargetSumSolution1 {
         int sum = Arrays.stream(nums).sum();
         int offset = Math.abs(sum);
 
-        if (Math.abs(target) > offset)
+        if (Math.abs(target) > offset) {
             return 0;
+        }
 
         Integer[][] memo = new Integer[n][2 * offset + 1];
         return topDownHelper(nums, n - 1, target, memo, offset);
@@ -48,6 +49,43 @@ class TargetSumSolution1 {
         memo[n][target + offset] = pos + neg;
         return memo[n][target + offset];
     }
+
+    // TODO: not understood yet
+    // public int bottomUp(int[] nums, int target) {
+    //     int n = nums.length;
+    //     int sum = Arrays.stream(nums).sum();
+    //     int offset = Math.abs(sum);
+
+    //     if (Math.abs(target) > offset) {
+    //         return 0;
+    //     }
+
+    //     int[][] dp = new int[n][2 * offset + 1];
+    //     if (nums[0] == 0) {
+    //         dp[0][offset] = 2;
+    //     } else {
+    //         dp[0][offset - nums[0]] = 1;
+    //         dp[0][offset + nums[0]] = 1;
+    //     }
+
+    //     for (int i = 1; i < n; i++) {
+    //         for (int s = -offset; s <= offset; s++) {
+    //             int idx = s + offset;
+    //             int pos = 0, neg = 0;
+    //             int posIndex = s - nums[i] + offset;
+    //             int negIndex = s + nums[i] + offset;
+    //             if (posIndex >= 0 && posIndex < 2 * offset + 1) {
+    //                 pos = dp[i - 1][posIndex];
+    //             }
+    //             if (negIndex >= 0 && negIndex < 2 * offset + 1) {
+    //                 neg = dp[i - 1][negIndex];
+    //             }
+    //             dp[i][idx] = pos + neg;
+    //         }
+    //     }
+
+    //     return dp[n - 1][target + offset];
+    // }
 }
 
 public class TargetSum {
