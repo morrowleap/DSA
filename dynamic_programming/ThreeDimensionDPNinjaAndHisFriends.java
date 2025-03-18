@@ -1,3 +1,9 @@
+/*
+ * https://takeuforward.org/data-structure/3-d-dp-ninja-and-his-friends-dp-13/
+ * https://www.geeksforgeeks.org/problems/chocolates-pickup/1?utm_source=youtube&utm_medium=collab_striver_ytdescription&utm_campaign=chocolates-pickup
+ * https://leetcode.com/problems/cherry-pickup-ii/description/
+*/
+
 package dynamic_programming;
 
 import java.util.Scanner;
@@ -106,7 +112,7 @@ class ChocolatesPickupSolution {
     }
 }
 
-public class ChocolatesPickup {
+public class ThreeDimensionDPNinjaAndHisFriends {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
