@@ -1,3 +1,8 @@
+/*
+ * https://takeuforward.org/data-structure/minimum-maximum-falling-path-sum-dp-12/
+ * https://leetcode.com/problems/minimum-falling-path-sum/description/
+*/
+
 package dynamic_programming;
 
 import java.util.Scanner;
@@ -78,7 +83,7 @@ class MinimumFallingPathSumSolution {
     }
 }
 
-public class MinimumFallingPathSum {
+public class MinimumMaximumFallingPathSum {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
