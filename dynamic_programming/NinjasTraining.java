@@ -1,3 +1,8 @@
+/*
+ * https://takeuforward.org/data-structure/dynamic-programming-ninjas-training-dp-7/
+ * https://www.geeksforgeeks.org/problems/geeks-training/1?utm_source=youtube&utm_medium=collab_striver_ytdescription&utm_campaign=geeks-training
+*/
+
 package dynamic_programming;
 
 import java.util.Scanner;
