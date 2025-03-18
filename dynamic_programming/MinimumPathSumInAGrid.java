@@ -1,3 +1,8 @@
+/*
+ * https://takeuforward.org/data-structure/minimum-path-sum-in-a-grid-dp-10/
+ * https://leetcode.com/problems/minimum-path-sum/description/
+*/
+
 package dynamic_programming;
 
 import java.util.Scanner;
