@@ -53,6 +53,9 @@ class CoinChange2Solution {
         int[][] dp = new int[n][target + 1];
 
         dp[0][0] = 1;
+        // Striver: Base case will be operated at index == 0
+        // there is no boundation on target so target can be anything
+        // target can be anything from 0 to biggest target possible
         for (int k = 0; k <= target; k++) {
             if (k % nums[0] == 0) {
                 dp[0][k] = 1;
