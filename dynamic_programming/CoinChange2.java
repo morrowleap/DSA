@@ -39,6 +39,7 @@ class CoinChange2Solution {
         int notPick = topDownHelper(nums, n - 1, target, memo);
         int pick = 0;
         if (nums[n] <= target) {
+            // Striver: Whenever can pick any number of time we stay at same index
             pick = topDownHelper(nums, n, target - nums[n], memo);
         }
 
