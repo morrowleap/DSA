@@ -12,9 +12,9 @@ class CoinChange2Solution {
 
     public int topDown(int[] nums, int target) {
         int n = nums.length;
-        
+
         int[][] memo = new int[n][target + 1];
-        for(int[] row: memo) {
+        for (int[] row : memo) {
             Arrays.fill(row, -1);
         }
 
@@ -22,23 +22,23 @@ class CoinChange2Solution {
     }
 
     private int topDownHelper(int[] nums, int n, int target, int[][] memo) { // Number of ways to get the amount
-        if(n == 0) {
-            if(target == 0) {
+        if (n == 0) {
+            if (target == 0) {
                 return 1;
             }
-            if(target % nums[0] == 0) {
+            if (target % nums[0] == 0) {
                 return 1;
             }
             return 0;
         }
 
-        if(memo[n][target] != -1) {
+        if (memo[n][target] != -1) {
             return memo[n][target];
         }
 
         int notPick = topDownHelper(nums, n - 1, target, memo);
         int pick = 0;
-        if(nums[n] <= target) {
+        if (nums[n] <= target) {
             pick = topDownHelper(nums, n, target - nums[n], memo);
         }
 
@@ -46,6 +46,32 @@ class CoinChange2Solution {
         return memo[n][target];
     }
 
+    public int bottomUp(int[] nums, int target) {
+        int n = nums.length;
+
+        int[][] dp = new int[n][target + 1];
+
+        dp[0][0] = 1;
+        for (int k = 0; k <= target; k++) {
+            if (k % nums[0] == 0) {
+                dp[0][k] = 1;
+            }
+        }
+
+        for(int i=1;i<n;i++) {
+            for(int k=0;k<= target;k++) {
+                int notPick = dp[i - 1][k];
+                int pick = 0;
+                if (nums[i] <= k) {
+                    pick = dp[i][k - nums[i]];
+                }
+
+                dp[i][k] = pick + notPick;
+            }
+        }
+
+        return dp[n - 1][target];
+    }
 }
 
 public class CoinChange2 {
