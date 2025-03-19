@@ -1,6 +1,6 @@
 /*
  * https://takeuforward.org/data-structure/target-sum-dp-21/
- * https://leetcode.com/problems/target-sum/
+ * https://leetcode.com/problems/target-sum/description/
 */
 
 package dynamic_programming;
