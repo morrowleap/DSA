@@ -25,7 +25,8 @@ class MinimumCoinsSolution {
         }
     }
 
-    private int topDownHelper(int[] coins, int n, int amount, int[][] memo) {
+    private int topDownHelper(int[] coins, int n, int amount, int[][] memo) { // Return min coins for amount
+        // Striver: For base case imagine an array of single element and a possible target
         if (n == 0) {
             if (amount == 0) {
                 return 0;
@@ -43,7 +44,9 @@ class MinimumCoinsSolution {
         int notPick = topDownHelper(coins, n - 1, amount, memo);
         int pick = Integer.MAX_VALUE;
         if (coins[n] <= amount) {
-            int subRes = topDownHelper(coins, n, amount - coins[n], memo);
+            int subRes = topDownHelper(coins, n, amount - coins[n], memo); // standing on same index
+            // and picking same coin one ata time to make multiple combinations, not doing greedily
+            // Striver: Whenever there is infinite supply or multiple use it will stand at the same index
             if (subRes != Integer.MAX_VALUE) {
                 pick = 1 + subRes; // adding one ata time, otherwise it will be a greedy approach
             }
