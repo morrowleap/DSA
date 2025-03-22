@@ -14,8 +14,8 @@ class ZeroOneKnapsackProblemSol {
     public int topDown(int w, int[] val, int[] wt) {
         int n = val.length;
         int[][] memo = new int[n][w + 1];
-        for(int i=0;i<memo.length;i++) {
-            for(int j=0;j<memo[0].length;j++) {
+        for (int i = 0; i < memo.length; i++) {
+            for (int j = 0; j < memo[0].length; j++) {
                 memo[i][j] = -1;
             }
         }
@@ -47,19 +47,19 @@ class ZeroOneKnapsackProblemSol {
 
     public int bottomUp(int w, int[] val, int[] wt) {
         int n = val.length;
-        int[][] dp = new int[n][w+1];
+        int[][] dp = new int[n][w + 1];
 
         // Base Case:
         // At n=0, whatever the knapsack weight be if it is < wt[0], we get val[0]
-        for(int k=0;k<=w;k++) {
-            if(wt[0] <= k) {
+        for (int k = 0; k <= w; k++) {
+            if (wt[0] <= k) {
                 dp[0][k] = val[0];
             }
         }
 
         // Now claculate for n > 1
-        for(int i=1;i<n;i++) {
-            for(int j=0;j<=w;j++) {
+        for (int i = 1; i < n; i++) {
+            for (int j = 0; j <= w; j++) {
                 int pick = Integer.MIN_VALUE;
                 if (wt[i] <= j) {
                     pick = val[i] + dp[i - 1][j - wt[i]];
