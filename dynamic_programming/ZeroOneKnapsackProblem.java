@@ -7,7 +7,6 @@
 
 package dynamic_programming;
 
-import java.util.Arrays;
 import java.util.Scanner;
 
 class ZeroOneKnapsackProblemSol {
@@ -15,8 +14,10 @@ class ZeroOneKnapsackProblemSol {
     public int topDown(int w, int[] val, int[] wt) {
         int n = val.length;
         int[][] memo = new int[n][w + 1];
-        for (int[] row : memo) {
-            Arrays.fill(row, -1);
+        for(int i=0;i<memo.length;i++) {
+            for(int j=0;j<memo[0].length;j++) {
+                memo[i][j] = -1;
+            }
         }
         return topDownHelper(w, n - 1, val, wt, memo);
     }

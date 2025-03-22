@@ -1,6 +1,5 @@
 package dynamic_programming;
 
-import java.util.Arrays;
 import java.util.Scanner;
 
 class UnboundedKnapsackSol {
@@ -8,6 +7,11 @@ class UnboundedKnapsackSol {
     public int topDown(int w, int[] val, int[] wt) {
         int n = val.length;
         int[][] memo = new int[n][w + 1];
+        for(int i=0;i<memo.length;i++) {
+            for(int j=0;j<memo[0].length;j++) {
+                memo[i][j] = -1;
+            }
+        }
         return topDownHelper(w, n - 1, val, wt, memo);
     }
 
@@ -20,13 +24,18 @@ class UnboundedKnapsackSol {
             }
         }
 
+        if(memo[n][w] != -1) {
+            return memo[n][w];
+        }
+
         int pick = Integer.MIN_VALUE;
         if(wt[n] <= w) {
             pick = val[n] + topDownHelper(w - wt[n], n, val, wt, memo);
         }
         int notpick = topDownHelper(w, n - 1, val, wt, memo);
 
-        return Math.max(pick, notpick);
+        memo[n][w] = Math.max(pick, notpick);
+        return memo[n][w];
     }
 
 }
