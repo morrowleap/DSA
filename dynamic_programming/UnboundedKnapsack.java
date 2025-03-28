@@ -1,3 +1,8 @@
+/*
+ * https://takeuforward.org/data-structure/unbounded-knapsack-dp-23/
+ * https://www.geeksforgeeks.org/problems/knapsack-with-duplicate-items4201/1?utm_source=youtube&utm_medium=collab_striver_ytdescription&utm_campaign=knapsack-with-duplicate-items
+*/
+
 package dynamic_programming;
 
 import java.util.Scanner;
