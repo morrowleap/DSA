@@ -1,3 +1,8 @@
+/*
+ * https://takeuforward.org/data-structure/longest-common-subsequence-dp-25/
+ * https://leetcode.com/problems/longest-common-subsequence/
+*/
+
 package dynamic_programming;
 
 import java.util.Arrays;
