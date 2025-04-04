@@ -32,13 +32,14 @@ class LongestCommonSubsequenceSol {
         }
 
         if (text1.charAt(m) == text2.charAt(n)) {
-            return 1 + topDownHelper(text1, m - 1, text2, n - 1, memo);
+            memo[m][n] = 1 + topDownHelper(text1, m - 1, text2, n - 1, memo);
+        } else {
+            int check1 = topDownHelper(text1, m - 1, text2, n, memo);
+            int check2 = topDownHelper(text1, m, text2, n - 1, memo);
+
+            memo[m][n] = Math.max(check1, check2);
         }
 
-        int check1 = topDownHelper(text1, m - 1, text2, n, memo);
-        int check2 = topDownHelper(text1, m, text2, n - 1, memo);
-
-        memo[m][n] = Math.max(check1, check2);
         return memo[m][n];
     }
 
@@ -63,13 +64,12 @@ class LongestCommonSubsequenceSol {
             for (int j = 1; j <= n; j++) {
                 if (text1.charAt(i - 1) == text2.charAt(j - 1)) {
                     dp[i][j] = 1 + dp[i - 1][j - 1];
-                    continue;
+                } else {
+                    int check1 = dp[i - 1][j];
+                    int check2 = dp[i][j - 1];
+
+                    dp[i][j] = Math.max(check1, check2);
                 }
-
-                int check1 = dp[i - 1][j];
-                int check2 = dp[i][j - 1];
-
-                dp[i][j] = Math.max(check1, check2);
             }
         }
 
