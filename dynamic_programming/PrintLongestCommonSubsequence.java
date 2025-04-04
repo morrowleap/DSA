@@ -1,11 +1,13 @@
 /*
  * https://takeuforward.org/data-structure/print-longest-common-subsequence-dp-26/
  * https://www.geeksforgeeks.org/problems/print-all-lcs-sequences3413/1?utm_source=youtube&utm_medium=collab_striver_ytdescription&utm_campaign=print-all-lcs-sequences
+ * https://www.geeksforgeeks.org/print-longest-common-sub-sequences-lexicographical-order/
 */
 
 package dynamic_programming;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Scanner;
@@ -43,7 +45,9 @@ class PrintLongestCommonSubsequenceSol {
         HashSet<String> res = new HashSet<>();
         backtrack(text1, m, text2, n, dp, new StringBuilder(), res);
 
-        return new ArrayList<>(res);
+        List<String> resultList = new ArrayList<>(res);
+        Collections.sort(resultList);
+        return resultList;
     }
 
     private void backtrack(String text1, int m, String text2, int n, int[][] dp, StringBuilder sb,
