@@ -6,6 +6,7 @@
 package dynamic_programming;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Scanner;
 
@@ -39,14 +40,14 @@ class PrintLongestCommonSubsequenceSol {
         int m = dp.length - 1;
         int n = dp[0].length - 1;
 
-        List<String> res = new ArrayList<>();
+        HashSet<String> res = new HashSet<>();
         backtrack(text1, m, text2, n, dp, new StringBuilder(), res);
 
-        return res;
+        return new ArrayList<>(res);
     }
 
     private void backtrack(String text1, int m, String text2, int n, int[][] dp, StringBuilder sb,
-            List<String> res) {
+            HashSet<String> res) {
         if (m == 0 || n == 0) {
             res.add(sb.reverse().toString());
             sb.reverse();
