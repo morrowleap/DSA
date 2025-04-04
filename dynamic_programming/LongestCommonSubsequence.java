@@ -62,6 +62,7 @@ class LongestCommonSubsequenceSol {
 
         for (int i = 1; i <= m; i++) {
             for (int j = 1; j <= n; j++) {
+                // Because of index shifting, text index is corrected
                 if (text1.charAt(i - 1) == text2.charAt(j - 1)) {
                     dp[i][j] = 1 + dp[i - 1][j - 1];
                 } else {
