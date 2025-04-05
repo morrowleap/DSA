@@ -50,6 +50,12 @@ class PrintLongestCommonSubsequenceSol {
         return resultList;
     }
 
+    public List<String> all_longest_common_subsequences_2(String text1, String text2) {
+        // TODO: not understood yet
+        // https://www.geeksforgeeks.org/print-longest-common-sub-sequences-lexicographical-order/
+        return null;
+    }
+
     private void backtrack(String text1, int m, String text2, int n, int[][] dp, StringBuilder sb,
             HashSet<String> res) {
         if (m == 0 || n == 0) {
