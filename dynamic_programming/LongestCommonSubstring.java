@@ -42,6 +42,7 @@ class LongestCommonSubstringSol {
         return maxi;
     }
 
+    @SuppressWarnings("unused")
     private void topDown(String text1, int i, String text2, int j, int[][] memo) {
         /*
          * On internet i am only able to find bottom up approach for this question
