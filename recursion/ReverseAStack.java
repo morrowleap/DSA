@@ -1,5 +1,5 @@
 /*
- * https://www.geeksforgeeks.org/problems/sort-a-stack/1
+ * https://practice.geeksforgeeks.org/problems/reverse-a-stack/1
 */
 
 package recursion;
@@ -7,7 +7,7 @@ package recursion;
 import java.util.Scanner;
 import java.util.Stack;
 
-public class SortAStack {
+public class ReverseAStack {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
@@ -23,38 +23,37 @@ public class SortAStack {
             stk.push(arr[i]);
         }
 
-        SortAStack sol = new SortAStack();
+        ReverseAStack sol = new ReverseAStack();
         sol.printStack(stk);
-        sol.sort(stk);
+        reverse(stk);
         sol.printStack(stk);
 
         sc.close();
     }
 
-    public Stack<Integer> sort(Stack<Integer> s) {
+    public static void reverse(Stack<Integer> s) {
         topDown(s);
-        return s;
     }
 
-    private void topDown(Stack<Integer> stk) {
+    private static void topDown(Stack<Integer> stk) {
         if (stk.empty()) {
             return;
         }
         int top = stk.pop();
         topDown(stk);
-        sortedInsert(stk, top);
+        insert(stk, top);
     }
 
     /**
-     * Inserts the element at a sorted position
+     * Inserts the element at bottom of stack
      */
-    private void sortedInsert(Stack<Integer> stk, int x) {
-        if (stk.empty() || stk.peek() < x) {
+    private static void insert(Stack<Integer> stk, int x) {
+        if (stk.empty()) {
             stk.push(x);
             return;
         }
         int top = stk.pop();
-        sortedInsert(stk, x);
+        insert(stk, x);
         stk.push(top);
     }
 
@@ -62,6 +61,3 @@ public class SortAStack {
         System.out.println(stk);
     }
 }
-
-// Time Complexity: O(N^2)
-// Space Complexity: O(N)
