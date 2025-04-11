@@ -41,3 +41,6 @@ public class PowXN {
         sc.close();
     }
 }
+
+// Time Complexity: At each step the power n is divided by 2, O(logN)
+// Space Complexity: Recursion stack depth same as time
