@@ -61,3 +61,6 @@ public class ReverseAStack {
         System.out.println(stk);
     }
 }
+
+// Time Complexity: O(N^2)
+// Space Complexity: O(N)
