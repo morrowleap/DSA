@@ -41,3 +41,6 @@ public class CountGoodNumbers {
         sc.close();
     }
 }
+
+// Time Complexity: O(log(n/2) + log(n/2))
+// Space Complexity: O(logN)
