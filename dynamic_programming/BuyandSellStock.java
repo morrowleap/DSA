@@ -22,7 +22,7 @@ class StockBuyandSellSol {
     }
 }
 
-public class StockBuyandSell {
+public class BuyandSellStock {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
