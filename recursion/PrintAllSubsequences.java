@@ -1,9 +1,10 @@
 /*
  * https://takeuforward.org/data-structure/power-set-print-all-the-possible-subsequences-of-the-string/
+ * https://youtu.be/b7AYbpM5YrE
  * https://leetcode.com/problems/subsets/description/
  * 
  * Print all subsequences
- * Power Set
+ * Power Set: Print all the possible subsequences of the String
  * 78. Subsets
 */
 
