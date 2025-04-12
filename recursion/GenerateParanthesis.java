@@ -51,6 +51,7 @@ public class GenerateParanthesis {
 // Recursive Time Complexity: At each step we have 2 coices, O(2^N)
 // Recursive Space Complexity: Stack space goes till O(2N)
 
-// Space complexity: O(2N * 2^N + 2N), Since we store 2^N string of length 2N
+// Overall Space complexity: O(2N * 2^N + 2N), Since we store 2^N string of
+// length 2N
 // and
 // a recursion stackspace of length 2N
