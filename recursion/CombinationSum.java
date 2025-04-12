@@ -21,12 +21,10 @@ public class CombinationSum {
     }
 
     private void topDown(int[] nums, int i, int target, List<Integer> curr, List<List<Integer>> res) {
-        if (target == 0) {
-            res.add(new ArrayList<>(curr));
-            return;
-        }
-
-        if (i == nums.length) {
+        if (i == nums.length || target < 0) {
+            if (target == 0) {
+                res.add(new ArrayList<>(curr));
+            }
             return;
         }
 
@@ -54,3 +52,10 @@ public class CombinationSum {
         sc.close();
     }
 }
+
+// Recursive Time Complexity: O(2^N) on each step 2 choices are there either
+// pick or not pick
+
+// Recursive Space Complexity: O(N)
+
+// Overall Space Complexity: O(N * 2^N + N)
