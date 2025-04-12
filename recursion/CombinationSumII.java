@@ -18,6 +18,7 @@ public class CombinationSumII {
         List<Integer> curr = new ArrayList<>();
         List<List<Integer>> res = new ArrayList<>();
         topDown(candidates, 0, target, curr, res);
+        topDown2(candidates, 0, target, curr, res);
 
         return res;
     }
@@ -50,6 +51,33 @@ public class CombinationSumII {
         // Why index is not incremented in the "pick" part ? because it would miss valid
         // combinations because the next recursive depth would skip the immediate next
         // candidate unnecessarily.
+
+        // TODO: Attach recursion tree
+    }
+
+    private void topDown2(int[] nums, int index, int target, List<Integer> curr, List<List<Integer>> res) {
+        // TODO: understand and write down what is happening
+        if (target == 0) {
+            res.add(new ArrayList<>(curr));
+            return;
+        }
+
+        if (index == nums.length || target < 0) {
+            return;
+        }
+
+        for (int i = index; i < nums.length; i++) {
+            curr.add(nums[i]);
+            topDown2(nums, i, target - nums[i], curr, res);
+            curr.remove(curr.size() - 1);
+
+            while (i < nums.length - 1 && nums[i] == nums[i + 1]) {
+                i++; // skipping duplicate elements
+            } // This loop shifts pinter to last similar element, then for loop shifts pointer
+              // to next element
+        }
+
+        // TODO: Attach recursion tree
     }
 
     public static void main(String[] args) {
