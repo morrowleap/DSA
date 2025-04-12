@@ -45,3 +45,9 @@ public class GenerateAllBinaryStrings {
         sc.close();
     }
 }
+
+// Recursive Time Complexity: At each step we have 2 coices, O(2^N)
+// Recursive Space Complexity: Stack space goes till O(N)
+
+// Space complexity: O(N * 2^N + N), Since we store 2^N string of length N and a
+// recursion stackspace of length N
