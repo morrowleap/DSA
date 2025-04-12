@@ -30,37 +30,31 @@ public class SubsequenceWhoseSumIsK {
     }
 
     private int countSubSeq(int[] nums, int i, int target) {
-        if (target == 0) {
-            return 1;
+        if (i == nums.length) {
+            if (target == 0)
+                return 1;
+            else
+                return 0;
         }
-
-        if (i == nums.length || target < 0) {
-            return 0;
-        }
-
         return countSubSeq(nums, i + 1, target - nums[i]) + countSubSeq(nums, i + 1, target);
     }
 
     private boolean checkSubSeq(int[] nums, int i, int target) {
-        if (target == 0) {
-            return true;
+        if (i == nums.length) {
+            if (target == 0)
+                return true;
+            else
+                return false;
         }
-
-        if (i == nums.length || target < 0) {
-            return false;
-        }
-
         return checkSubSeq(nums, i + 1, target - nums[i]) || checkSubSeq(nums, i + 1, target);
     }
 
     private List<List<Integer>> printSubSeq(int[] nums, int i, int target, List<Integer> curr,
             List<List<Integer>> res) {
-        if (target == 0) {
-            res.add(new ArrayList<>(curr));
-            return res;
-        }
-
-        if (i == nums.length || target < 0) {
+        if (i == nums.length) {
+            if (target == 0) {
+                res.add(new ArrayList<>(curr));
+            }
             return res;
         }
 
@@ -73,3 +67,8 @@ public class SubsequenceWhoseSumIsK {
         return res;
     }
 }
+
+// Recursive Time Complexity: O(2^N) on each step 2 choices are there either
+// pick or not pick
+
+// Recursive Space Complexity: O(N)
