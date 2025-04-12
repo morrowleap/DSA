@@ -68,7 +68,7 @@ public class CombinationSumII {
 
         for (int i = index; i < nums.length; i++) {
             curr.add(nums[i]);
-            topDown2(nums, i, target - nums[i], curr, res);
+            topDown2(nums, i + 1, target - nums[i], curr, res);
             curr.remove(curr.size() - 1);
 
             while (i < nums.length - 1 && nums[i] == nums[i + 1]) {
