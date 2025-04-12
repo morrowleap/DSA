@@ -53,9 +53,10 @@ public class CombinationSum {
     }
 }
 
-// Recursive Time Complexity: O(2^N) on each step 2 choices are there either
+// Recursive Time Complexity: Much more than O(2^N) , beacuse at each step we
+// have the choice of picking the current element again and again
 // pick or not pick
 
 // Recursive Space Complexity: O(N)
 
-// Overall Space Complexity: O(N * 2^N + N)
+// Overall Space Complexity: O(N * 2^N + N), more than that
