@@ -72,3 +72,5 @@ public class SubsequenceWhoseSumIsK {
 // pick or not pick
 
 // Recursive Space Complexity: O(N)
+
+// Overall Space Complexity: O(N * 2^N + N)

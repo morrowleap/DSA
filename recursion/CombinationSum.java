@@ -15,22 +15,26 @@ public class CombinationSum {
     public List<List<Integer>> combinationSum(int[] nums, int target) {
         List<List<Integer>> res = new ArrayList<>();
         List<Integer> curr = new ArrayList<>();
-        topDwon(nums, 0, target, curr, res);
+        topDown(nums, 0, target, curr, res);
 
         return res;
     }
 
-    private void topDwon(int[] nums, int i, int target, List<Integer> curr, List<List<Integer>> res) {
+    private void topDown(int[] nums, int i, int target, List<Integer> curr, List<List<Integer>> res) {
         if (target == 0) {
             res.add(new ArrayList<>(curr));
             return;
         }
 
-        if (i == nums.length || target < 0) {
+        if (i == nums.length) {
             return;
         }
 
-        
+        curr.add(nums[i]);
+        topDown(nums, i, target - nums[i], curr, res);
+        curr.remove(curr.size() - 1);
+
+        topDown(nums, i + 1, target, curr, res);
     }
 
     public static void main(String[] args) {
