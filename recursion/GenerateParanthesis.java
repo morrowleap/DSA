@@ -33,6 +33,8 @@ public class GenerateParanthesis {
             topDown(openN, closeN - 1, curr, res);
             curr.deleteCharAt(curr.length() - 1);
         }
+
+        // TODO: Attach recursion tree
     }
 
     public static void main(String[] args) {

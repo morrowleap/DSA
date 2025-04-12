@@ -16,10 +16,14 @@ public class CombinationSum {
         List<List<Integer>> res = new ArrayList<>();
         List<Integer> curr = new ArrayList<>();
         topDown(nums, 0, target, curr, res);
+        topDown2(nums, target, target, curr, res);
 
         return res;
     }
 
+    /**
+     * Using pick and non pick technique
+     */
     private void topDown(int[] nums, int i, int target, List<Integer> curr, List<List<Integer>> res) {
         if (i == nums.length || target < 0) {
             if (target == 0) {
@@ -33,6 +37,34 @@ public class CombinationSum {
         curr.remove(curr.size() - 1);
 
         topDown(nums, i + 1, target, curr, res);
+
+        // TODO: Attach recursion tree
+    }
+
+    /**
+     * Using Looping through choices
+     */
+    private void topDown2(int[] nums, int index, int target, List<Integer> curr, List<List<Integer>> res) {
+        // TODO: understand and write down what is happening, right now i am able to
+        // understand at the question said we create create combination of same element
+        // so this method is trying todo is going on each index and create as many
+        // comibination from that index
+        if (target == 0) {
+            res.add(new ArrayList<>(curr));
+            return;
+        }
+
+        if (index == nums.length || target < 0) {
+            return;
+        }
+
+        for (int i = index; i < nums.length; i++) {
+            curr.add(nums[i]);
+            topDown(nums, i, target - nums[i], curr, res);
+            curr.remove(curr.size() - 1);
+        }
+
+        // TODO: Attach recursion tree
     }
 
     public static void main(String[] args) {
