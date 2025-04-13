@@ -66,3 +66,5 @@ public class SubsetSumI {
 
 // Recursive Time complexity: O(2^N)
 // Recursive Space complexity: O(N)
+
+// Overall Space Complexity: O(N + 2^N)
