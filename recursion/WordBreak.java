@@ -63,5 +63,5 @@ public class WordBreak {
     }
 }
 
-// Time Complexity: O(2 ^ N)
+// Time Complexity: O(2 ^ N), O(N) for memoized
 // Space Complexity: O(N)
