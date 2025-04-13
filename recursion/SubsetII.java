@@ -82,4 +82,4 @@ public class SubsetII {
 // Recursive Space Complexity: O(N)
 
 // Overall Time Complexity: O(2^N * N)
-// Overall Space Complexity: O(N * 2^N)
+// Overall Space Complexity: O(N + 2^N * N)
