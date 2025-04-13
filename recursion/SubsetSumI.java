@@ -39,7 +39,8 @@ public class SubsetSumI {
             res.add(currSum);
             return;
         }
-        topDown(arr, i + 1, currSum + arr[i], res);
+        topDown(arr, i + 1, currSum + arr[i], res); // Keep summing up the pick and non-pick choices, maintain a current
+                                                    // sum.
         topDown(arr, i + 1, currSum, res);
     }
 
