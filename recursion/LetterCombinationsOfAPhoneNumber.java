@@ -63,3 +63,13 @@ public class LetterCombinationsOfAPhoneNumber {
         sc.close();
     }
 }
+
+// Recursive Time Complexity: O(4^N)
+// Recursive Space Complexity: O(N)
+
+// Overall Time Complexity: O(4^N * N), The extra *N comes from copying each
+// string of length N when adding it to the result list.
+
+// Overall Space complexity: O(N * 4^N), Each result has length N, and there are
+// up to 4^N combinations, so storing the results requires O(4^N * N) space.
+// Additionally, the recursion stack uses O(N) space.
