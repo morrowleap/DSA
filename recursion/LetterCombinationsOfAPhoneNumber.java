@@ -33,6 +33,9 @@ public class LetterCombinationsOfAPhoneNumber {
         return res;
     }
 
+    /**
+     * For loop Generating subsets solution
+     */
     private void topDown(Map<Character, String> keyMapping, String digits, int i, StringBuilder curr,
             List<String> res) {
         if (i == digits.length()) {
