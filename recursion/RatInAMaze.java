@@ -40,6 +40,8 @@ public class RatInAMaze {
 
         dfs(matrix, 0, 0, curr, visited, res);
         return res;
+
+        // TODO: Add recursion tree
     }
 
     private void dfs(int[][] matrix, int x, int y, StringBuilder curr, boolean[][] visited,

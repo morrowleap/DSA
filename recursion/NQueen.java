@@ -23,6 +23,8 @@ public class NQueen {
         dfs(0, currBoard, queenLookupGrid, res);
 
         return res;
+
+        // TODO: Add recursion tree
     }
 
     private void dfs(int row, char[][] currBoard, int[][] queenLookupGrid, List<List<String>> res) {
