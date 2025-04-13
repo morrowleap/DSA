@@ -29,6 +29,8 @@ public class SubsetSumI {
         for (int i = index; i < arr.length; i++) {
             topDown2(arr, i + 1, currSum + arr[i], res);
         }
+
+        // TODO: Attach recursion tree
     }
 
     /**
@@ -42,6 +44,8 @@ public class SubsetSumI {
         topDown(arr, i + 1, currSum + arr[i], res); // Keep summing up the pick and non-pick choices, maintain a current
                                                     // sum.
         topDown(arr, i + 1, currSum, res);
+
+        // TODO: Attach recursion tree
     }
 
     public static void main(String[] args) {
