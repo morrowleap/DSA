@@ -41,6 +41,7 @@ public class ExpressionAddOperators {
             if (index == 0) {
                 curr.append(sstr);
                 topDown(num, i + 1, nextOperand, nextOperand, target, curr, res);
+                curr.setLength(len);
             } else {
                 curr.append('+').append(sstr);
                 topDown(num, i + 1, nextOperand, currTotal + nextOperand, target, curr, res);
@@ -53,8 +54,8 @@ public class ExpressionAddOperators {
                 curr.append('*').append(sstr);
                 topDown(num, i + 1, prevOperand * nextOperand,
                         (currTotal - prevOperand) + (prevOperand * nextOperand), target, curr, res);
+                curr.setLength(len);
             }
-            curr.setLength(len);
         }
     }
 
