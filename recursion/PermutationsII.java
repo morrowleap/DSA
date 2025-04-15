@@ -15,12 +15,12 @@ import java.util.Scanner;
 public class PermutationsII {
 
     public List<List<Integer>> permuteUnique(int[] nums) {
+        List<List<Integer>> res = new ArrayList<>();
+
         Map<Integer, Integer> count = new HashMap<>();
         for (int num : nums) {
             count.put(num, count.getOrDefault(num, 0) + 1);
         }
-        List<List<Integer>> res = new ArrayList<>();
-
         topDown(nums.length, count, new ArrayList<>(), res);
 
         res.removeAll(res);
