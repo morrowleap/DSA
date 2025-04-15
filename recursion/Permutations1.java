@@ -79,3 +79,11 @@ public class Permutations1 {
         sc.close();
     }
 }
+
+// Recursive Time Complexity: O(n!) At first level i have N choices, the N -
+// 1
+// choices, .... then 1 choice
+
+// Recursive Space Complexity: O(N)
+
+// Overall Time Complexity: O(N! * N): Each permutaion is copied to result
