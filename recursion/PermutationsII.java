@@ -6,6 +6,7 @@
 package recursion;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -18,27 +19,56 @@ public class PermutationsII {
         for (int num : nums) {
             count.put(num, count.getOrDefault(num, 0) + 1);
         }
-        List<Integer> perm = new ArrayList<>();
         List<List<Integer>> res = new ArrayList<>();
 
-        topDown(nums.length, count, perm, res);
+        topDown(nums.length, count, new ArrayList<>(), res);
+
+        res.removeAll(res);
+        Arrays.sort(nums);
+        topDown2(nums, 0, new ArrayList<>(), res);
 
         return res;
     }
 
-    private void topDown(int n, Map<Integer, Integer> count, List<Integer> perm, List<List<Integer>> res) {
-        if (perm.size() == n) {
-            res.add(new ArrayList<>(perm));
+    private void topDown2(int[] nums, int index, List<Integer> curr, List<List<Integer>> res) {
+        if (curr.size() == nums.length) {
+            res.add(new ArrayList<>(curr));
+            return;
+        }
+
+        for (int i = index; i < nums.length; i++) {
+
+            if (i != index && nums[i] == nums[index]) {
+                continue;
+            }
+
+            swap(nums, index, i);
+            curr.add(nums[index]);
+            topDown2(nums, index + 1, curr, res);
+            curr.remove(curr.size() - 1);
+            swap(nums, index, i);
+        }
+    }
+
+    private void swap(int[] nums, int i, int j) {
+        int temp = nums[i];
+        nums[i] = nums[j];
+        nums[j] = temp;
+    }
+
+    private void topDown(int n, Map<Integer, Integer> count, List<Integer> curr, List<List<Integer>> res) {
+        if (curr.size() == n) {
+            res.add(new ArrayList<>(curr));
             return;
         }
 
         for (Map.Entry<Integer, Integer> entry : count.entrySet()) {
             if (entry.getValue() > 0) {
-                perm.add(entry.getKey());
+                curr.add(entry.getKey());
                 entry.setValue(entry.getValue() - 1);
-                topDown(n, count, perm, res);
+                topDown(n, count, curr, res);
                 entry.setValue(entry.getValue() + 1);
-                perm.remove(perm.size() - 1);
+                curr.remove(curr.size() - 1);
             }
         }
     }
