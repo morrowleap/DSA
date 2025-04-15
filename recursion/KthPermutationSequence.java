@@ -7,5 +7,7 @@
 package recursion;
 
 public class KthPermutationSequence {
-
+    public static void main(String[] args) {
+        
+    }
 }
