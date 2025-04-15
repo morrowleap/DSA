@@ -35,8 +35,25 @@ Constraints:
 
 package graph;
 
-class Graph {
+import java.util.ArrayList;
+import java.util.List;
 
+class Graph {
+    public int vertexCount;
+    public List<List<Integer>> adjList;
+
+    Graph(int vertexCount) {
+        this.vertexCount = vertexCount;
+        adjList = new ArrayList<>();
+        for (int i = 0; i <= vertexCount; i++) {
+            adjList.add(new ArrayList<>());
+        }
+    }
+
+    public void addEdge(int u, int v) {
+        adjList.get(u).add(v);
+        adjList.get(v).add(u);
+    }
 }
 
 public class ConnectedComponents {

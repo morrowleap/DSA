@@ -15,9 +15,9 @@ import java.util.List;
 import java.util.Scanner;
 
 class Graph {
-    private int vertexCount;
-    private List<List<Integer>> adjList;
-    private int[][] adjMatrix;
+    public int vertexCount;
+    public List<List<Integer>> adjList;
+    public int[][] adjMatrix;
 
     Graph(int vertexCount) {
         this.vertexCount = vertexCount;
@@ -46,7 +46,7 @@ class Graph {
         }
     }
 
-    void printMatrix() {
+    public void printMatrix() {
         for (int i = 0; i <= vertexCount; ++i) {
             for (int j = 0; j <= vertexCount; ++j) {
                 System.out.print(adjMatrix[i][j] + " ");
