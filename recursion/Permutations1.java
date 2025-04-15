@@ -27,7 +27,7 @@ public class Permutations1 {
     }
 
     private void topDown2(int[] nums, int index, List<Integer> curr, List<List<Integer>> res) {
-        if (index == nums.length) {
+        if (curr.size() == nums.length) {
             res.add(new ArrayList<>(curr));
             return;
         }
