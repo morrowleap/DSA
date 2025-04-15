@@ -6,7 +6,6 @@
 package recursion;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -23,37 +22,7 @@ public class PermutationsII {
         }
         topDown(nums.length, count, new ArrayList<>(), res);
 
-        res.removeAll(res);
-        Arrays.sort(nums);
-        topDown2(nums, 0, new ArrayList<>(), res);
-
         return res;
-    }
-
-    private void topDown2(int[] nums, int index, List<Integer> curr, List<List<Integer>> res) {
-        if (curr.size() == nums.length) {
-            res.add(new ArrayList<>(curr));
-            return;
-        }
-
-        for (int i = index; i < nums.length; i++) {
-
-            if (i != index && nums[i] == nums[index]) {
-                continue;
-            }
-
-            swap(nums, index, i);
-            curr.add(nums[index]);
-            topDown2(nums, index + 1, curr, res);
-            curr.remove(curr.size() - 1);
-            swap(nums, index, i);
-        }
-    }
-
-    private void swap(int[] nums, int i, int j) {
-        int temp = nums[i];
-        nums[i] = nums[j];
-        nums[j] = temp;
     }
 
     private void topDown(int n, Map<Integer, Integer> count, List<Integer> curr, List<List<Integer>> res) {
