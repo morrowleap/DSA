@@ -1,6 +1,9 @@
 /*
  * https://takeuforward.org/graph/introduction-to-graph/
+ * https://youtu.be/M3_pLsDdeuU
  * https://takeuforward.org/graph/graph-representation-in-c/
+ * https://youtu.be/3oI-34aPMWM
+ * https://youtu.be/3oI-34aPMWM
 */
 
 package graph;
