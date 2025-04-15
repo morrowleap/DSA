@@ -36,7 +36,9 @@ Constraints:
 package graph;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
+import java.util.Queue;
 
 class Graph {
     public int vertexCount;
@@ -58,4 +60,41 @@ class Graph {
 
 public class ConnectedComponents {
 
+    public int countComponents(int n, int[][] edges) {
+        Graph g = new Graph(n);
+        for (int[] edge : edges) {
+            g.addEdge(edge[0], edge[1]);
+        }
+
+        int count = 0;
+        boolean[] visited = new boolean[n];
+        for (int u = 0; u < n; u++) {
+            if (!visited[u]) {
+                count++;
+
+                Queue<Integer> q = new LinkedList<>();
+                q.add(u);
+                while (!q.isEmpty()) {
+                    int x = q.remove();
+                    visited[x] = true;
+
+                    for (int v : g.adjList.get(x)) {
+                        if (!visited[v]) {
+                            q.add(v);
+                        }
+                    }
+                }
+            }
+        }
+
+        return count;
+    }
+
+    public static void main(String[] args) {
+        ConnectedComponents sol = new ConnectedComponents();
+
+        int n = 3;
+        int[][] edges = new int[][] { { 0, 1 }, { 0, 2 } };
+        System.out.println(sol.countComponents(n, edges));
+    }
 }
