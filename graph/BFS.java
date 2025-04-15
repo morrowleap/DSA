@@ -5,6 +5,9 @@
 
 package graph;
 
+import java.util.LinkedList;
+import java.util.Queue;
+
 public class BFS {
 
     private void bfsAll(int n, int[][] edges) {
@@ -17,14 +20,34 @@ public class BFS {
         for (int u = 0; u < g.vertexCount; u++) {
             if (!visited[u]) {
                 System.out.println("Starting new BFS from vertex " + u + ":");
-                bfs(g, u);
+                bfs(g, u, visited);
                 System.out.println();
             }
         }
 
     }
 
-    private void bfs(Graph g, int source) {
+    private void bfs(Graph g, int source, boolean[] visited) {
+        Queue<Integer> q = new LinkedList<>();
+        q.add(source);
+        visited[source] = true;
+        while (!q.isEmpty()) {
+            int n = q.size();
+
+            for (int lvlIdx = 0; lvlIdx < n; lvlIdx++) {
+                int u = q.remove();
+
+                System.out.print(u + " ");
+
+                for (int v : g.adjList.get(u)) {
+                    if (!visited[v]) {
+                        q.add(v);
+                        visited[v] = true;
+                    }
+                }
+            }
+            System.out.println();
+        }
 
     }
 
