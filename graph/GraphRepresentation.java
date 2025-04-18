@@ -33,7 +33,7 @@ class Graph {
         adjList.get(v).add(u);
 
         adjMatrix[u][v] = 1;
-        adjMatrix[u][v] = 1;
+        adjMatrix[v][u] = 1;
     }
 
     public void printAdjList() {
