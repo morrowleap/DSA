@@ -40,7 +40,8 @@ public class NumberOfDistinctIslands {
         visited[x][y] = true;
 
         int basex = x, basey = y;
-        StringBuilder mapping = new StringBuilder();
+        StringBuilder mapping = new StringBuilder(); // Can be List<List<Integer>> also, tried with List<int[]> but did
+                                                     // not worked
 
         while (!queue.isEmpty()) {
             int[] point = queue.remove();
