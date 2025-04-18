@@ -29,15 +29,20 @@ public class BFS {
 
     private void bfs(Graph g, int source, boolean[] visited) {
         Queue<Integer> q = new LinkedList<>();
+
         q.add(source);
         visited[source] = true;
-        while (!q.isEmpty()) {
-            int n = q.size();
 
-            for (int lvlIdx = 0; lvlIdx < n; lvlIdx++) {
+        int level = -1;
+
+        while (!q.isEmpty()) {
+            int q_count = q.size();
+            level++;
+
+            for (int i = 0; i < q_count; i++) {
                 int u = q.remove();
 
-                System.out.print(u + " ");
+                System.out.println(u + " at level: " + level);
 
                 for (int v : g.adjList.get(u)) {
                     if (!visited[v]) {
