@@ -20,7 +20,12 @@ public class BipartiteGraphBFS {
 
         for (int source = 0; source < V; source++) {
             if (color[source] == -1) {
-                Queue<Integer> queue = new LinkedList<>();
+                Queue<Integer> queue = new LinkedList<>(); // LeetCode’s JVM runs each submission only once per test (no
+                                                           // warm‑up), often with small inputs and different GC/JIT
+                                                           // flags, so ArrayDeque’s bounds‑check eliminations and
+                                                           // in‑cache tricks don’t kick in—LinkedList can look faster
+                                                           // in that one‑off run. In real apps and properly warmed
+                                                           // JVMs, ArrayDeque still wins.
                 queue.add(source);
                 color[source] = 1;
 
