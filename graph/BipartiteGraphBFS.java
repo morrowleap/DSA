@@ -7,8 +7,8 @@
 
 package graph;
 
-import java.util.ArrayDeque;
 import java.util.Arrays;
+import java.util.LinkedList;
 import java.util.Queue;
 
 public class BipartiteGraphBFS {
@@ -20,7 +20,7 @@ public class BipartiteGraphBFS {
 
         for (int source = 0; source < V; source++) {
             if (color[source] == -1) {
-                Queue<Integer> queue = new ArrayDeque<>();
+                Queue<Integer> queue = new LinkedList<>();
                 queue.add(source);
                 color[source] = 1;
 
