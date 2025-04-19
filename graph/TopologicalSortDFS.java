@@ -24,7 +24,7 @@ import java.util.ArrayList;
 import java.util.Deque;
 import java.util.List;
 
-public class TopologicalSort {
+public class TopologicalSortDFS {
     public static ArrayList<Integer> topoSort(int V, int[][] edges) {
         List<List<Integer>> adjList = new ArrayList<>();
         for (int u = 0; u < V; u++) {
@@ -59,10 +59,10 @@ public class TopologicalSort {
     }
 
     public static void main(String[] args) {
-        int V1 = 4, E1 = 3, edges1[][] = { { 3, 0 }, { 1, 0 }, { 2, 0 } };
-        int V2 = 6, E2 = 6, edges2[][] = { { 1, 3 }, { 2, 3 }, { 4, 1 }, { 4, 0 }, { 5, 0 }, { 5, 2 } };
+        int V1 = 4, edges1[][] = { { 3, 0 }, { 1, 0 }, { 2, 0 } };
+        int V2 = 6, edges2[][] = { { 1, 3 }, { 2, 3 }, { 4, 1 }, { 4, 0 }, { 5, 0 }, { 5, 2 } };
 
-        System.out.println(TopologicalSort.topoSort(V1, edges1));
-        System.out.println(TopologicalSort.topoSort(V2, edges2));
+        System.out.println(TopologicalSortDFS.topoSort(V1, edges1));
+        System.out.println(TopologicalSortDFS.topoSort(V2, edges2));
     }
 }
