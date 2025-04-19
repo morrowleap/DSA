@@ -39,9 +39,13 @@ public class CycleDetectionInDirectedGraphDFS {
         pathVisited[source] = true;
 
         for (int nbr : adjList.get(source)) {
+            // when the node is not visited
             if (!visited[nbr] && dfs(nbr, adjList, visited, pathVisited)) {
                 return true;
-            } else if (pathVisited[nbr]) {
+            }
+            // if the node has been previously visited
+            // but it has to be visited on the same path
+            else if (pathVisited[nbr]) {
                 return true;
             }
         }
