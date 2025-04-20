@@ -20,9 +20,9 @@ public class AlienDictionary {
         for (Character node : adjMap.keySet()) {
             indegree.put(node, 0);
         }
-        for (Map.Entry<Character, Set<Character>> node : adjMap.entrySet()) {
-            for (char v : node.getValue()) {
-                indegree.put(v, indegree.getOrDefault(v, 0) + 1);
+        for (Map.Entry<Character, Set<Character>> u : adjMap.entrySet()) {
+            for (char v : u.getValue()) {
+                indegree.put(v, indegree.get(v) + 1);
             }
         }
 
