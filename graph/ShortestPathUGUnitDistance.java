@@ -7,7 +7,6 @@
 
 package graph;
 
-import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.Queue;
@@ -51,7 +50,7 @@ public class ShortestPathUGUnitDistance {
         int adj[][] = { { 1, 3 }, { 0, 2 }, { 1, 6 }, { 0, 4 }, { 3, 5 }, { 4, 6 }, { 2, 5, 7, 8 }, { 6, 8 },
                 { 7, 6 } }, src = 0;
 
-        ShortestPathUG sol = new ShortestPathUG();
+        ShortestPathUGUnitDistance sol = new ShortestPathUGUnitDistance();
 
         int V = adj.length;
 
