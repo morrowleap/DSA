@@ -22,7 +22,11 @@ public class ShortestPathUGUnitDistance {
         }
         dist[src] = 0;
 
-        Queue<Integer> queue = new LinkedList<>();
+        Queue<Integer> queue = new LinkedList<>(); // I removed distance in queue, in original implementation distance
+                                                   // is also added with each node, I thought it is not necessary right
+                                                   // now, because we can directly pick distance from dist array
+                                                   // I dijakstra algo it is necessary because we have to pick best
+                                                   // distance for a respective node
 
         queue.add(src);
 
