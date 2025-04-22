@@ -62,7 +62,10 @@ public class ShortestPathDijkstraAlgorithm {
                 if (dist[v] > dist[u] + w) {
                     dist[v] = dist[u] + w;
 
-                    minHeap.add(new int[] { dist[v], v });
+                    minHeap.add(new int[] { dist[v], v }); // Why Priority queue is important is because when we store
+                                                           // {dist, node} there maybe present a {greaterDist, node}, so
+                                                           // in this case smaller distance will get evaluated first and
+                                                           // path with greater distance will yield nothing
                 }
             }
         }
