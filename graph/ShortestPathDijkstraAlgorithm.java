@@ -19,6 +19,8 @@
  * 
  * https://www.geeksforgeeks.org/problems/implementing-dijkstra-set-1-adjacency-matrix/1
  * 
+ * https://www.geeksforgeeks.org/printing-paths-dijkstras-shortest-path-algorithm/
+ * 
 */
 
 package graph;
@@ -31,6 +33,10 @@ import java.util.PriorityQueue;
 import java.util.Queue;
 
 public class ShortestPathDijkstraAlgorithm {
+
+    private void printShortestPaths(int src, int[] dist, int[] parent) {
+
+    }
 
     public int[] dijkstra(int V, int[][] edges, int src) {
         List<List<int[]>> adjList = new ArrayList<>();
@@ -49,6 +55,12 @@ public class ShortestPathDijkstraAlgorithm {
         }
         dist[src] = 0;
 
+        int[] parent = new int[V]; // Parent array to store the parent of each node, backtracking will enable to
+                                   // print shortest path
+        for (int u = 0; u < V; u++) {
+            parent[u] = u;
+        }
+
         Queue<int[]> minHeap = new PriorityQueue<>(Comparator.comparingInt(a -> a[0]));
         minHeap.add(new int[] { 0, src }); // {dist, node}
 
@@ -66,9 +78,13 @@ public class ShortestPathDijkstraAlgorithm {
                                                            // {dist, node} there maybe present a {greaterDist, node}, so
                                                            // in this case smaller distance will get evaluated first and
                                                            // path with greater distance will yield nothing
+
+                    parent[v] = u; // The updated node is coming from the current node
                 }
             }
         }
+
+        printShortestPaths(src, dist, parent);
 
         return dist;
     }
