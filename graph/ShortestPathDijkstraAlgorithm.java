@@ -34,9 +34,7 @@ import java.util.Queue;
 
 public class ShortestPathDijkstraAlgorithm {
 
-    private void printShortestPaths(int src, int[] dist, int[] parent) {
-
-    }
+    private static final int INF = (int) 1e9;
 
     public int[] dijkstra(int V, int[][] edges, int src) {
         List<List<int[]>> adjList = new ArrayList<>();
@@ -50,9 +48,7 @@ public class ShortestPathDijkstraAlgorithm {
         }
 
         int[] dist = new int[V];
-        for (int u = 0; u < V; u++) {
-            dist[u] = (int) 1e9;
-        }
+        Arrays.fill(dist, INF);
         dist[src] = 0;
 
         int[] parent = new int[V]; // Parent array to store the parent of each node, backtracking will enable to
@@ -87,6 +83,29 @@ public class ShortestPathDijkstraAlgorithm {
         printShortestPaths(src, dist, parent);
 
         return dist;
+    }
+
+    private void printShortestPaths(int src, int[] dist, int[] parent) {
+        for (int v = 0; v < dist.length; v++) {
+            System.out.print("Path from " + src + " to " + v + ": ");
+            if (dist[v] == INF) {
+                System.out.println("unreachable");
+            } else {
+                System.out.print("distance=" + dist[v] + " route=");
+                printPath(v, parent);
+                System.out.println();
+            }
+        }
+
+    }
+
+    private void printPath(int u, int[] parent) {
+        if (parent[u] == u) {
+            System.out.print(u);
+        } else {
+            printPath(parent[u], parent);
+            System.out.print(" -> " + u);
+        }
     }
 
     public static void main(String[] args) {
