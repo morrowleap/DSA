@@ -11,7 +11,7 @@
  * https://www.geeksforgeeks.org/bellman-ford-algorithm-dp-23/
  * https://www.geeksforgeeks.org/problems/distance-from-the-source-bellman-ford-algorithm/1
  * 
- * https://youtu.be/lyw4FaxrwHg
+ * William Fiset; https://youtu.be/lyw4FaxrwHg
  * 
 */
 
