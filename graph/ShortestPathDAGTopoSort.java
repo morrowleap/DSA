@@ -67,7 +67,7 @@ public class ShortestPathDAGTopoSort {
 
             for (int[] nbr : adjList.get(u)) {
                 int v = nbr[0], w = nbr[1];
-                if (dist[v] > dist[u] + w) { // Relaxation of edges
+                if (dist[u] + w < dist[v]) { // Relaxation of edges
                     dist[v] = dist[u] + w;
                 }
             }

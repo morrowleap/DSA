@@ -67,7 +67,7 @@ public class ShortestPathDijkstraAlgorithm {
             for (int[] nbr : adjList.get(u)) {
                 int v = nbr[0], w = nbr[1];
 
-                if (dist[v] > dist[u] + w) {
+                if (dist[u] + w < dist[v]) { // Relaxation of edges
                     dist[v] = dist[u] + w;
 
                     minHeap.add(new int[] { dist[v], v }); // Why Priority queue is important is because when we store
