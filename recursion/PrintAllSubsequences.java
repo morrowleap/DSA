@@ -29,7 +29,7 @@ public class PrintAllSubsequences {
         res.add(new ArrayList<>(curr));
 
         for (int i = index; i < nums.length; i++) {
-            curr.add(nums[i]);
+            curr.add(nums[i]); // We pick a new starting point in each iteration at current index
             topDown2(nums, i + 1, curr, res);
             curr.remove(curr.size() - 1);
         }
