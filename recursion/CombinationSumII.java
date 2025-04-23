@@ -14,9 +14,11 @@ import java.util.Scanner;
 public class CombinationSumII {
 
     public List<List<Integer>> combinationSum2(int[] candidates, int target) {
-        Arrays.sort(candidates);
-        List<Integer> curr = new ArrayList<>();
         List<List<Integer>> res = new ArrayList<>();
+        List<Integer> curr = new ArrayList<>();
+
+        Arrays.sort(candidates);
+
         topDown(candidates, 0, target, curr, res);
         topDown2(candidates, 0, target, curr, res);
 
