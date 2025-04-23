@@ -42,13 +42,11 @@ public class CombinationSum {
     }
 
     /**
-     * Using Looping through choices
+     * Using looping through choices.
+     * Generate all combinations (with repetition) of nums[index…] that sum to
+     * target.
      */
     private void topDown2(int[] nums, int index, int target, List<Integer> curr, List<List<Integer>> res) {
-        // TODO: understand and write down what is happening, right now i am able to
-        // understand at the question said we create create combination of same element
-        // so this method is trying todo is going on each index and create as many
-        // comibination from that index
         if (target == 0) {
             res.add(new ArrayList<>(curr));
             return;
