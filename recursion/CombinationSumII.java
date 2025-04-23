@@ -56,7 +56,6 @@ public class CombinationSumII {
     }
 
     private void topDown2(int[] nums, int index, int target, List<Integer> curr, List<List<Integer>> res) {
-        // TODO: understand and write down what is happening
         if (target == 0) {
             res.add(new ArrayList<>(curr));
             return;
@@ -71,6 +70,11 @@ public class CombinationSumII {
             topDown2(nums, i + 1, target - nums[i], curr, res);
             curr.remove(curr.size() - 1);
 
+            // In this approach we are generating subsets for a specific index, lets say we
+            // put value 1 at 0th index in a subset, now in other subset doing the same
+            // would not be good so with the below while loop we skip the duplicate element
+            // at
+            // same index for any other subset
             while (i < nums.length - 1 && nums[i] == nums[i + 1]) {
                 i++; // skipping duplicate elements
             } // This loop shifts pinter to last similar element, then for loop shifts pointer
