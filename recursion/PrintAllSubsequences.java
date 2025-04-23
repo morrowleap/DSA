@@ -20,7 +20,21 @@ public class PrintAllSubsequences {
         List<Integer> curr = new ArrayList<>();
         topDown(nums, 0, curr, res);
 
+        topDown2(nums, 0, curr, res);
+
         return res;
+    }
+
+    private void topDown2(int[] nums, int index, List<Integer> curr, List<List<Integer>> res) {
+        res.add(new ArrayList<>(curr));
+
+        for (int i = index; i < nums.length; i++) {
+            curr.add(nums[i]);
+            topDown2(nums, i + 1, curr, res);
+            curr.remove(curr.size() - 1);
+        }
+
+        // TODO: Attach recursion tree
     }
 
     private void topDown(int[] nums, int i, List<Integer> curr, List<List<Integer>> res) {
