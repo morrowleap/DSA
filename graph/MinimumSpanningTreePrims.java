@@ -15,7 +15,7 @@ import java.util.PriorityQueue;
 import java.util.Queue;
 import java.util.Scanner;
 
-public class MSPPrims {
+public class MinimumSpanningTreePrims {
     static int spanningTree(int V, int E, List<List<int[]>> adjList) {
         boolean[] visited = new boolean[V];
         int source = 0, sum = 0;
@@ -66,7 +66,7 @@ public class MSPPrims {
             adjList.get(v).add(new int[] { u, w });
         }
 
-        System.out.println(MSPPrims.spanningTree(V, E, adjList));
+        System.out.println(MinimumSpanningTreePrims.spanningTree(V, E, adjList));
 
         sc.close();
     }
