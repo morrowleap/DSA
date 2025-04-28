@@ -11,9 +11,9 @@ public class DisjointSet {
     int[] parent, rank, size;
 
     public DisjointSet(int V) {
-        parent = new int[V];
-        rank = new int[V];
-        size = new int[V];
+        parent = new int[V + 1];
+        rank = new int[V + 1];
+        size = new int[V + 1];
         for (int u = 0; u <= V; u++) {
             parent[u] = u;
             rank[u] = 0;
