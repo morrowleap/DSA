@@ -7,30 +7,28 @@
 
 package graph;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class DisjointSet {
-    List<Integer> parent = new ArrayList<>();
-    List<Integer> rank = new ArrayList<>();
-    List<Integer> size = new ArrayList<>();
+    int[] parent, rank, size;
 
     public DisjointSet(int V) {
+        parent = new int[V];
+        rank = new int[V];
+        size = new int[V];
         for (int u = 0; u <= V; u++) {
-            rank.add(0);
-            parent.add(u);
-            size.add(1);
+            parent[u] = u;
+            rank[u] = 0;
+            size[u] = 1;
         }
     }
 
     private int findUPar(int node) {
-        if (node == parent.get(node)) {
+        if (node == parent[node]) {
             return node;
         }
 
-        int ulp = findUPar(parent.get(node)); // Recursion to at most parent node
-        parent.set(node, ulp); // path compression technique, we are breaking the bond of node and its parent
-                               // and making a bond of node and ultimate parent while backtracking
+        int ulp = findUPar(parent[node]); // Recursion to at most parent node
+        parent[node] = ulp; // path compression technique, we are breaking the bond of node and its parent
+                            // and making a bond of node and ultimate parent while backtracking
         return ulp;
     }
 
@@ -39,13 +37,13 @@ public class DisjointSet {
         int ulp_v = findUPar(v);
 
         if (ulp_u != ulp_v) {
-            if (rank.get(ulp_u) < rank.get(ulp_v)) {
-                parent.set(ulp_u, ulp_v);
-            } else if (rank.get(ulp_u) > rank.get(ulp_v)) {
-                parent.set(ulp_v, ulp_u);
+            if (rank[ulp_u] < rank[ulp_v]) {
+                parent[ulp_u] = ulp_v;
+            } else if (rank[ulp_u] > rank[ulp_v]) {
+                parent[ulp_v] = ulp_u;
             } else {
-                parent.set(ulp_v, ulp_u);
-                rank.set(ulp_u, rank.get(ulp_u) + 1);
+                parent[ulp_v] = ulp_u;
+                rank[ulp_u] = rank[ulp_u] + 1;
             }
         }
     }
@@ -55,15 +53,15 @@ public class DisjointSet {
         int ulp_v = findUPar(v);
 
         if (ulp_u != ulp_v) {
-            if (size.get(ulp_u) < size.get(ulp_v)) {
-                parent.set(ulp_u, ulp_v);
-                size.set(ulp_v, size.get(ulp_v) + size.get(ulp_u));
-            } else if (size.get(ulp_u) > size.get(ulp_v)) {
-                parent.set(ulp_v, ulp_u);
-                size.set(ulp_u, size.get(ulp_u) + size.get(ulp_v));
+            if (size[ulp_u] < size[ulp_v]) {
+                parent[ulp_u] = ulp_v;
+                size[ulp_v] = size[ulp_v] + size[ulp_u];
+            } else if (size[ulp_u] > size[ulp_v]) {
+                parent[ulp_v] = ulp_u;
+                size[ulp_u] = size[ulp_u] + size[ulp_v];
             } else {
-                parent.set(ulp_v, ulp_u);
-                size.set(ulp_u, size.get(ulp_u) + size.get(ulp_v));
+                parent[ulp_v] = ulp_u;
+                size[ulp_u] = size[ulp_u] + size[ulp_v];
             }
         }
     }
