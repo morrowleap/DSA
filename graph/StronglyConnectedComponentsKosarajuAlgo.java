@@ -13,7 +13,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Deque;
 
-public class StronglyConnectedComponentsKosarajusAlgo {
+public class StronglyConnectedComponentsKosarajuAlgo {
 
     private void dfs(int source, ArrayList<ArrayList<Integer>> adjList, boolean[] visited, Deque<Integer> stack) {
         visited[source] = true;
@@ -89,7 +89,7 @@ public class StronglyConnectedComponentsKosarajusAlgo {
                 list.get(i).add(x);
             }
         }
-        StronglyConnectedComponentsKosarajusAlgo sol = new StronglyConnectedComponentsKosarajusAlgo();
+        StronglyConnectedComponentsKosarajuAlgo sol = new StronglyConnectedComponentsKosarajuAlgo();
         System.out.println(sol.kosaraju(list));
     }
 }
