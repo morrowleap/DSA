@@ -35,3 +35,5 @@ https://github.com/morrowleap/DSA/blob/main/recursion/ExpressionAddOperators.jav
 https://github.com/morrowleap/DSA/blob/main/recursion/Permutations1.java
 https://github.com/morrowleap/DSA/blob/main/recursion/PermutationsII.java
 https://github.com/morrowleap/DSA/blob/main/recursion/MColoringProblem.java
+https://github.com/morrowleap/DSA/blob/main/recursion/MergeSort.java
+https://github.com/morrowleap/DSA/blob/main/recursion/QuickSort.java
