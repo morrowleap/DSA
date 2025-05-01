@@ -31,36 +31,31 @@ public class SortAStack {
         sc.close();
     }
 
-    public Stack<Integer> sort(Stack<Integer> s) {
-        topDown(s);
-        return s;
-    }
-
-    private void topDown(Stack<Integer> stk) {
-        if (stk.empty()) {
+    private void sort(Stack<Integer> stk) {
+        if (stk.isEmpty()) {
             return;
         }
-        int top = stk.pop();
-        topDown(stk);
-        sortedInsert(stk, top);
+
+        int x = stk.pop();
+        sort(stk);
+        insertSorted(stk, x);
     }
 
-    /**
-     * Inserts the element at a sorted position
-     */
-    private void sortedInsert(Stack<Integer> stk, int x) {
-        if (stk.empty() || stk.peek() < x) {
-            stk.push(x);
+    private void insertSorted(Stack<Integer> stk, int ele) {
+        if (stk.isEmpty() || stk.peek() > ele) {
+            stk.push(ele);
             return;
         }
-        int top = stk.pop();
-        sortedInsert(stk, x);
-        stk.push(top);
+
+        int x = stk.pop();
+        insertSorted(stk, ele);
+        stk.push(x);
     }
 
     private void printStack(Stack<Integer> stk) {
         System.out.println(stk);
     }
+
 }
 
 // Time Complexity: O(N^2)
