@@ -42,7 +42,7 @@ public class SortAStack {
     }
 
     private void insertSorted(Stack<Integer> stk, int ele) {
-        if (stk.isEmpty() || stk.peek() > ele) {
+        if (stk.isEmpty() || stk.peek() < ele) {
             stk.push(ele);
             return;
         }
