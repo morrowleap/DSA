@@ -86,5 +86,12 @@ public class BiConnectedComponentsArticulationPoint {
         int V = 7, edges[][] = { { 1, 4 }, { 1, 2 }, { 4, 3 }, { 2, 3 }, { 3, 5 }, { 3, 6 }, { 5, 6 } };
 
         System.out.println(BiConnectedComponentsArticulationPoint.articulationPoints(V, edges));
+
+        // TODO:
+        // https://www.geeksforgeeks.org/articulation-points-or-cut-vertices-in-a-graph/
+        // try the naive approach
+
+        // TDOD: Try the abdul Bari way of doing 2 DFS
+
     }
 }
