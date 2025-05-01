@@ -1,0 +1,173 @@
+Arrays
+- Next Permutation  
+- 3-Sum Problem  
+- Kadane's Algorithm  
+- Majority Element (n/3 times)  
+- Count number of subarrays with given xor K  
+- Find the repeating and missing number  
+- Count Inversions  
+- Maximum Product Subarray  
+- 2Sum Problem  
+- Best Time to Buy and Sell Stock  
+- Contains Duplicate  
+- Product of Array Except Self  
+- Find minimum in Rotated Sorted Array  
+- Search in Rotated Sorted Array I  
+- Container with most water
+
+Binary Search
+- Search in Rotated Sorted Array II  
+- Find minimum in Rotated Sorted Array  
+- Find peak element  
+- Koko Eating Bananas  
+- Aggressive Cows  
+- Book Allocation Problem  
+- Median of 2 sorted arrays  
+- Minimize Max Distance to Gas Station
+
+Linked List
+- Middle of a LinkedList [TortoiseHare Method]  
+- Detect a loop in LL  
+- Remove Nth node from the back of the LL  
+- Find the intersection point of Y LL  
+- Sort LL  
+- Segregate odd and even nodes in LL  
+- Reverse a LinkedList  
+- Detect a cycle in Linked List  
+- Merge two sorted Linked List  
+- Merge K sorted arrays  
+- Remove N-th node from back of LinkedList  
+- Reorder List
+
+Recursion
+- Print all subsequences/Power Set  
+- Combination Sum  
+- N Queen  
+- Sudoko Solver  
+- M Coloring Problem  
+- Word Search
+
+Stack & Queues
+- Next Greater Element  
+- Trapping Rainwater  
+- Largest rectangle in a histogram  
+- Asteroid Collision  
+- Sliding Window maximum  
+- LRU cache
+
+Heaps
+- Kth largest element in an array [use priority queue]  
+- Task Scheduler  
+- Min Heap and Max Heap Implementation
+- K most frequent elements  
+- Find Median from Data Stream
+
+Trees
+1. Diameter of Binary Tree  
+2. Maximum Path Sum  
+3. Bottom View of Binary Tree  
+4. LCA in Binary Tree  
+5. Minimum Time Taken to Burn the Binary Tree from a Node  
+6. Construct Binary Tree from Inorder and Preorder  
+7. Morris Preorder Traversal of a Binary Tree  
+8. Delete a Node in Binary Search Tree  
+9. LCA in Binary Search Tree  
+10. Two Sum in BST | Check if there exists a pair with Sum K  
+11. Largest BST in Binary Tree  
+12. Height of a Binary Tree  
+13. Check if Two Trees are Identical  
+14. Invert/Flip Binary Tree  
+15. Level Order Traversal / Spiral Order Traversal  
+16. Serialize and Deserialize Binary Tree  
+17. Subtree of Another Tree  
+18. Construct Binary Tree from Postorder and Inorder  
+19. Check if a Tree is a BST or BT  
+20. Find K-th Smallest Element in BST  
+21. Find LCA of Two Nodes in BST  
+22. Implement Trie (Prefix Tree)  
+23. Implement Trie - 2 (Prefix Tree)
+
+Graphs
+- Rotten Oranges  
+- Word Ladder - 1  
+- Number of Distinct Islands [DFS Multisource]  
+- Course Schedule - II  
+- Alien Dictionary  
+- Dijkstra's Algorithm  
+- Cheapest Flights Within K Stops  
+- Bellman-Ford Algorithm  
+- Floyd-Warshall Algorithm  
+- Kruskal's Algorithm  
+- Accounts Merge  
+- Bridges in Graph  
+- Clone Graph  
+- Course Schedule - I  
+- Pacific Atlantic Water Flow  
+- Number of Islands (Grid and Graph)  
+- Longest Consecutive Sequence  
+- Graph Valid Tree  
+- Connected Components | Logic Explanation
+
+Dynamic Programing
+- Maximum Sum of Non-Adjacent Elements (DP 5)  
+- Ninja's Training (DP 7)  
+- Minimum Path Sum in Grid (DP 10)  
+- Subset Sum Equal to Target (DP 14)  
+- Assign Cookies  
+- Rod Cutting Problem (DP 24)  
+- Longest Common Subsequence  
+- Longest Palindromic Subsequence (DP 28)  
+- Edit Distance (DP 33)  
+- Buy and Stock Sell IV (DP 38)  
+- Longest Increasing Subsequence  
+- Burst Balloons (DP 51)  
+- Climbing Stairs  
+- Coin Change  
+- Word Break  
+- Combination Sum  
+- House Robber (DP 6)  
+- Decode Ways  
+- Grid Unique Paths  
+- Jump Game
+
+Trie
+- Implement Trie - 2 (Prefix Tree)  
+- Maximum XOR With an Element From Array  
+- Number of Distinct Substrings in a String
+
+String
+- Minimum Number of Bracket Reversals Needed to Make an Expression Balanced  
+- Rabin Karp  
+- Z-Function  
+- KMP Algo / LPS (pi) Array  
+- Longest Substring Without Repeating Characters  
+- Longest Repeating Character Replacement  
+- Minimum Window Substring  
+- Check for Anagrams  
+- Group Anagrams  
+- Check for Balanced Parenthesis  
+- Check Palindrome  
+- Longest Palindromic Substring (Without DP)  
+- Palindromic Substrings  
+- Encode and Decode Strings (Leetcode Premium)
+
+Matrix
+- Set Matrix Zeros  
+- Print the Matrix in Spiral Manner  
+- Rotate Matrix by 90 Degrees  
+- Word Search
+
+Binary
+- Sum of Two Integers  
+- Number of 1 Bits  
+- Counting Bits  
+- Find Missing Number in an Array  
+- Reverse Bits
+
+Intervals
+- Insert Interval  
+- Merge Intervals  
+- Non-overlapping Intervals  
+- Repeat and Missing Number  
+- Meeting Rooms (Leetcode Premium)  
+- Meeting Rooms II (Leetcode Premium)
