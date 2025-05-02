@@ -1,7 +1,8 @@
 /*
  * https://takeuforward.org/data-structure/combination-sum-1/
- * https://leetcode.com/problems/combination-sum/description/
  * https://youtu.be/OyZFFqQtu98
+ * 
+ * https://leetcode.com/problems/combination-sum/description/
 */
 
 package recursion;
@@ -11,60 +12,6 @@ import java.util.List;
 import java.util.Scanner;
 
 public class CombinationSum {
-
-    public List<List<Integer>> combinationSum(int[] nums, int target) {
-        List<List<Integer>> res = new ArrayList<>();
-        List<Integer> curr = new ArrayList<>();
-        topDown(nums, 0, target, curr, res);
-        topDown2(nums, target, target, curr, res);
-
-        return res;
-    }
-
-    /**
-     * Using pick and non pick technique
-     */
-    private void topDown(int[] nums, int i, int target, List<Integer> curr, List<List<Integer>> res) {
-        if (i == nums.length || target < 0) {
-            if (target == 0) {
-                res.add(new ArrayList<>(curr));
-            }
-            return;
-        }
-
-        curr.add(nums[i]);
-        topDown(nums, i, target - nums[i], curr, res);
-        curr.remove(curr.size() - 1);
-
-        topDown(nums, i + 1, target, curr, res);
-
-        // TODO: Attach recursion tree
-    }
-
-    /**
-     * Using looping through choices.
-     * Generate all combinations (with repetition) of nums[index…] that sum to
-     * target.
-     */
-    private void topDown2(int[] nums, int index, int target, List<Integer> curr, List<List<Integer>> res) {
-        if (target == 0) {
-            res.add(new ArrayList<>(curr));
-            return;
-        }
-
-        if (index == nums.length || target < 0) {
-            return;
-        }
-
-        for (int i = index; i < nums.length; i++) {
-            curr.add(nums[i]);
-            topDown(nums, i, target - nums[i], curr, res);
-            curr.remove(curr.size() - 1);
-        }
-
-        // TODO: Attach recursion tree
-    }
-
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
@@ -80,6 +27,35 @@ public class CombinationSum {
         System.out.println(sol.combinationSum(nums, target));
 
         sc.close();
+    }
+
+    public List<List<Integer>> combinationSum(int[] candidates, int target) {
+        List<Integer> curr = new ArrayList<>();
+        List<List<Integer>> res = new ArrayList<>();
+
+        backtrack(candidates, candidates.length - 1, target, curr, res);
+        return res;
+    }
+
+    /**
+     * Using pick and non pick technique
+     */
+    private void backtrack(int[] nums, int n, int target, List<Integer> curr, List<List<Integer>> res) {
+        if (target == 0) {
+            res.add(new ArrayList<>(curr));
+            return;
+        }
+
+        if (target < 0 || n < 0)
+            return;
+
+        curr.add(nums[n]);
+        backtrack(nums, n, target - nums[n], curr, res);
+        curr.remove(curr.size() - 1);
+
+        backtrack(nums, n - 1, target, curr, res);
+
+        // TODO: Attach recursion tree
     }
 }
 
