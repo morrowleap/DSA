@@ -25,6 +25,10 @@ public class GenerateAllBinaryStrings {
             return;
         }
 
+        curr.append('0');
+        backtrack(N, curr, res);
+        curr.deleteCharAt(curr.length() - 1);
+
         if (curr.length() == 0 || curr.charAt(curr.length() - 1) == '0') {
             curr.append('1');
             backtrack(N, curr, res);
@@ -32,9 +36,6 @@ public class GenerateAllBinaryStrings {
         }
 
         // TODO: Attach recursion tree
-        curr.append('0');
-        backtrack(N, curr, res);
-        curr.deleteCharAt(curr.length() - 1);
     }
 
     public static void main(String[] args) {
