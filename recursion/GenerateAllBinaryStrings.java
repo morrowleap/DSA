@@ -11,31 +11,30 @@ import java.util.Scanner;
 
 public class GenerateAllBinaryStrings {
 
-    public static List<String> generateBinaryStrings(int n) {
-        List<String> res = new ArrayList<>();
+    public static List<String> generateBinaryStrings(int N) {
         StringBuilder curr = new StringBuilder();
-        topDown(n, curr, res);
+        List<String> res = new ArrayList<>();
 
+        backtrack(N, curr, res);
         return res;
     }
 
-    private static void topDown(int n, StringBuilder curr, List<String> res) {
-        if (n == 0) {
+    private static void backtrack(int N, StringBuilder curr, List<String> res) {
+        if (curr.length() == N) {
             res.add(curr.toString());
             return;
         }
 
-        curr.append('0');
-        topDown(n - 1, curr, res);
-        curr.deleteCharAt(curr.length() - 1);
-
-        if (curr.length() == 0 || curr.charAt(curr.length() - 1) != '1') {
+        if (curr.length() == 0 || curr.charAt(curr.length() - 1) == '0') {
             curr.append('1');
-            topDown(n - 1, curr, res);
+            backtrack(N, curr, res);
             curr.deleteCharAt(curr.length() - 1);
         }
 
         // TODO: Attach recursion tree
+        curr.append('0');
+        backtrack(N, curr, res);
+        curr.deleteCharAt(curr.length() - 1);
     }
 
     public static void main(String[] args) {
