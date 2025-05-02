@@ -11,6 +11,15 @@ import java.util.Scanner;
 
 public class GenerateAllBinaryStrings {
 
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        int n = sc.nextInt();
+        System.out.println(generateBinaryStrings(n));
+
+        sc.close();
+    }
+
     public static List<String> generateBinaryStrings(int N) {
         StringBuilder curr = new StringBuilder();
         List<String> res = new ArrayList<>();
@@ -39,15 +48,6 @@ public class GenerateAllBinaryStrings {
 
         // There are 2 choices in pick either 0 or 1. It is not a pick and not pick
         // solution
-    }
-
-    public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-
-        int n = sc.nextInt();
-        System.out.println(generateBinaryStrings(n));
-
-        sc.close();
     }
 }
 

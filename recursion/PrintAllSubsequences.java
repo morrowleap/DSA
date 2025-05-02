@@ -11,8 +11,6 @@
 
 package recursion;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Scanner;
 
 public class PrintAllSubsequences {
@@ -31,6 +29,11 @@ public class PrintAllSubsequences {
         System.out.println(sol.subsets(nums));
 
         sc.close();
+    }
+
+    private char[] subsets(int[] nums) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'subsets'");
     }
 }
 
