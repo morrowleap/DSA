@@ -34,6 +34,9 @@ public class CombinationSum {
         List<List<Integer>> res = new ArrayList<>();
 
         backtrack(candidates, candidates.length - 1, target, curr, res);
+
+        backtrack2(candidates, 0, target, curr, res);
+
         return res;
     }
 
@@ -54,6 +57,30 @@ public class CombinationSum {
         curr.remove(curr.size() - 1);
 
         backtrack(nums, n - 1, target, curr, res);
+
+        // TODO: Attach recursion tree
+    }
+
+    /**
+     * Using looping through choices.
+     * Generate all combinations (with repetition) of nums[index…] that sum to
+     * target.
+     */
+    private void backtrack2(int[] nums, int index, int target, List<Integer> curr, List<List<Integer>> res) {
+        if (target == 0) {
+            res.add(new ArrayList<>(curr));
+            return;
+        }
+
+        if (target < 0 || index == nums.length) {
+            return;
+        }
+
+        for (int i = index; i < nums.length; i++) {
+            curr.add(nums[i]);
+            backtrack2(nums, i, target - nums[i], curr, res);
+            curr.remove(curr.size() - 1);
+        }
 
         // TODO: Attach recursion tree
     }
