@@ -11,6 +11,8 @@
 
 package recursion;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class PrintAllSubsequences {
@@ -31,9 +33,42 @@ public class PrintAllSubsequences {
         sc.close();
     }
 
-    private char[] subsets(int[] nums) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'subsets'");
+    public List<List<Integer>> subsets(int[] nums) {
+        List<Integer> curr = new ArrayList<>();
+        List<List<Integer>> res = new ArrayList<>();
+
+        backtrack(nums, nums.length - 1, curr, res);
+
+        backtrack2(nums, 0, curr, res);
+
+        return res;
+    }
+
+    private void backtrack(int[] nums, int n, List<Integer> curr, List<List<Integer>> res) {
+        if (n == -1) {
+            res.add(new ArrayList<>(curr));
+            return;
+        }
+
+        curr.add(nums[n]);
+        backtrack(nums, n - 1, curr, res);
+        curr.remove(curr.size() - 1);
+
+        backtrack(nums, n - 1, curr, res);
+
+        // TODO: Attach recursion tree
+    }
+
+    private void backtrack2(int[] nums, int index, List<Integer> curr, List<List<Integer>> res) {
+        res.add(new ArrayList<>(curr));
+
+        for (int i = index; i < nums.length; i++) {
+            curr.add(nums[i]);
+            backtrack2(nums, i + 1, curr, res);
+            curr.remove(curr.size() - 1);
+        }
+
+        // TODO: Attach recursion tree
     }
 }
 
