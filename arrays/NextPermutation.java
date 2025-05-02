@@ -15,6 +15,43 @@ import java.util.Map;
 
 public class NextPermutation {
 
+    public static void main(String[] args) {
+        int[] nums = { 1, 2, 3 };
+
+        NextPermutation sol = new NextPermutation();
+
+        // sol.nextPermutation(nums);
+        sol.nextPermutationOptimal(nums);
+
+        System.out.println(Arrays.toString(nums));
+    }
+
+    private void nextPermutationOptimal(int[] nums) {
+        // Observation 1: Scan the array from the end to find the first index i where
+        // a[i] < a[i+1]; elements before i remain unchanged.
+        int n = nums.length, i;
+        for (i = n - 2; i >= 0; i--) {
+            if (nums[i] < nums[i + 1]) {
+                break;
+            }
+        }
+
+        // Observation 2: In the subarray [i+1, n-1], find the smallest element greater
+        // than a[i] to stay as close as possible to the current permutation.
+
+        // Observation 3: Swap a[i] with that element, then sort (or reverse) the
+        // subarray from i+1 to n-1.
+        Arrays.sort(nums, i + 1, n - 1);
+        for (int j = i + 1; i >= 0 && j < n; j++) {
+            if (nums[j] > nums[i]) {
+                int temp = nums[i];
+                nums[i] = nums[j];
+                nums[j] = temp;
+                break;
+            }
+        }
+    }
+
     /**
      * Brute-Force Approach: Taking out all permutations and then checking the next
      * permutation
