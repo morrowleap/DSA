@@ -26,7 +26,7 @@ public class NextPermutation {
         System.out.println(Arrays.toString(nums));
     }
 
-    private void nextPermutationOptimal(int[] nums) {
+    public void nextPermutationOptimal(int[] nums) {
         // Observation 1: Scan the array from the end to find the first index i where
         // a[i] < a[i+1]; elements before i remain unchanged.
         int n = nums.length, i;
