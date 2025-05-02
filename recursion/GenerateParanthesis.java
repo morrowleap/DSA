@@ -9,34 +9,6 @@ import java.util.List;
 import java.util.Scanner;
 
 public class GenerateParanthesis {
-    public List<String> generateParenthesis(int n) {
-        List<String> res = new ArrayList<>();
-        StringBuilder curr = new StringBuilder();
-        topDown(n, n, curr, res);
-        return res;
-    }
-
-    private void topDown(int openN, int closeN, StringBuilder curr, List<String> res) {
-        if (openN == 0 && closeN == 0) {
-            res.add(curr.toString());
-            return;
-        }
-
-        if (openN > 0) { // Open brackets are remaining
-            curr.append('(');
-            topDown(openN - 1, closeN, curr, res);
-            curr.deleteCharAt(curr.length() - 1);
-        }
-
-        if (openN < closeN) { // More open brackets are used than closed brackets
-            curr.append(')');
-            topDown(openN, closeN - 1, curr, res);
-            curr.deleteCharAt(curr.length() - 1);
-        }
-
-        // TODO: Attach recursion tree
-    }
-
     public static void main(String[] args) {
 
         Scanner sc = new Scanner(System.in);
@@ -47,6 +19,35 @@ public class GenerateParanthesis {
         System.out.println(sol.generateParenthesis(n));
 
         sc.close();
+    }
+
+    public List<String> generateParenthesis(int n) {
+        StringBuilder curr = new StringBuilder();
+        List<String> res = new ArrayList<>();
+
+        backtrack(n, n, curr, res);
+        return res;
+    }
+
+    private void backtrack(int open, int close, StringBuilder curr, List<String> res) {
+        if (open == 0 && close == 0) {
+            res.add(curr.toString());
+            return;
+        }
+
+        if (open > 0) { // Open brackets are remaining
+            curr.append('(');
+            backtrack(open - 1, close, curr, res);
+            curr.deleteCharAt(curr.length() - 1);
+        }
+
+        if (open < close) { // More open brackets are used than closed brackets
+            curr.append(')');
+            backtrack(open, close - 1, curr, res);
+            curr.deleteCharAt(curr.length() - 1);
+        }
+
+        // TODO: Attach recursion tree
     }
 }
 
