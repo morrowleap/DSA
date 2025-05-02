@@ -9,6 +9,7 @@ package arrays;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashSet;
 import java.util.List;
 
 public class ThreeSum {
@@ -16,9 +17,39 @@ public class ThreeSum {
         int nums[] = { -1, 0, 1, 2, -1, -4 };
 
         ThreeSum sol = new ThreeSum();
-        System.out.println(sol.threeSumRecursive(nums));
+        System.out.println(sol.threeSumOptimal(nums));
     }
 
+    /**
+     * 
+    */
+    private List<List<Integer>> threeSumOptimal(int[] nums) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'threeSumOptimal'");
+    }
+
+    /**
+     * Brute-Force method
+     */
+    public List<List<Integer>> threeSumBrute(int[] nums) {
+        Arrays.sort(nums);
+        HashSet<List<Integer>> res = new HashSet<>();
+        int n = nums.length;
+        for (int i = 0; i < n; i++) {
+            for (int j = i + 1; j < n; j++) {
+                for (int k = j + 1; k < n; k++) {
+                    if (nums[i] + nums[j] + nums[k] == 0) {
+                        res.add(List.of(i, j, k));
+                    }
+                }
+            }
+        }
+        return new ArrayList<>(res);
+    }
+
+    /**
+     * 3 sum problem using backtracking
+     */
     public List<List<Integer>> threeSumRecursive(int[] nums) {
         List<List<Integer>> res = new ArrayList<>();
         List<Integer> curr = new ArrayList<>();
