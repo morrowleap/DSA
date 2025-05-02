@@ -37,8 +37,8 @@ public class GenerateAllBinaryStrings {
 
         // TODO: Attach recursion tree
 
-        // There are 2 choices in pick either 0 or 1
-        // It is not pick and not pick solution
+        // There are 2 choices in pick either 0 or 1. It is not a pick and not pick
+        // solution
     }
 
     public static void main(String[] args) {

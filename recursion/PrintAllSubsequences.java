@@ -1,6 +1,7 @@
 /*
  * https://takeuforward.org/data-structure/power-set-print-all-the-possible-subsequences-of-the-string/
  * https://youtu.be/b7AYbpM5YrE
+ * 
  * https://leetcode.com/problems/subsets/description/
  * 
  * Print all subsequences
@@ -15,42 +16,6 @@ import java.util.List;
 import java.util.Scanner;
 
 public class PrintAllSubsequences {
-    public List<List<Integer>> subsets(int[] nums) {
-        List<List<Integer>> res = new ArrayList<>();
-        List<Integer> curr = new ArrayList<>();
-        topDown(nums, 0, curr, res);
-
-        topDown2(nums, 0, curr, res);
-
-        return res;
-    }
-
-    private void topDown2(int[] nums, int index, List<Integer> curr, List<List<Integer>> res) {
-        res.add(new ArrayList<>(curr));
-
-        for (int i = index; i < nums.length; i++) {
-            curr.add(nums[i]); // We pick a new starting value in each iteration at current index
-            topDown2(nums, i + 1, curr, res);
-            curr.remove(curr.size() - 1);
-        }
-
-        // TODO: Attach recursion tree
-    }
-
-    private void topDown(int[] nums, int i, List<Integer> curr, List<List<Integer>> res) {
-        if (i == nums.length) {
-            res.add(new ArrayList<>(curr));
-            return;
-        }
-
-        curr.add(nums[i]);
-        topDown(nums, i + 1, curr, res); // Pick
-        curr.remove(curr.size() - 1);
-
-        topDown(nums, i + 1, curr, res); // Not pick
-
-        // TODO: Attach recursion tree
-    }
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
