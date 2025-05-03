@@ -40,10 +40,10 @@ public class ThreeSum {
                     res.add(List.of(nums[i], nums[j], nums[k]));
                     j++;
                     k--;
-                    while (j < k && nums[j - 1] == nums[j]) {
+                    while (j < k && nums[j - 1] == nums[j]) { // Skipping duplicates
                         j++;
                     }
-                    while (j < k && nums[k] == nums[k + 1]) {
+                    while (j < k && nums[k] == nums[k + 1]) { // Skipping duplicates
                         k--;
                     }
                 } else if (x < 0) {
@@ -52,7 +52,7 @@ public class ThreeSum {
                     k--;
                 }
             }
-            while (i < n - 1 && nums[i] == nums[i + 1]) {
+            while (i < n - 1 && nums[i] == nums[i + 1]) { // Skipping duplicates
                 i++;
             }
         }
