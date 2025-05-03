@@ -20,7 +20,7 @@ public class ThreeSum {
         int nums[] = { -1, 0, 1, 2, -1, -4 };
 
         ThreeSum sol = new ThreeSum();
-        System.out.println(sol.threeSum2Pointer(nums));
+        System.out.println(sol.threeSum4(nums));
     }
 
     /**
@@ -28,7 +28,7 @@ public class ThreeSum {
      * T.C: O(NlogN) + O(N^2)
      * S.C: O(K), K = no. of unique triplets
      */
-    public List<List<Integer>> threeSum2Pointer(int[] nums) {
+    public List<List<Integer>> threeSum4(int[] nums) {
         int n = nums.length;
         Arrays.sort(nums);
         List<List<Integer>> res = new ArrayList<>();
@@ -64,7 +64,7 @@ public class ThreeSum {
      * T.C: O(NlogN) + O(N^2)
      * S.C: O(N)map + O(K)set + O(K)list = O(N) + O(K*2), K = no. of unique triplets
      */
-    public List<List<Integer>> threeSumHashing(int[] nums) {
+    public List<List<Integer>> threeSum3(int[] nums) {
         int n = nums.length;
         Arrays.sort(nums);
         Set<List<Integer>> res = new HashSet<>();
@@ -86,7 +86,7 @@ public class ThreeSum {
      * T.C: O(NlogN) + O(N^3)
      * S.C: O(K), K = no. of unique triplets
      */
-    public List<List<Integer>> threeSumBrute(int[] nums) {
+    public List<List<Integer>> threeSum2(int[] nums) {
         Arrays.sort(nums); // ensures triplets are in non-decreasing order for deduplication
         HashSet<List<Integer>> res = new HashSet<>();
         int n = nums.length;
@@ -107,7 +107,7 @@ public class ThreeSum {
      * T.C: O(NlogN) + O(C(N,3)) = O(NlogN) + O(N!/((N-3)! * 3!)) = O(N^3)
      * S.C: O(3)stack-space + O(K)list = O(K), K = no. of unique triplets
      */
-    public List<List<Integer>> threeSumRecursive(int[] nums) {
+    public List<List<Integer>> threeSum1(int[] nums) {
         List<List<Integer>> res = new ArrayList<>();
         List<Integer> curr = new ArrayList<>();
 
