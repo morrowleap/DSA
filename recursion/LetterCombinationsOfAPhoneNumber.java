@@ -12,6 +12,17 @@ import java.util.Scanner;
 
 public class LetterCombinationsOfAPhoneNumber {
 
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        String digits = sc.nextLine();
+
+        LetterCombinationsOfAPhoneNumber sol = new LetterCombinationsOfAPhoneNumber();
+        System.out.println(sol.letterCombinations(digits));
+
+        sc.close();
+    }
+
     public List<String> letterCombinations(String digits) {
         Map<Character, String> keyMapping = new HashMap<Character, String>() {
             {
@@ -52,17 +63,6 @@ public class LetterCombinationsOfAPhoneNumber {
         }
 
         // TODO: Add recursion tree
-    }
-
-    public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-
-        String digits = sc.nextLine();
-
-        LetterCombinationsOfAPhoneNumber sol = new LetterCombinationsOfAPhoneNumber();
-        System.out.println(sol.letterCombinations(digits));
-
-        sc.close();
     }
 }
 
