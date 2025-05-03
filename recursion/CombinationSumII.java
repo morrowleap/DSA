@@ -58,24 +58,18 @@ public class CombinationSumII {
             backtrack2(nums, i + 1, target - nums[i], curr, res);
             curr.remove(curr.size() - 1);
 
-            // After choosing above one, element is filled at 0th index of this subset, now
-            // in case of
-            // non pick it will go further in recursion, where in next recursion it will
-            // pick element for 0th index of another subset, so if the next element which we
-            // are shifting to
-            // for choices of picking it or not picking it, if that element is equal to our
-            // current element which we have already used in a subset at 0th index, we will
-            // ignore that for another subsets at 0th index
+            // In this approach we are generating subsets for a specific index, lets say we
+            // put value 1 at 0th index in a subset, now in other subset doing the same
+            // would not be good so with the below while loop we skip the duplicate element
+            // at
+            // same index for any other subset
             while (i < nums.length - 1 && nums[i] == nums[i + 1]) {
                 i++; // skipping duplicate elements
-            }
-
-            // Why index is not incremented in the "pick" part ? because it would miss valid
-            // combinations because the next recursive depth would skip the immediate next
-            // candidate unnecessarily.
-
-            // TODO: Attach recursion tree
+            } // This loop shifts pinter to last similar element, then for loop shifts pointer
+              // to next element
         }
+
+        // TODO: Attach recursion tree
     }
 
     public void backtrack(int[] nums, int index, int target, List<Integer> curr, List<List<Integer>> res) {
