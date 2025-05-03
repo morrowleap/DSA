@@ -9,59 +9,6 @@ import java.util.List;
 import java.util.Scanner;
 
 public class CombinationSumIII {
-
-    public List<List<Integer>> combinationSum3(int k, int n) {
-        List<Integer> curr = new ArrayList<>();
-        List<List<Integer>> res = new ArrayList<>();
-        topDown(1, k, n, curr, res);
-        topDown2(1, k, n, curr, res);
-        return res;
-    }
-
-    /**
-     * For-Loop making subsequences technique
-     */
-    private void topDown2(int index, int count, int target, List<Integer> curr, List<List<Integer>> res) {
-        if (count == 0) {
-            if (target == 0) {
-                res.add(new ArrayList<>(curr));
-            }
-            return;
-        }
-
-        for (int i = index; i <= 9; i++) {
-            curr.add(i);
-            topDown2(i + 1, count - 1, target - i, curr, res);
-            curr.remove(curr.size() - 1);
-        }
-
-        // TODO: Attach recursion tree
-    }
-
-    /**
-     * Pick and non pick technique
-     */
-    private void topDown(int i, int count, int target, List<Integer> curr, List<List<Integer>> res) {
-        if (count == 0) {
-            if (target == 0) {
-                res.add(new ArrayList<>(curr));
-            }
-            return;
-        }
-
-        if (i == 10) {
-            return;
-        }
-
-        curr.add(i);
-        topDown(i + 1, count - 1, target - i, curr, res);
-        curr.remove(curr.size() - 1);
-
-        topDown(i + 1, count, target, curr, res);
-
-        // TODO: Attach recursion tree
-    }
-
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
@@ -72,6 +19,60 @@ public class CombinationSumIII {
         System.out.println(sol.combinationSum3(k, n));
 
         sc.close();
+    }
+
+    public List<List<Integer>> combinationSum3(int count, int target) {
+        List<List<Integer>> res = new ArrayList<>();
+        List<Integer> curr = new ArrayList<>();
+
+        // backtrack(1, count, target, curr, res);
+        backtrack2(1, count, target, curr, res);
+
+        return res;
+    }
+
+    /**
+     * For-Loop making subsequences technique
+     */
+    public void backtrack2(int index, int count, int target, List<Integer> curr, List<List<Integer>> res) {
+        if (target == 0 && count == 0) {
+            res.add(new ArrayList<>(curr));
+            return;
+        }
+
+        if (target < 0 || count < 0 || index > 9) {
+            return;
+        }
+
+        for (int i = index; i <= 9; i++) {
+            curr.add(i);
+            backtrack2(i + 1, count - 1, target - i, curr, res);
+            curr.remove(curr.size() - 1);
+        }
+
+        // TODO: Attach recursion tree
+    }
+
+    /**
+     * Pick and non pick technique
+     */
+    public void backtrack(int index, int count, int target, List<Integer> curr, List<List<Integer>> res) {
+        if (target == 0 && count == 0) {
+            res.add(new ArrayList<>(curr));
+            return;
+        }
+
+        if (target < 0 || count < 0 || index > 9) {
+            return;
+        }
+
+        curr.add(index);
+        backtrack(index + 1, count - 1, target - index, curr, res);
+        curr.remove(curr.size() - 1);
+
+        backtrack(index + 1, count, target, curr, res);
+
+        // TODO: Attach recursion tree
     }
 }
 
