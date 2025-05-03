@@ -12,7 +12,7 @@ public class MaxSubarraySumKadaneAlgo {
         int[] nums = { -2, 1, -3, 4, -1, 2, 1, -5, 4 };
 
         MaxSubarraySumKadaneAlgo sol = new MaxSubarraySumKadaneAlgo();
-        System.out.println(sol.maxSubArrayOptimal(nums));
+        System.out.println(sol.maxSubArray3(nums));
     }
 
     /**
@@ -20,7 +20,7 @@ public class MaxSubarraySumKadaneAlgo {
      * T.C: O(N)
      * S.C: O(1)
      */
-    private int maxSubArrayOptimal(int[] nums) {
+    public int maxSubArray3(int[] nums) {
         int maxsum = Integer.MIN_VALUE;
         int n = nums.length;
         int sum = 0;
@@ -43,7 +43,7 @@ public class MaxSubarraySumKadaneAlgo {
      * T.C: O(N^2)
      * S.C: O(1)
      */
-    public int maxSubArrayBrute(int[] nums) {
+    public int maxSubArray2(int[] nums) {
         int n = nums.length;
         int maxsum = Integer.MIN_VALUE;
         for (int i = 0; i < n; i++) {
@@ -61,7 +61,7 @@ public class MaxSubarraySumKadaneAlgo {
      * T.C: O(N^2)
      * S.C: O(N)
      */
-    public int maxSubArrayRecursive(int[] nums) {
+    public int maxSubArray1(int[] nums) {
         int maxsum = Integer.MIN_VALUE;
         return recur(nums, 0, maxsum);
     }
