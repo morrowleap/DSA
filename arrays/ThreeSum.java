@@ -82,7 +82,7 @@ public class ThreeSum {
     }
 
     /**
-     * Brute-Force method
+     * Brute-Force: Recursive code converted to Iterative
      * T.C: O(NlogN) + O(N^3)
      * S.C: O(K), K = no. of unique triplets
      */
@@ -105,7 +105,7 @@ public class ThreeSum {
     /**
      * 3 sum problem using backtracking
      * T.C: O(NlogN) + O(C(N,3)) = O(NlogN) + O(N!/((N-3)! * 3!)) = O(N^3)
-     * S.C: O(3) = O(1)
+     * S.C: O(3)stack-space + O(K)list = O(K), K = no. of unique triplets
      */
     public List<List<Integer>> threeSumRecursive(int[] nums) {
         List<List<Integer>> res = new ArrayList<>();
