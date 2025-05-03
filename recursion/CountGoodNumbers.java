@@ -11,15 +11,15 @@ public class CountGoodNumbers {
 
     private static final int MOD = (int) 1e9 + 7;
 
-    public long topDown(long x, long n) {
+    public long pow(long x, long n) {
         if (n == 0) {
             return 1;
         }
 
         if (n % 2 == 0) {
-            return topDown((x * x) % MOD, n / 2);
+            return pow((x * x) % MOD, n / 2);
         } else {
-            return (x * topDown(x, n - 1)) % MOD;
+            return (x * pow(x, n - 1)) % MOD;
         }
     }
 
@@ -27,7 +27,7 @@ public class CountGoodNumbers {
         long oddPositions = n / 2;
         long evenPositions = n - oddPositions;
 
-        return (int) ((topDown(4, oddPositions) * topDown(5, evenPositions)) % MOD);
+        return (int) ((pow(4, oddPositions) * pow(5, evenPositions)) % MOD);
     }
 
     public static void main(String[] args) {
