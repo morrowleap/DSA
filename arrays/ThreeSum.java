@@ -24,8 +24,7 @@ public class ThreeSum {
      * 
     */
     private List<List<Integer>> threeSumOptimal(int[] nums) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'threeSumOptimal'");
+
     }
 
     /**

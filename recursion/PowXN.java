@@ -8,25 +8,22 @@ package recursion;
 import java.util.Scanner;
 
 public class PowXN {
-    public double topDown(double x, long n) {
+    public double myPow(double x, int n) {
         if (n == 0) {
             return 1;
         }
 
-        if (n < 0) {
+        long k = n;
+        if (k < 0) {
             x = 1 / x;
-            n = -n;
+            k = -k;
         }
 
         if (n % 2 == 0) {
-            return topDown(x * x, n / 2);
+            return myPow(x * x, (int) (k / 2));
         } else {
-            return x * topDown(x, n - 1);
+            return x * myPow(x, (int) (k - 1));
         }
-    }
-
-    public double myPow(double x, int n) {
-        return topDown(x, n);
     }
 
     public static void main(String[] args) {
