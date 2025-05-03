@@ -7,12 +7,35 @@
 
 package arrays;
 
-public class MaxSubarraySumKadanesAlgo {
+public class MaxSubarraySumKadaneAlgo {
     public static void main(String[] args) {
         int[] nums = { -2, 1, -3, 4, -1, 2, 1, -5, 4 };
 
-        MaxSubarraySumKadanesAlgo sol = new MaxSubarraySumKadanesAlgo();
-        System.out.println(sol.maxSubArrayBrute(nums));
+        MaxSubarraySumKadaneAlgo sol = new MaxSubarraySumKadaneAlgo();
+        System.out.println(sol.maxSubArrayOptimal(nums));
+    }
+
+    /**
+     * Optimal: Kadane's Algoriythm
+     * T.C: O(N)
+     * S.C: O(1)
+     */
+    private int maxSubArrayOptimal(int[] nums) {
+        int maxsum = Integer.MIN_VALUE;
+        int n = nums.length;
+        int sum = 0;
+
+        for (int i = 0; i < n; i++) {
+            sum += nums[i];
+            maxsum = Math.max(maxsum, sum);
+
+            if (sum < 0) { // If the subarray till now carries a negative sum, we don't need it in our
+                           // future subarray, start a new subarray from now
+                sum = 0;
+            }
+        }
+
+        return maxsum;
     }
 
     /**
