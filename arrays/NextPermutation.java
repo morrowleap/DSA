@@ -20,13 +20,17 @@ public class NextPermutation {
 
         NextPermutation sol = new NextPermutation();
 
-        // sol.nextPermutation(nums);
-        sol.nextPermutationOptimal(nums);
+        sol.nextPermutation2(nums);
 
         System.out.println(Arrays.toString(nums));
     }
 
-    public void nextPermutationOptimal(int[] nums) {
+    /**
+     * Optimal Approach: Narayana Pandita’s method, next permutation algorithm
+     * T.C: O(N) + O(NlogN)
+     * S.C: O(1)
+     */
+    public void nextPermutation2(int[] nums) {
         // Observation 1: Scan the array from the end to find the first index i where
         // a[i] < a[i+1]; elements before i remain unchanged.
         int n = nums.length, i;
@@ -41,7 +45,7 @@ public class NextPermutation {
 
         // Observation 3: Swap a[i] with that element, then sort (or reverse) the
         // subarray from i+1 to n-1.
-        Arrays.sort(nums, i + 1, n - 1);
+        Arrays.sort(nums, i + 1, n);
         for (int j = i + 1; i >= 0 && j < n; j++) {
             if (nums[j] > nums[i]) {
                 int temp = nums[i];
@@ -55,8 +59,10 @@ public class NextPermutation {
     /**
      * Brute-Force Approach: Taking out all permutations and then checking the next
      * permutation
+     * 
+     * T.C: TODO
      */
-    public void nextPermutation(int[] nums) {
+    public void nextPermutation1(int[] nums) {
         List<Integer> og = new ArrayList<>();
         for (int i = 0; i < nums.length; i++) {
             og.add(nums[i]);
@@ -77,16 +83,14 @@ public class NextPermutation {
         }
     }
 
-    /**
-     * Returns all permutations for a collection of numbers, duplicates allowed
-     */
     private List<List<Integer>> collectAllPermutations(int[] nums) {
         Arrays.sort(nums);
 
         List<List<Integer>> res = new ArrayList<>();
         List<Integer> curr = new ArrayList<>();
 
-        Map<Integer, Integer> hash = new HashMap<>();
+        Map<Integer, Integer> hash = new HashMap<>(); // nums can have duplicates; map counts occurrences to handle
+                                                      // duplicates in permutations
         for (int num : nums) {
             hash.put(num, hash.getOrDefault(num, 0) + 1);
         }
