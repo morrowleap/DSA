@@ -13,22 +13,72 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 public class ThreeSum {
     public static void main(String[] args) {
         int nums[] = { -1, 0, 1, 2, -1, -4 };
 
         ThreeSum sol = new ThreeSum();
-        System.out.println(sol.threeSumOptimal(nums));
+        System.out.println(sol.threeSum2Pointer(nums));
     }
 
     /**
-     * 
-    */
-    private List<List<Integer>> threeSumOptimal(int[] nums) {
+     * Optimal Approach 2 pointers
+     * T.C: O(NlogN) + O(N^2)
+     * S.C: O(K), K = no. of unique triplets
+     */
+    public List<List<Integer>> threeSum2Pointer(int[] nums) {
         int n = nums.length;
-        Map<Integer, Integer> hash = new HashMap<>();
+        Arrays.sort(nums);
+        List<List<Integer>> res = new ArrayList<>();
+        for (int i = 0; i < n; i++) {
+            int j = i + 1, k = n - 1;
+            while (j < k) {
+                int x = nums[i] + nums[j] + nums[k];
+                if (x == 0) {
+                    res.add(List.of(nums[i], nums[j], nums[k]));
+                    j++;
+                    k--;
+                    while (j < k && nums[j - 1] == nums[j]) {
+                        j++;
+                    }
+                    while (j < k && nums[k] == nums[k + 1]) {
+                        k--;
+                    }
+                } else if (x < 0) {
+                    j++;
+                } else {
+                    k--;
+                }
+            }
+            while (i < n - 1 && nums[i] == nums[i + 1]) {
+                i++;
+            }
+        }
+        return res;
+    }
 
+    /**
+     * Hash Optimized Approach
+     * T.C: O(NlogN) + O(N^2)
+     * S.C: O(N)map + O(K)set + O(K)list = O(N) + O(K*2), K = no. of unique triplets
+     */
+    public List<List<Integer>> threeSumHashing(int[] nums) {
+        int n = nums.length;
+        Arrays.sort(nums);
+        Set<List<Integer>> res = new HashSet<>();
+        for (int i = 0; i < n; i++) {
+            Map<Integer, Integer> hash = new HashMap<>();
+            for (int j = i + 1; j < n; j++) {
+                int numsk = -(nums[i] + nums[j]);
+                if (hash.containsKey(numsk)) {
+                    res.add(List.of(nums[i], nums[j], numsk));
+                }
+                hash.put(nums[j], j);
+            }
+        }
+        return new ArrayList<>(res);
     }
 
     /**
@@ -37,7 +87,7 @@ public class ThreeSum {
      * S.C: O(K), K = no. of unique triplets
      */
     public List<List<Integer>> threeSumBrute(int[] nums) {
-        Arrays.sort(nums);
+        Arrays.sort(nums); // ensures triplets are in non-decreasing order for deduplication
         HashSet<List<Integer>> res = new HashSet<>();
         int n = nums.length;
         for (int i = 0; i < n; i++) {
