@@ -1,8 +1,9 @@
 /*
  * https://takeuforward.org/data-structure/subset-sum-sum-of-all-subsets/
  * https://youtu.be/rYkfBRtMJr8
- * https://www.geeksforgeeks.org/problems/subset-sums2234/1
+ * 
  * https://www.geeksforgeeks.org/subset-sum-problem-dp-25/
+ * https://www.geeksforgeeks.org/problems/subset-sums2234/1
 */
 
 package recursion;
@@ -11,6 +12,21 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class SubsetSumI {
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        int n = sc.nextInt();
+        int[] nums = new int[n];
+        for (int i = 0; i < n; i++) {
+            nums[i] = sc.nextInt();
+        }
+
+        SubsetSumI sol = new SubsetSumI();
+        System.out.println(sol.subsetSums(nums));
+
+        sc.close();
+    }
 
     public ArrayList<Integer> subsetSums(int[] arr) {
         ArrayList<Integer> res = new ArrayList<>();
@@ -23,7 +39,6 @@ public class SubsetSumI {
      * For-loop generating subsets
      */
     private void topDown2(int[] arr, int index, int currSum, ArrayList<Integer> res) {
-        // TODO: understand and write down why it is happening
         res.add(currSum);
 
         for (int i = index; i < arr.length; i++) {
@@ -46,21 +61,6 @@ public class SubsetSumI {
         topDown(arr, i + 1, currSum, res);
 
         // TODO: Attach recursion tree
-    }
-
-    public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-
-        int n = sc.nextInt();
-        int[] nums = new int[n];
-        for (int i = 0; i < n; i++) {
-            nums[i] = sc.nextInt();
-        }
-
-        SubsetSumI sol = new SubsetSumI();
-        System.out.println(sol.subsetSums(nums));
-
-        sc.close();
     }
 }
 
