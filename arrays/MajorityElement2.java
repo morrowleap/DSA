@@ -16,11 +16,64 @@ public class MajorityElement2 {
         int nums[] = { 2, 1, 1, 3, 1, 4, 5, 6 };
 
         MajorityElement2 sol = new MajorityElement2();
-        System.out.println(sol.majorityElement1(nums));
+        System.out.println(sol.majorityElement2(nums));
     }
 
     /**
-     * Hashing Approach
+     * Extended Moore Algo
+     * T.C: O(N)
+     * S.C: O(1)
+     */
+    private List<Integer> majorityElement2(int[] nums) {
+        int ele1 = 0, count1 = 0;
+        int ele2 = 0, count2 = 0;
+
+        for (int num : nums) {
+            if (count1 == 0 && num != ele2) {
+                ele1 = num;
+                count1 = 1;
+            } else if (count2 == 0 && num != ele1) {
+                ele2 = num;
+                count2 = 1;
+            } else if (ele1 == num) {
+                count1++;
+            } else if (ele2 == num) {
+                count2++;
+            } else {
+                count1--;
+                count2--;
+            }
+        }
+
+        // Verify if moree algo produced right candidate
+        count1 = 0;
+        count2 = 0;
+        int threshold = (int) (nums.length / 3) + 1;
+        List<Integer> res = new ArrayList<>();
+
+        for (int num : nums) {
+            if (num == ele1) {
+                count1++;
+                if (count1 == threshold) {
+                    res.add(ele1);
+                }
+            } else if (num == ele2) {
+                count2++;
+                if (count2 == threshold) {
+                    res.add(ele2);
+                }
+            }
+
+            if (res.size() == 2) {
+                break;
+            }
+        }
+
+        return res;
+    }
+
+    /**
+     * Optimized Hashing Approach
      * T.C: O(N)
      * S.C: O(N)
      */
