@@ -9,8 +9,10 @@ package arrays;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Map;
 
 public class ThreeSum {
     public static void main(String[] args) {
@@ -24,6 +26,8 @@ public class ThreeSum {
      * 
     */
     private List<List<Integer>> threeSumOptimal(int[] nums) {
+        int n = nums.length;
+        Map<Integer, Integer> hash = new HashMap<>();
 
     }
 
@@ -48,6 +52,8 @@ public class ThreeSum {
 
     /**
      * 3 sum problem using backtracking
+     * T.C: O(NlogN) + O(C(N,3)) = O(NlogN) + O(N!/((N-3)! * 3!)) = O(N^3)
+     * S.C: O(3) = O(1)
      */
     public List<List<Integer>> threeSumRecursive(int[] nums) {
         List<List<Integer>> res = new ArrayList<>();
