@@ -890,6 +890,7 @@ hashMap.put("key", 1);
 
 // Inc. If Absent
 map.put("key", map.getOrDefault("key", 0) + 1);
+map.merge("key", 1, Integer::sum);
 
 // Access
 int value = map.get(key); // Returns null if key does not exist
