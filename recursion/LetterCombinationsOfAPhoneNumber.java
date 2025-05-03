@@ -24,6 +24,10 @@ public class LetterCombinationsOfAPhoneNumber {
     }
 
     public List<String> letterCombinations(String digits) {
+        if (digits.isEmpty()) {
+            return new ArrayList<>();
+        }
+
         Map<Character, String> keyMapping = new HashMap<Character, String>() {
             {
                 put('2', "abc");
@@ -50,9 +54,7 @@ public class LetterCombinationsOfAPhoneNumber {
     private void topDown(Map<Character, String> keyMapping, String digits, int i, StringBuilder curr,
             List<String> res) {
         if (i == digits.length()) {
-            if (!curr.isEmpty()) {
-                res.add(curr.toString());
-            }
+            res.add(curr.toString());
             return;
         }
 
