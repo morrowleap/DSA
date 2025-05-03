@@ -33,6 +33,8 @@ public class ThreeSum {
 
     /**
      * Brute-Force method
+     * T.C: O(NlogN) + O(N^3)
+     * S.C: O(K), K = no. of unique triplets
      */
     public List<List<Integer>> threeSumBrute(int[] nums) {
         Arrays.sort(nums);
@@ -42,7 +44,7 @@ public class ThreeSum {
             for (int j = i + 1; j < n; j++) {
                 for (int k = j + 1; k < n; k++) {
                     if (nums[i] + nums[j] + nums[k] == 0) {
-                        res.add(List.of(i, j, k));
+                        res.add(List.of(nums[i], nums[j], nums[k]));
                     }
                 }
             }
