@@ -13,7 +13,27 @@ public class CountSubarraysWithGivenXOR {
         int arr[] = { 4, 2, 2, 6, 4 }, k = 6;
 
         CountSubarraysWithGivenXOR sol = new CountSubarraysWithGivenXOR();
-        System.out.println(sol.subarrayXor1(arr, k));
+        System.out.println(sol.subarrayXor2(arr, k));
+    }
+
+    /**
+     * Brute-Force: Recursive code converted to brute force
+     * T.C: O(N^2)
+     * S.C: O(1)
+     */
+    public long subarrayXor2(int nums[], int k) {
+        int n = nums.length;
+        long count = 0;
+        for (int i = 0; i < n; i++) {
+            int xor = 0;
+            for (int j = i; j < n; j++) {
+                xor = xor ^ nums[i];
+                if (xor == k) {
+                    count++;
+                }
+            }
+        }
+        return count;
     }
 
     /**
