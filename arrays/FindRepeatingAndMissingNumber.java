@@ -25,23 +25,23 @@ public class FindRepeatingAndMissingNumber {
         // ex: nums = [1,2,2]
         // [1,2,2] - [1,2,3] = 2 - 3
 
-        int xminusy = 0;
+        long xminusy = 0;
         for (int i = 1; i <= n; i++) {
             xminusy += nums[i - 1] - i;
         }
 
         // Similarly for (Original array)^2 - ([1..n] array)^2 = x^2 - y^2
-        int x2minusy2 = 0;
+        long x2minusy2 = 0;
         for (int i = 1; i <= n; i++) {
             x2minusy2 += Math.pow(nums[i - 1], 2) - Math.pow(i, 2);
         }
 
         // x^2 - y^2 / x - y = x + y
-        int xplusy = x2minusy2 / xminusy;
+        long xplusy = x2minusy2 / xminusy;
 
         ArrayList<Integer> res = new ArrayList<>();
-        res.add((xplusy + xminusy) / 2);
-        res.add((xplusy - xminusy) / 2);
+        res.add((int) (xplusy + xminusy) / 2);
+        res.add((int) (xplusy - xminusy) / 2);
         return res;
     }
 }
