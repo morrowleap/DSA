@@ -27,7 +27,7 @@ public class CountSubarraysWithGivenXOR {
         for (int i = 0; i < n; i++) {
             int xor = 0;
             for (int j = i; j < n; j++) {
-                xor = xor ^ nums[i];
+                xor = xor ^ nums[j];
                 if (xor == k) {
                     count++;
                 }
