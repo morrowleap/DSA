@@ -8,6 +8,8 @@
 
 package arrays;
 
+import java.util.HashMap;
+
 public class CountSubarraysWithGivenXOR {
     public static void main(String[] args) {
         int arr[] = { 4, 2, 2, 6, 4 }, k = 6;
@@ -22,7 +24,27 @@ public class CountSubarraysWithGivenXOR {
      * S.C: O(N)
      */
     public long subarrayXor3(int nums[], int k) {
-        
+        int n = nums.length;
+
+        HashMap<Integer, Integer> hash = new HashMap<>();
+
+        int xor = 0;
+        long count = 0;
+        for (int i = 0; i < n; i++) {
+            xor = xor ^ nums[i];
+
+            if (xor == k) {
+                count++;
+            }
+
+            if (hash.containsKey(xor ^ k)) {
+                count += hash.get(xor ^ k);
+            }
+
+            hash.merge(xor, 1, Integer::sum);
+        }
+
+        return count;
     }
 
     /**

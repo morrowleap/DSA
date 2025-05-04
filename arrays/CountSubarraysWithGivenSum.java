@@ -9,13 +9,13 @@ package arrays;
 
 import java.util.HashMap;
 
-public class CountSubarraySumEqualsK {
+public class CountSubarraysWithGivenSum {
     public static void main(String[] args) {
         // int nums[] = { 1, 1, 1 }, k = 2;
         // int nums[] = { 1, -1, 0 }, k = 0;
         int nums[] = { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 }, k = 0;
 
-        CountSubarraySumEqualsK sol = new CountSubarraySumEqualsK();
+        CountSubarraysWithGivenSum sol = new CountSubarraysWithGivenSum();
         System.out.println(sol.subarraySum3(nums, k));
     }
 
