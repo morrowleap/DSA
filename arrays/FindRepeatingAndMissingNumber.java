@@ -14,10 +14,23 @@ public class FindRepeatingAndMissingNumber {
         int nums[] = { 2, 2 };
 
         FindRepeatingAndMissingNumber sol = new FindRepeatingAndMissingNumber();
-        System.out.println(sol.findTwoElement(nums));
+        System.out.println(sol.findTwoElement4(nums));
     }
 
-    ArrayList<Integer> findTwoElement(int nums[]) {
+    /**
+     * XOR: TODO: https://youtu.be/2D0D8HE6uak?t=1189
+     * 
+     */
+    public ArrayList<Integer> findTwoElement4(int[] nums) {
+        return null;
+    }
+
+    /**
+     * Maths
+     * T.C: O(N)
+     * S.C: O(1)
+     */
+    public ArrayList<Integer> findTwoElement3(int nums[]) {
         int n = nums.length;
 
         // Let's x be the repeating number, y be the missing number
