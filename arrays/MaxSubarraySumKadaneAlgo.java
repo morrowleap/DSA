@@ -39,7 +39,7 @@ public class MaxSubarraySumKadaneAlgo {
     }
 
     /**
-     * Brute-Force: Recursive code converted to brute force
+     * Brute-Force: Recursive code converted to iterative
      * T.C: O(N^2)
      * S.C: O(1)
      */
