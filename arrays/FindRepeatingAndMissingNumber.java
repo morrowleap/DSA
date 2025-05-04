@@ -59,6 +59,34 @@ public class FindRepeatingAndMissingNumber {
     }
 
     /**
+     * Brute-Force: Recursive code converted to iterative
+     * T.C: O(N)
+     * S.C: O(1)
+     */
+    public ArrayList<Integer> findTwoElement2(int nums[]) {
+        int N = nums.length;
+        ArrayList<Integer> res = new ArrayList<>();
+        res.add(0);
+        res.add(0);
+        for (int x = 1; x <= N; x++) {
+            int count = 0;
+            for (int i = 0; i < N; i++) {
+                if (nums[i] == x) {
+                    count++;
+                }
+            }
+
+            if (count == 2) { // Repeating number
+                res.set(0, x);
+            }
+            if (count == 0) { // Missing number
+                res.set(1, x);
+            }
+        }
+        return res;
+    }
+
+    /**
      * Recursive Approach
      * T.C: O(N^2)
      * S.C: O(N)
@@ -66,12 +94,14 @@ public class FindRepeatingAndMissingNumber {
     public ArrayList<Integer> findTwoElement1(int nums[]) {
         int N = nums.length;
         ArrayList<Integer> res = new ArrayList<>();
+        res.add(0);
+        res.add(0);
         recur(N, 1, nums, res);
         return res;
     }
 
     private void recur(int N, int x, int[] nums, ArrayList<Integer> res) {
-        if (x > N || res.size() == 2) { // base case, bail out early
+        if (x > N) {
             return;
         }
 
@@ -83,10 +113,10 @@ public class FindRepeatingAndMissingNumber {
         }
 
         if (count == 2) { // Repeating number
-            res.add(x);
+            res.set(0, x);
         }
         if (count == 0) { // Missing number
-            res.add(x);
+            res.set(1, x);
         }
 
         recur(N, x + 1, nums, res);
