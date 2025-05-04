@@ -18,7 +18,7 @@ public class FindRepeatingAndMissingNumber {
     }
 
     /**
-     * XOR: TODO: https://youtu.be/2D0D8HE6uak?t=1189
+     * Bit manipulation method: TODO: https://youtu.be/2D0D8HE6uak?t=1189
      * 
      */
     public ArrayList<Integer> findTwoElement4(int[] nums) {
