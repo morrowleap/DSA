@@ -3,3 +3,4 @@ https://github.com/morrowleap/DSA/blob/main/arrays/TwoSum.java
 https://github.com/morrowleap/DSA/blob/main/arrays/ThreeSum.java
 https://github.com/morrowleap/DSA/blob/main/arrays/MaxSubarraySumKadaneAlgo.java
 https://github.com/morrowleap/DSA/blob/main/arrays/MajorityElementMoreeVotingAlgo.java
+https://github.com/morrowleap/DSA/blob/main/arrays/MajorityElement2.java
