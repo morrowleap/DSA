@@ -37,7 +37,7 @@ public class CountSubarraysWithGivenXOR {
                 count++;
             }
 
-            if (hash.containsKey(xor ^ k)) {
+            if (hash.containsKey(xor ^ k)) { // |--- xor ^ k ---| + |---- k ----| = xor
                 count += hash.get(xor ^ k);
             }
 
