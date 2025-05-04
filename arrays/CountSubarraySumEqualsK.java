@@ -7,12 +7,42 @@
 
 package arrays;
 
+import java.util.HashMap;
+
 public class CountSubarraySumEqualsK {
     public static void main(String[] args) {
-        int nums[] = { 1, 1, 1 }, k = 2;
+        // int nums[] = { 1, 1, 1 }, k = 2;
+        // int nums[] = { 1, -1, 0 }, k = 0;
+        int nums[] = { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 }, k = 0;
 
         CountSubarraySumEqualsK sol = new CountSubarraySumEqualsK();
-        System.out.println(sol.subarraySum2(nums, k));
+        System.out.println(sol.subarraySum3(nums, k));
+    }
+
+    /**
+     * Optimal: Hash Map and Prefix Sum
+     * T.C: O(N)
+     * S.C: O(N)
+     */
+    public int subarraySum3(int[] nums, int k) {
+        int n = nums.length;
+        HashMap<Integer, Integer> hash = new HashMap<>();
+
+        int count = 0, sum = 0;
+        for (int i = 0; i < n; i++) {
+            sum = sum + nums[i];
+
+            if (sum == k) {
+                count++;
+            }
+            if (hash.containsKey(sum - k)) { // |--- sum - k ---| + |---- k ----| = sum
+                count += hash.get(sum - k);
+            }
+
+            hash.merge(sum, 1, Integer::sum);
+        }
+
+        return count;
     }
 
     /**
