@@ -722,6 +722,8 @@ vec.erase(vec.begin() + index);
 import java.util.ArrayList;
 ArrayList<Integer> arrayList = new ArrayList<>();
 List<Integer> list = List.of(1, 2, 3);
+return new ArrayList<>(List.of(1, 2, 3));
+return new ArrayList<>(Arrays.asList(1, 2, 3));
 
 // SubList creation
 List<Integer> sublist = original.subList(1, 4);

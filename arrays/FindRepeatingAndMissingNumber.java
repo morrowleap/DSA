@@ -1,0 +1,47 @@
+/*
+ * https://takeuforward.org/data-structure/find-the-repeating-and-missing-numbers/
+ * https://youtu.be/2D0D8HE6uak
+ * 
+ * https://www.geeksforgeeks.org/problems/find-missing-and-repeating2512/1
+*/
+
+package arrays;
+
+import java.util.ArrayList;
+
+public class FindRepeatingAndMissingNumber {
+    public static void main(String[] args) {
+        int nums[] = { 2, 2 };
+
+        FindRepeatingAndMissingNumber sol = new FindRepeatingAndMissingNumber();
+        System.out.println(sol.findTwoElement(nums));
+    }
+
+    ArrayList<Integer> findTwoElement(int nums[]) {
+        int n = nums.length;
+
+        // Let's x be the repeating number, y be the missing number
+        // Original array - [1..n] array = x - y
+        // ex: nums = [1,2,2]
+        // [1,2,2] - [1,2,3] = 2 - 3
+
+        int xminusy = 0;
+        for (int i = 1; i <= n; i++) {
+            xminusy += nums[i - 1] - i;
+        }
+
+        // Similarly for (Original array)^2 - ([1..n] array)^2 = x^2 - y^2
+        int x2minusy2 = 0;
+        for (int i = 1; i <= n; i++) {
+            x2minusy2 += Math.pow(nums[i - 1], 2) - Math.pow(i, 2);
+        }
+
+        // x^2 - y^2 / x - y = x + y
+        int xplusy = x2minusy2 / xminusy;
+
+        ArrayList<Integer> res = new ArrayList<>();
+        res.add((xplusy + xminusy) / 2);
+        res.add((xplusy - xminusy) / 2);
+        return res;
+    }
+}
