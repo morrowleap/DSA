@@ -60,7 +60,7 @@ public class FindRepeatingAndMissingNumber {
 
     /**
      * Brute-Force: Recursive code converted to iterative
-     * T.C: O(N)
+     * T.C: O(N^2)
      * S.C: O(1)
      */
     public ArrayList<Integer> findTwoElement2(int nums[]) {
