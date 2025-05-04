@@ -14,7 +14,7 @@ public class FindRepeatingAndMissingNumber {
         int nums[] = { 2, 2 };
 
         FindRepeatingAndMissingNumber sol = new FindRepeatingAndMissingNumber();
-        System.out.println(sol.findTwoElement4(nums));
+        System.out.println(sol.findTwoElement1(nums));
     }
 
     /**
@@ -56,5 +56,39 @@ public class FindRepeatingAndMissingNumber {
         res.add((int) (xplusy + xminusy) / 2);
         res.add((int) (xplusy - xminusy) / 2);
         return res;
+    }
+
+    /**
+     * Recursive Approach
+     * T.C: O(N^2)
+     * S.C: O(N)
+     */
+    public ArrayList<Integer> findTwoElement1(int nums[]) {
+        int N = nums.length;
+        ArrayList<Integer> res = new ArrayList<>();
+        recur(N, 1, nums, res);
+        return res;
+    }
+
+    private void recur(int N, int x, int[] nums, ArrayList<Integer> res) {
+        if (x > N || res.size() == 2) { // base case, bail out early
+            return;
+        }
+
+        int count = 0;
+        for (int i = 0; i < nums.length; i++) {
+            if (nums[i] == x) {
+                count++;
+            }
+        }
+
+        if (count == 2) { // Repeating number
+            res.add(x);
+        }
+        if (count == 0) { // Missing number
+            res.add(x);
+        }
+
+        recur(N, x + 1, nums, res);
     }
 }
