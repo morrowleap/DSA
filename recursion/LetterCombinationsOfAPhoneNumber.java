@@ -7,7 +7,6 @@ package recursion;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 import java.util.Scanner;
 
 public class LetterCombinationsOfAPhoneNumber {
@@ -28,7 +27,7 @@ public class LetterCombinationsOfAPhoneNumber {
             return new ArrayList<>();
         }
 
-        Map<Character, String> keyMapping = new HashMap<Character, String>() {
+        HashMap<Character, String> keyMapping = new HashMap<Character, String>() {
             {
                 put('2', "abc");
                 put('3', "def");
@@ -41,26 +40,28 @@ public class LetterCombinationsOfAPhoneNumber {
             }
         };
 
-        StringBuilder curr = new StringBuilder();
         List<String> res = new ArrayList<>();
-        topDown(keyMapping, digits, 0, curr, res);
+        StringBuilder curr = new StringBuilder();
+        backtrack(digits, 0, keyMapping, curr, res);
 
         return res;
     }
 
     /**
-     * For loop Generating subsets solution
+     * For loop Generating subsets
      */
-    private void topDown(Map<Character, String> keyMapping, String digits, int i, StringBuilder curr,
+    public void backtrack(String digits, int index, HashMap<Character, String> keyMapping, StringBuilder curr,
             List<String> res) {
-        if (i == digits.length()) {
+        if (index == digits.length()) {
             res.add(curr.toString());
             return;
         }
 
-        for (char x : keyMapping.get(digits.charAt(i)).toCharArray()) {
+        char c = digits.charAt(index);
+
+        for (char x : keyMapping.get(c).toCharArray()) {
             curr.append(x);
-            topDown(keyMapping, digits, i + 1, curr, res);
+            backtrack(digits, index + 1, keyMapping, curr, res);
             curr.deleteCharAt(curr.length() - 1);
         }
 
