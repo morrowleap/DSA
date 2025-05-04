@@ -17,6 +17,15 @@ public class CountSubarraysWithGivenXOR {
     }
 
     /**
+     * Optimal: Hash Map and Prefix Sum
+     * T.C: O(N)
+     * S.C: O(N)
+     */
+    public long subarrayXor3(int nums[], int k) {
+        
+    }
+
+    /**
      * Brute-Force: Recursive code converted to iterative
      * T.C: O(N^2)
      * S.C: O(1)
