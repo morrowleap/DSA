@@ -15,10 +15,10 @@ public class CountInversions {
     }
 
     /**
-     * Optimal Approach: 
+     * Optimal Approach:
      */
     static int inversionCount3(int[] arr) {
-
+        // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'inversionCount3'");
     }
 
