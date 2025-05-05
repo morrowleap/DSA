@@ -15,7 +15,7 @@ public class CountInversions {
     }
 
     /**
-     * Optimal Approach:
+     * Optimal Approach: Merge Sort
      */
     static int inversionCount3(int[] arr) {
         // TODO Auto-generated method stub
