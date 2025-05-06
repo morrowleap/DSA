@@ -30,23 +30,36 @@ public class WordBreak {
 
     public boolean wordBreak(String s, List<String> wordDict) {
         HashSet<String> words = new HashSet<>(wordDict);
-        return backtrack(s, s.length(), 0, words);
+        int n = s.length();
+
+        int[] memo = new int[n];
+        for (int i = 0; i < n; i++) {
+            memo[i] = -1;
+        }
+
+        return backtrack(s, s.length(), 0, words, memo);
     }
 
-    private boolean backtrack(String s, int n, int index, HashSet<String> words) {
+    private boolean backtrack(String s, int n, int index, HashSet<String> words, int[] memo) {
         if (index == n) {
             return true;
+        }
+
+        if (memo[index] != -1) {
+            return memo[index] == 1 ? true : false;
         }
 
         for (int i = index; i < n; i++) {
             String sstr = s.substring(index, i + 1);
             if (words.contains(sstr)) {
-                if (backtrack(s, n, i + 1, words) == true) {
+                if (backtrack(s, n, i + 1, words, memo) == true) {
+                    memo[index] = 1;
                     return true;
                 }
             }
         }
 
+        memo[index] = 0;
         return false;
     }
 }
