@@ -21,9 +21,45 @@ public class Permutations1 {
         }
 
         Permutations1 sol = new Permutations1();
-        System.out.println(sol.permute1(nums));
+        System.out.println(sol.permute2(nums));
 
         sc.close();
+    }
+
+    /**
+     * Permutation using swapping on each index
+     */
+    public List<List<Integer>> permute2(int[] nums) {
+        List<List<Integer>> res = new ArrayList<>();
+        List<Integer> curr = new ArrayList<>();
+
+        int n = nums.length;
+
+        backtrack(nums, n, 0, curr, res);
+
+        return res;
+    }
+
+    private void backtrack(int[] nums, int n, int index, List<Integer> curr, List<List<Integer>> res) {
+        if (index == n) {
+            res.add(new ArrayList<>(curr));
+            return;
+        }
+
+        for (int i = index; i < n; i++) {
+            swap(nums, index, i);
+            curr.add(nums[index]); // We are playing on current index only, swapping it with others
+            backtrack(nums, n, index + 1, curr, res); // Understand TODO: In subsequence questions we did i + 1, here we
+                                                      // are doing index + 1, we are dealing with each index at a time
+            curr.remove(curr.size() - 1);
+            swap(nums, index, i);
+        }
+    }
+
+    private void swap(int[] nums, int i, int j) {
+        int temp = nums[i];
+        nums[i] = nums[j];
+        nums[j] = temp;
     }
 
     /**
