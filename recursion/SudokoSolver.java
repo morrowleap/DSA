@@ -38,7 +38,7 @@ public class SudokoSolver {
         for (int i = 0; i < n; i++) {
             for (int j = 0; j < n; j++) {
                 if (board[i][j] == '.') {
-                    for (char c = 1; c <= 9; c++) {
+                    for (char c = '1'; c <= '9'; c++) {
                         if (isValid(board, i, j, c)) {
                             board[i][j] = c;
                             if (backtrack(board) == true) {
