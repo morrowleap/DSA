@@ -6,46 +6,11 @@
 package recursion;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Scanner;
-import java.util.Set;
 
 public class WordBreak {
-    public boolean wordBreak(String s, List<String> wordDict) {
-        Set<String> wordSet = new HashSet<>(wordDict);
-        int n = s.length();
-
-        int[] memo = new int[n];
-        Arrays.fill(memo, -1);
-
-        return topDown(s, 0, wordSet, memo);
-    }
-
-    private boolean topDown(String s, int index, Set<String> wordSet, int[] memo) {
-        if (index == s.length()) {
-            return true;
-        }
-
-        if (memo[index] != -1) {
-            return memo[index] == 1 ? true : false;
-        }
-
-        for (int i = index; i < s.length(); i++) {
-            String x = s.substring(index, i + 1);
-            if (wordSet.contains(x) && topDown(s, i + 1, wordSet, memo)) {
-                memo[index] = 1;
-                return true;
-            }
-        }
-
-        memo[index] = 0;
-        return false;
-
-        // TODO: Add recursion tree
-    }
-
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
@@ -61,6 +26,28 @@ public class WordBreak {
         System.out.println(sol.wordBreak(s, wordDict));
 
         sc.close();
+    }
+
+    public boolean wordBreak(String s, List<String> wordDict) {
+        HashSet<String> words = new HashSet<>(wordDict);
+        return backtrack(s, s.length(), 0, words);
+    }
+
+    private boolean backtrack(String s, int n, int index, HashSet<String> words) {
+        if (index == n) {
+            return true;
+        }
+
+        for (int i = index; i < n; i++) {
+            String sstr = s.substring(index, i + 1);
+            if (words.contains(sstr)) {
+                if (backtrack(s, n, i + 1, words) == true) {
+                    return true;
+                }
+            }
+        }
+
+        return false;
     }
 }
 
