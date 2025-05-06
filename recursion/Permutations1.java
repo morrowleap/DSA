@@ -26,6 +26,9 @@ public class Permutations1 {
         sc.close();
     }
 
+    /**
+     * Permutation using visited hash
+     */
     public List<List<Integer>> permute1(int[] nums) {
         List<List<Integer>> res = new ArrayList<>();
         List<Integer> curr = new ArrayList<>();
