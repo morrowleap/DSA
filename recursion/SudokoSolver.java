@@ -8,41 +8,6 @@
 package recursion;
 
 public class SudokoSolver {
-
-    boolean isValid(char[][] board, int x, int y, char c) {
-        for (int i = 0; i < 9; i++) {
-            if (board[x][i] == c || board[i][y] == c)
-                return false;
-        }
-        int m = (x / 3) * 3, n = (y / 3) * 3;
-        for (int i = m; i < m + 3; i++) {
-            for (int j = n; j < n + 3; j++) {
-                if (board[i][j] == c)
-                    return false;
-            }
-        }
-        return true;
-    }
-
-    boolean dfs(char[][] board) {
-        for (int i = 0; i < 9; i++) {
-            for (int j = 0; j < 9; j++) {
-                if (board[i][j] == '.') {
-                    for (char c = '1'; c <= '9'; c++) {
-                        if (isValid(board, i, j, c)) {
-                            board[i][j] = c;
-                            if (dfs(board))
-                                return true;
-                            board[i][j] = '.';
-                        }
-                    }
-                    return false;
-                }
-            }
-        }
-        return true;
-    }
-
     public static void main(String[] args) {
         char[][] board = {
                 { '5', '3', '.', '.', '7', '.', '.', '.', '.' },
@@ -65,6 +30,52 @@ public class SudokoSolver {
     }
 
     public void solveSudoku(char[][] board) {
-        dfs(board);
+        backtrack(board);
+    }
+
+    private boolean backtrack(char[][] board) {
+        int n = board.length;
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < n; j++) {
+                if (board[i][j] == '.') {
+                    for (char c = 1; c <= 9; c++) {
+                        if (isValid(board, i, j, c)) {
+                            board[i][j] = c;
+                            if (backtrack(board) == true) {
+                                return true;
+                            }
+                            board[i][j] = '.';
+                        }
+                    }
+                    return false;
+                }
+            }
+        }
+
+        return true;
+    }
+
+    private boolean isValid(char[][] board, int i, int j, char c) {
+        int N = board.length;
+
+        for (int k = 0; k < N; k++) {
+            if (i != k && board[k][j] == c) {
+                return false;
+            }
+            if (j != k && board[i][k] == c) {
+                return false;
+            }
+        }
+
+        int m = (i / 3) * 3, n = (j / 3) * 3;
+        for (int k = m; k < m + 3; k++) {
+            for (int l = n; l < n + 3; l++) {
+                if (board[k][l] == c) {
+                    return false;
+                }
+            }
+        }
+
+        return true;
     }
 }
