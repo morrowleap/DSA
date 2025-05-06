@@ -1,7 +1,8 @@
 /*
  * https://takeuforward.org/data-structure/sudoku-solver/
- * https://leetcode.com/problems/sudoku-solver/description/
  * https://youtu.be/FWAIf_EVUKE
+ * 
+ * https://leetcode.com/problems/sudoku-solver/description/
 */
 
 package recursion;
@@ -42,10 +43,6 @@ public class SudokoSolver {
         return true;
     }
 
-    public void solveSudoku(char[][] board) {
-        dfs(board);
-    }
-
     public static void main(String[] args) {
         char[][] board = {
                 { '5', '3', '.', '.', '7', '.', '.', '.', '.' },
@@ -65,5 +62,9 @@ public class SudokoSolver {
                 System.out.print(c + " ");
             System.out.println();
         }
+    }
+
+    public void solveSudoku(char[][] board) {
+        dfs(board);
     }
 }
