@@ -3,7 +3,7 @@
  * https://youtu.be/qhBVWf0YafA
 */
 
-package recursion;
+package recursion.permutations;
 
 import java.util.ArrayList;
 import java.util.HashMap;

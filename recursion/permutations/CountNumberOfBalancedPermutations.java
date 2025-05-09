@@ -4,7 +4,7 @@
  * https://leetcode.com/problems/count-number-of-balanced-permutations/submissions/1629451480/?envType=daily-question&envId=2025-05-09
 */
 
-package dynamic_programming;
+package recursion.permutations;
 
 import java.util.Arrays;
 import java.util.HashMap;

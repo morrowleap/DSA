@@ -4,7 +4,7 @@
  * https://youtu.be/f2ic2Rsc9pU
  */
 
-package recursion;
+package recursion.permutations;
 
 import java.util.ArrayList;
 import java.util.List;
