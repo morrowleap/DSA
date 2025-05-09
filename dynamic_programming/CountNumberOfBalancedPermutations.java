@@ -1,3 +1,9 @@
+/*
+ * https://leetcode.com/problems/count-number-of-balanced-permutations
+ * 
+ * https://leetcode.com/problems/count-number-of-balanced-permutations/submissions/1629451480/?envType=daily-question&envId=2025-05-09
+*/
+
 package dynamic_programming;
 
 import java.util.Arrays;
