@@ -11,11 +11,11 @@ public class LinkedListCycle {
     public boolean hasCycle(ListNode head) {
         ListNode tortoise = head, hare = head;
         while (hare != null && hare.next != null) {
+            hare = hare.next.next;
+            tortoise = tortoise.next;
             if (tortoise == hare) {
                 return true;
             }
-            hare = hare.next.next;
-            tortoise = tortoise.next;
         }
 
         return false;
