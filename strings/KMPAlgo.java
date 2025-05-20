@@ -33,6 +33,10 @@ public class KMPAlgo {
         pattern = "abcaby";
         System.out.println(sol.strStr(str, pattern));
 
+        str = "aabaaabaaac";
+        pattern = "aabaaac";
+        System.out.println(sol.strStr(str, pattern));
+
         sc.close();
     }
 
