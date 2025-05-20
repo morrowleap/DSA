@@ -29,11 +29,15 @@ public class KMPAlgo {
         pattern = "aaaabaacd"; // 0 1 2 3 0 1 2 0 0
         System.out.println(Arrays.toString(sol.prepareLPS(pattern.toCharArray())));
 
-        // String str = "abxabcabcaby";
-        // pattern = "abcaby";
-        // System.out.println(sol.strStr(str, pattern));
+        String str = "abxabcabcaby";
+        pattern = "abcaby";
+        System.out.println(sol.strStr(str, pattern));
 
         sc.close();
+    }
+
+    private int strStr(String str, String pattern) {
+        
     }
 
     private int[] prepareLPS(char[] pattern) {
