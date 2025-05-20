@@ -7,7 +7,7 @@
 
 package linked_list;
 
-public class LinkedListCycle {
+public class DetectCycleInLinkedList {
     public boolean hasCycle(ListNode head) {
         ListNode tortoise = head, hare = head;
         while (hare != null && hare.next != null) {
@@ -28,7 +28,7 @@ public class LinkedListCycle {
         head.next.next.next = new ListNode(4);
         head.next.next.next.next = new ListNode(5);
 
-        LinkedListCycle r = new LinkedListCycle();
+        DetectCycleInLinkedList r = new DetectCycleInLinkedList();
         System.out.println(r.hasCycle(head));
     }
 }

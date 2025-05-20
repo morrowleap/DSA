@@ -21,7 +21,7 @@ class ListNode {
     }
 }
 
-public class ReverseLinkedList2 {
+public class ReverseLinkedListBetweenIndices {
 
     public ListNode reverseBetween(ListNode head, int left, int right) {
         ListNode dummy = new ListNode(0, head);
@@ -55,7 +55,7 @@ public class ReverseLinkedList2 {
         head.next.next.next = new ListNode(4);
         head.next.next.next.next = new ListNode(5);
 
-        ReverseLinkedList2 r = new ReverseLinkedList2();
+        ReverseLinkedListBetweenIndices r = new ReverseLinkedListBetweenIndices();
         ListNode rev = r.reverseBetween(head, 2, 4);
 
         while (rev != null) {

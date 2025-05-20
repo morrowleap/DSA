@@ -20,7 +20,7 @@ class ListNode {
     }
 }
 
-public class LinkedListCycle2 {
+public class RemoveCycleLinkedList {
     public ListNode detectCycle(ListNode head) {
         ListNode slow = head, fast = head;
         while (fast != null && fast.next != null) {
@@ -49,7 +49,7 @@ public class LinkedListCycle2 {
         head.next.next.next = new ListNode(-4);
         head.next.next.next.next = head.next;
 
-        LinkedListCycle2 solver = new LinkedListCycle2();
+        RemoveCycleLinkedList solver = new RemoveCycleLinkedList();
         ListNode start = solver.detectCycle(head);
 
         System.out.println(start != null ? start.val : "null");
