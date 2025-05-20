@@ -23,7 +23,7 @@ public class KMPAlgoAvi {
         while (srcPtr < source.length) {
             // System.out.println(source[srcPtr]);
             if (source[srcPtr] == pattern[pttrnPtr]) {
-                System.out.println("matched => "+source[srcPtr]);
+                System.out.println("matched => " + source[srcPtr]);
                 // we got one answer
                 if (pttrnPtr == pattern.length - 1) {
                     return srcPtr - pattern.length;
