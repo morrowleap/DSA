@@ -7,7 +7,7 @@
 
 package linked_list;
 
-public class OddEvenLinkedList {
+public class SegrregateOddEvenNodesLinkedList {
     public ListNode oddEvenList(ListNode head) {
         if (head == null || head.next == null) {
             return head;
