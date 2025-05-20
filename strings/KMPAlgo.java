@@ -42,7 +42,7 @@ public class KMPAlgo {
                 subPatternLen++;
             } else {
                 subPatternLen = 0;
-                if (pattern[subPatternLen] == pattern[0]) {
+                if (pattern[subPatternLen] == pattern[i]) {
                     lps[i] = 1;
                     subPatternLen = 1;
                 }
