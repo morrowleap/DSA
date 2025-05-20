@@ -4,7 +4,7 @@
 
 package linked_list;
 
-public class ReverseLinkedListBetweenIndices {
+public class ReverseLinkedList2 {
 
     public ListNode reverseBetween(ListNode head, int left, int right) {
         ListNode dummy = new ListNode(0, head);
@@ -38,7 +38,7 @@ public class ReverseLinkedListBetweenIndices {
         head.next.next.next = new ListNode(4);
         head.next.next.next.next = new ListNode(5);
 
-        ReverseLinkedListBetweenIndices r = new ReverseLinkedListBetweenIndices();
+        ReverseLinkedList2 r = new ReverseLinkedList2();
         ListNode rev = r.reverseBetween(head, 2, 4);
 
         while (rev != null) {
