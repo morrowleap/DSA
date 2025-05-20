@@ -32,6 +32,8 @@ public class KMPAlgo {
         System.out.println(Arrays.toString(sol.prepareLPS(pattern.toCharArray())));
         pattern = "aabaaac"; // 0 1 0 1 2 2 0
         System.out.println(Arrays.toString(sol.prepareLPS(pattern.toCharArray())));
+        pattern = "adcadde"; // 
+        System.out.println(Arrays.toString(sol.prepareLPS(pattern.toCharArray())));
 
         String str = "abxabcabcaby";
         pattern = "abcaby";
@@ -39,6 +41,10 @@ public class KMPAlgo {
 
         str = "aabaaabaaac";
         pattern = "aabaaac";
+        System.out.println(sol.strStr(str, pattern));
+
+        str = "adcadcaddcadde";
+        pattern = "adcadde";
         System.out.println(sol.strStr(str, pattern));
 
         sc.close();
