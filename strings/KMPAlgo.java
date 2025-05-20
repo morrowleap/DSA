@@ -1,6 +1,8 @@
 /*
  * http://leetcode.com/problems/find-the-index-of-the-first-occurrence-in-a-string/description/
  * 
+ * https://youtu.be/ynv7bbcSLKE
+ * https://www.youtube.com/watch?v=V5-7GzOfADQ&t=720s
  * 
 */
 
@@ -14,11 +16,21 @@ public class KMPAlgo {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
-        String str = "abxabcabcaby";
-        String pattern = "abcaby";
-
         KMPAlgo sol = new KMPAlgo();
+
+        String pattern = "ABCDEFGAABCD"; // 0 0 0 0 0 0 0 1 1 2 3 4
         System.out.println(Arrays.toString(sol.prepareLPS(pattern.toCharArray())));
+        pattern = "abcdabfabf"; // 0 0 0 0 1 2 0 1 2 0
+        System.out.println(Arrays.toString(sol.prepareLPS(pattern.toCharArray())));
+        pattern = "abcdeabfabc"; // 0 0 0 0 0 1 2 0 1 2 3
+        System.out.println(Arrays.toString(sol.prepareLPS(pattern.toCharArray())));
+        pattern = "aabcadaabe"; // 0 1 0 0 1 0 1 2 3 0
+        System.out.println(Arrays.toString(sol.prepareLPS(pattern.toCharArray())));
+        pattern = "aaaabaacd"; // 0 1 2 3 0 1 2 0 0
+        System.out.println(Arrays.toString(sol.prepareLPS(pattern.toCharArray())));
+
+        // String str = "abxabcabcaby";
+        // pattern = "abcaby";
         // System.out.println(sol.strStr(str, pattern));
 
         sc.close();
