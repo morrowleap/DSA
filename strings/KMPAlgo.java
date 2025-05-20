@@ -36,8 +36,30 @@ public class KMPAlgo {
         sc.close();
     }
 
-    private int strStr(String str, String pattern) {
-        
+    public int strStr(String haystack, String needle) {
+        char[] source = haystack.toCharArray();
+        char[] pattern = needle.toCharArray();
+
+        int[] lps = prepareLPS(pattern);
+
+        int completedPatterLen = 0;
+        for (int i = 0; i < source.length; i++) {
+            char c = source[i];
+
+            if (c == pattern[completedPatterLen]) {
+                completedPatterLen++;
+                if (completedPatterLen == pattern.length) {
+                    return i - completedPatterLen + 1;
+                }
+            } else {
+                completedPatterLen = completedPatterLen > 0 ? lps[completedPatterLen - 1] : 0;
+                if (c == pattern[completedPatterLen]) {
+                    completedPatterLen++;
+                }
+            }
+        }
+
+        return -1;
     }
 
     private int[] prepareLPS(char[] pattern) {
