@@ -86,14 +86,15 @@ public class KMPAlgo {
             if (pattern[subPatternLen] == pattern[i]) {
                 lps[i] = subPatternLen + 1;
                 subPatternLen++;
+                i++;
             } else {
-                subPatternLen = 0;
-                if (pattern[subPatternLen] == pattern[i]) {
-                    lps[i] = 1;
-                    subPatternLen = 1;
+                if (subPatternLen != 0) {
+                    subPatternLen--;
+                } else {
+                    lps[i] = subPatternLen;
+                    i++;
                 }
             }
-            i++;
         }
 
         return lps;
