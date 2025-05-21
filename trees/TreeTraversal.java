@@ -61,7 +61,7 @@ public class TreeTraversal {
         TreeNode.log(root);
 
         System.out.println(sol.preOrderTraversal(root));
-        System.out.println(sol.inOrderTraversal(root)); // correct
+        System.out.println(sol.inOrderTraversal(root));
         System.out.println(sol.postOrderTraversal(root));
     }
 }
