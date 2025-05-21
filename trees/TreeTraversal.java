@@ -22,8 +22,8 @@ public class TreeTraversal {
             return out;
         }
 
-        out.addAll(inOrderTraversal(root.left));
-        out.addAll(inOrderTraversal(root.right));
+        out.addAll(postOrderTraversal(root.left));
+        out.addAll(postOrderTraversal(root.right));
         out.add(root.val);
 
         return out;
@@ -36,8 +36,8 @@ public class TreeTraversal {
         }
 
         out.add(root.val);
-        out.addAll(inOrderTraversal(root.left));
-        out.addAll(inOrderTraversal(root.right));
+        out.addAll(preOrderTraversal(root.left));
+        out.addAll(preOrderTraversal(root.right));
 
         return out;
     }
@@ -56,7 +56,7 @@ public class TreeTraversal {
         TreeNode.log(root);
 
         System.out.println(sol.preOrderTraversal(root));
-        System.out.println(sol.inOrderTraversal(root));
+        System.out.println(sol.inOrderTraversal(root)); // correct
         System.out.println(sol.postOrderTraversal(root));
     }
 }
