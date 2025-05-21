@@ -89,33 +89,33 @@ public class KMPAlgo {
         int subPatternLen = 0;
         int i = 1;
 
-        // while (i < pattern.length) {
-        // if (pattern[subPatternLen] == pattern[i]) {
-        // lps[i] = subPatternLen + 1;
-        // subPatternLen++;
-        // } else {
-        // subPatternLen = 0;
-        // if (pattern[subPatternLen] == pattern[i]) {
-        // lps[i] = 1;
-        // subPatternLen = 1;
-        // }
-        // }
-        // i++;
-        // }
         while (i < pattern.length) {
             if (pattern[subPatternLen] == pattern[i]) {
                 lps[i] = subPatternLen + 1;
                 subPatternLen++;
-                i++;
             } else {
-                if (subPatternLen != 0) {
-                    subPatternLen = lps[subPatternLen - 1];
-                } else {
-                    lps[i] = subPatternLen;
-                    i++;
+                subPatternLen = 0;
+                if (pattern[subPatternLen] == pattern[i]) {
+                    lps[i] = 1;
+                    subPatternLen = 1;
                 }
             }
+            i++;
         }
+        // while (i < pattern.length) {
+        // if (pattern[subPatternLen] == pattern[i]) {
+        // lps[i] = subPatternLen + 1;
+        // subPatternLen++;
+        // i++;
+        // } else {
+        // if (subPatternLen != 0) {
+        // subPatternLen = lps[subPatternLen - 1];
+        // } else {
+        // lps[i] = subPatternLen;
+        // i++;
+        // }
+        // }
+        // }
 
         return lps;
     }
