@@ -3,7 +3,7 @@ package trees;
 import java.util.ArrayList;
 
 public class TreeTraversal {
-    public ArrayList<Integer> inOrderTraversal(TreeNode root) {
+    public static ArrayList<Integer> inOrderTraversal(TreeNode root) {
         ArrayList<Integer> out = new ArrayList<Integer>();
         if (root == null) {
             return out;
@@ -16,7 +16,7 @@ public class TreeTraversal {
         return out;
     }
 
-    public ArrayList<Integer> postOrderTraversal(TreeNode root) {
+    public static ArrayList<Integer> postOrderTraversal(TreeNode root) {
         ArrayList<Integer> out = new ArrayList<Integer>();
         if (root == null) {
             return out;
@@ -29,7 +29,7 @@ public class TreeTraversal {
         return out;
     }
 
-    public ArrayList<Integer> preOrderTraversal(TreeNode root) {
+    public static ArrayList<Integer> preOrderTraversal(TreeNode root) {
         ArrayList<Integer> out = new ArrayList<Integer>();
         if (root == null) {
             return out;
@@ -56,12 +56,10 @@ public class TreeTraversal {
         root.right.left = new TreeNode(6);
         root.right.left.right = new TreeNode(7);
 
-        TreeTraversal sol = new TreeTraversal();
-
         TreeNode.log(root);
 
-        System.out.println(sol.preOrderTraversal(root));
-        System.out.println(sol.inOrderTraversal(root));
-        System.out.println(sol.postOrderTraversal(root));
+        System.out.println(preOrderTraversal(root));
+        System.out.println(inOrderTraversal(root));
+        System.out.println(postOrderTraversal(root));
     }
 }
