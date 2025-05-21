@@ -13,5 +13,7 @@ public class BuildTreeFromInorderAndPostorder {
         ArrayList<Integer> postOrder = new ArrayList<>(Arrays.asList(6, 3, 2, 1));
 
         TreeNode root = buildTree(inOrder, postOrder);
+
+        
     }
 }
