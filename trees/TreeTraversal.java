@@ -1,0 +1,62 @@
+package trees;
+
+import java.util.ArrayList;
+
+public class TreeTraversal {
+    public ArrayList<Integer> inOrderTraversal(TreeNode root) {
+        ArrayList<Integer> out = new ArrayList<Integer>();
+        if (root == null) {
+            return out;
+        }
+
+        out.addAll(inOrderTraversal(root.left));
+        out.add(root.val);
+        out.addAll(inOrderTraversal(root.right));
+
+        return out;
+    }
+
+    public ArrayList<Integer> postOrderTraversal(TreeNode root) {
+        ArrayList<Integer> out = new ArrayList<Integer>();
+        if (root == null) {
+            return out;
+        }
+
+        out.addAll(inOrderTraversal(root.left));
+        out.addAll(inOrderTraversal(root.right));
+        out.add(root.val);
+
+        return out;
+    }
+
+    public ArrayList<Integer> preOrderTraversal(TreeNode root) {
+        ArrayList<Integer> out = new ArrayList<Integer>();
+        if (root == null) {
+            return out;
+        }
+
+        out.add(root.val);
+        out.addAll(inOrderTraversal(root.left));
+        out.addAll(inOrderTraversal(root.right));
+
+        return out;
+    }
+
+    public static void main(String[] args) {
+        TreeNode root = new TreeNode(1);
+        root.left = new TreeNode(2);
+        root.right = new TreeNode(3);
+        root.left.left = new TreeNode(4);
+        root.left.right = new TreeNode(5);
+        root.right.left = new TreeNode(6);
+        root.right.right = new TreeNode(7);
+
+        TreeTraversal sol = new TreeTraversal();
+
+        TreeNode.log(root);
+
+        System.out.println(sol.preOrderTraversal(root));
+        System.out.println(sol.inOrderTraversal(root));
+        System.out.println(sol.postOrderTraversal(root));
+    }
+}
