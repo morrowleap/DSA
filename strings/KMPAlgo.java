@@ -102,20 +102,6 @@ public class KMPAlgo {
             }
             i++;
         }
-        // while (i < pattern.length) {
-        // if (pattern[subPatternLen] == pattern[i]) {
-        // lps[i] = subPatternLen + 1;
-        // subPatternLen++;
-        // i++;
-        // } else {
-        // if (subPatternLen != 0) {
-        // subPatternLen = lps[subPatternLen - 1];
-        // } else {
-        // lps[i] = subPatternLen;
-        // i++;
-        // }
-        // }
-        // }
 
         return lps;
     }
