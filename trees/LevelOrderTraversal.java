@@ -13,7 +13,7 @@ import java.util.List;
 import java.util.Queue;
 
 public class LevelOrderTraversal {
-    public List<List<Integer>> levelOrder(TreeNode root) {
+    public static List<List<Integer>> levelOrder(TreeNode root) {
         List<List<Integer>> res = new ArrayList<>();
         Queue<TreeNode> queue = new ArrayDeque<TreeNode>();
 
@@ -40,5 +40,19 @@ public class LevelOrderTraversal {
         }
 
         return res;
+    }
+
+    public static void main(String[] args) {
+        TreeNode root = new TreeNode(1);
+        root.left = new TreeNode(2);
+        root.right = new TreeNode(3);
+        root.left.left = new TreeNode(4);
+        root.left.right = new TreeNode(5);
+        root.right.left = new TreeNode(6);
+        root.right.right = new TreeNode(7);
+
+        TreeNode.log(root);
+
+        System.out.println(levelOrder(root));
     }
 }
