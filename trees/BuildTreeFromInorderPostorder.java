@@ -4,28 +4,25 @@
 
 package trees;
 
-import java.util.ArrayDeque;
 import java.util.ArrayList;
 import java.util.Arrays;
 
 public class BuildTreeFromInorderPostorder {
 
-    private static ArrayDeque<Integer> postorderStack = new ArrayDeque<>();
+    private static int postOrderIdx = 0;
 
     public static TreeNode buildTree(ArrayList<Integer> inorder, ArrayList<Integer> postorder) {
-        for (int x : postorder) {
-            postorderStack.push(x);
-        }
-        TreeNode root = dfs(inorder);
+        postOrderIdx = postorder.size() - 1;
+        TreeNode root = dfs(inorder, postorder);
         return root;
     }
 
-    private static TreeNode dfs(ArrayList<Integer> inorder) {
-        if (inorder.size() == 0) {
+    private static TreeNode dfs(ArrayList<Integer> inorder, ArrayList<Integer> postorder) {
+        if (inorder.isEmpty()) {
             return null;
         }
 
-        int val = postorderStack.pop();
+        int val = postorder.get(postOrderIdx--);
         TreeNode node = new TreeNode(val);
 
         int index = 0;
@@ -38,8 +35,8 @@ public class BuildTreeFromInorderPostorder {
         ArrayList<Integer> left = new ArrayList<>(inorder.subList(0, index));
         ArrayList<Integer> right = new ArrayList<>(inorder.subList(index + 1, inorder.size()));
 
-        node.right = dfs(right);
-        node.left = dfs(left);
+        node.right = dfs(right, postorder);
+        node.left = dfs(left, postorder);
 
         return node;
     }

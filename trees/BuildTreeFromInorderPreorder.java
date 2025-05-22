@@ -4,12 +4,11 @@
 
 package trees;
 
-import java.util.ArrayDeque;
 import java.util.ArrayList;
 import java.util.Arrays;
 
 public class BuildTreeFromInorderPreorder {
-    private static ArrayDeque<Integer> preorderStack = new ArrayDeque<>();
+    private static int preOrderIdx = 0;
 
     public static void main(String[] args) {
         ArrayList<Integer> preOrder = new ArrayList<>(Arrays.asList(1, 2, 4, 5, 3, 6, 7));
@@ -23,21 +22,17 @@ public class BuildTreeFromInorderPreorder {
         System.out.println(TreeTraversal.inOrderTraversal(root));
     }
 
-    private static TreeNode buildTree(ArrayList<Integer> inorder, ArrayList<Integer> preOrder) {
-        for (int i = preOrder.size() - 1; i >= 0; i--) {
-            preorderStack.push(preOrder.get(i));
-        }
-
-        TreeNode root = dfs(inorder);
+    private static TreeNode buildTree(ArrayList<Integer> inorder, ArrayList<Integer> preorder) {
+        TreeNode root = dfs(inorder, preorder);
         return root;
     }
 
-    private static TreeNode dfs(ArrayList<Integer> inorder) {
+    private static TreeNode dfs(ArrayList<Integer> inorder, ArrayList<Integer> preorder) {
         if (inorder.size() == 0) {
             return null;
         }
 
-        int val = preorderStack.pop();
+        int val = preorder.get(preOrderIdx++);
         TreeNode node = new TreeNode(val);
 
         int index = 0;
@@ -50,8 +45,8 @@ public class BuildTreeFromInorderPreorder {
         ArrayList<Integer> left = new ArrayList<>(inorder.subList(0, index));
         ArrayList<Integer> right = new ArrayList<>(inorder.subList(index + 1, inorder.size()));
 
-        node.left = dfs(left);
-        node.right = dfs(right);
+        node.left = dfs(left, preorder);
+        node.right = dfs(right, preorder);
 
         return node;
     }
