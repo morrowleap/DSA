@@ -8,7 +8,7 @@ import java.util.ArrayDeque;
 import java.util.ArrayList;
 import java.util.Arrays;
 
-public class BuildTreeFromInorderAndPostorder {
+public class BuildTreeFromInorderPostorder {
 
     private static ArrayDeque<Integer> postorderStack = new ArrayDeque<>();
 
