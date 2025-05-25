@@ -8,7 +8,7 @@ public class LargestBSTInBinaryTree {
 
     static TreeNode parent = null;
     static int largestSortedCount = Integer.MIN_VALUE;
-    static int counter = 0;
+    static int counter = 1;
 
     static int largestBst(TreeNode node) {
         if (node == null) {
@@ -20,8 +20,9 @@ public class LargestBSTInBinaryTree {
             if (parent.val >= node.val) {
                 largestSortedCount = Math.max(largestSortedCount, counter);
                 counter = 1;
+            } else {
+                counter++;
             }
-            counter++;
         }
         parent = node;
         largestBst(node.right);
@@ -30,7 +31,7 @@ public class LargestBSTInBinaryTree {
     }
 
     public static void main(String[] args) {
-        String str = "6,6,2,null,2,1,3";
+        String str = "1,4,4,6,8";
 
         TreeNode root = BuildTreeSerializeAndDeserializeBinaryTree.deserialize(str);
         TreeNode.log(root);
