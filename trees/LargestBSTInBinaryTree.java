@@ -31,7 +31,7 @@ public class LargestBSTInBinaryTree {
     }
 
     public static void main(String[] args) {
-        String str = "1,4,4,6,8";
+        String str = "6,6,2,null,2,1,3";
 
         TreeNode root = BuildTreeSerializeAndDeserializeBinaryTree.deserialize(str);
         TreeNode.log(root);
