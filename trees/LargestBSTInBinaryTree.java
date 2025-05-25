@@ -16,7 +16,6 @@ public class LargestBSTInBinaryTree {
 
     public int dfs(TreeNode node) {
         if (node == null) {
-            parent = null;
             return 0;
         }
 
