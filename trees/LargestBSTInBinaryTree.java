@@ -6,28 +6,46 @@ package trees;
 
 public class LargestBSTInBinaryTree {
 
-    static TreeNode parent = null;
-    static int largestSortedCount = Integer.MIN_VALUE;
-    static int counter = 1;
+    TreeNode parent = null;
+    int largestSortedCount = Integer.MIN_VALUE;
 
-    static int largestBst(TreeNode node) {
+    public int largestBst(TreeNode node) {
+        dfs(node);
+        return largestSortedCount;
+    }
+
+    public int dfs(TreeNode node) {
         if (node == null) {
-            return largestSortedCount;
+            parent = null;
+            return 0;
         }
 
-        largestBst(node.left);
-        if (parent != null) {
-            if (parent.val >= node.val) {
-                largestSortedCount = Math.max(largestSortedCount, counter);
-                counter = 1;
-            } else {
-                counter++;
+        int l = dfs(node.left);
+        int r = dfs(node.right);
+
+        if (isValidBST(node)) {
+            largestSortedCount = Math.max(largestSortedCount, 1 + l + r);
+        }
+
+        return 1 + l + r;
+    }
+
+    public boolean isValidBST(TreeNode node) {
+        if (node == null) {
+            return true;
+        }
+
+        boolean l = isValidBST(node.left);
+        TreeNode temp = parent;
+        parent = node;
+        if (temp != null) {
+            if (temp.val >= node.val) {
+                return false;
             }
         }
-        parent = node;
-        largestBst(node.right);
+        boolean r = isValidBST(node.right);
 
-        return largestSortedCount;
+        return l && r;
     }
 
     public static void main(String[] args) {
@@ -37,6 +55,6 @@ public class LargestBSTInBinaryTree {
         TreeNode root = BuildTreeSerializeAndDeserializeBinaryTree.deserialize(str);
         TreeNode.log(root);
 
-        System.out.println(LargestBSTInBinaryTree.largestBst(root));
+        System.out.println(new LargestBSTInBinaryTree().largestBst(root));
     }
 }
