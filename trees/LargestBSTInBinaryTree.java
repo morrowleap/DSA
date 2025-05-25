@@ -10,6 +10,8 @@ public class LargestBSTInBinaryTree {
     int largestSortedCount = Integer.MIN_VALUE;
 
     public int largestBst(TreeNode node) {
+        largestSortedCount = Integer.MIN_VALUE;
+        parent = null;
         dfs(node);
         return largestSortedCount;
     }
