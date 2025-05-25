@@ -51,24 +51,19 @@ public class BuildTreeSerializeAndDeserializeBinaryTree {
 
         TreeNode root = new TreeNode(val);
         queue.add(root);
-        while (!queue.isEmpty()) {
+        while (!queue.isEmpty() && levelOrderIdx < serialize.length) {
             TreeNode node = queue.remove();
-
             String leftVal = serialize[levelOrderIdx++];
-            String rightVal = serialize[levelOrderIdx++];
-
             if (!leftVal.equals("null")) {
                 node.left = new TreeNode(Integer.valueOf(leftVal));
-            }
-            if (!rightVal.equals("null")) {
-                node.right = new TreeNode(Integer.valueOf(rightVal));
-            }
-
-            if (node.left != null) {
                 queue.add(node.left);
             }
-            if (node.right != null) {
-                queue.add(node.right);
+            if (levelOrderIdx < serialize.length) {
+                String rightVal = serialize[levelOrderIdx++];
+                if (!rightVal.equals("null")) {
+                    node.right = new TreeNode(Integer.valueOf(rightVal));
+                    queue.add(node.right);
+                }
             }
         }
         return root;
