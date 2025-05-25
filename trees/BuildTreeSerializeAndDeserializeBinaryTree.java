@@ -70,7 +70,7 @@ public class BuildTreeSerializeAndDeserializeBinaryTree {
     }
 
     public static void main(String[] args) {
-        TreeNode root = deserialize("1,2,3,null,null,4,5");
+        TreeNode root = deserialize("1,2,null,3,null,4,null,5");
 
         TreeNode.log(root);
     }
