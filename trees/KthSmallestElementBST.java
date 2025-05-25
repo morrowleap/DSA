@@ -20,6 +20,7 @@ public class KthSmallestElementBST {
         count++;
         if (count == k) {
             val = root.val;
+            return;
         }
         inorder(root.right, k);
     }
