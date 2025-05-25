@@ -8,7 +8,7 @@ package trees;
 import java.util.ArrayDeque;
 import java.util.Queue;
 
-public class SerializeAndDeserializeBinaryTree {
+public class BuildTreeSerializeAndDeserializeBinaryTree {
     // Encodes a tree to a single string.
     public String serialize(TreeNode root) {
         StringBuilder res = new StringBuilder();
