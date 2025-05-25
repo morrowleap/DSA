@@ -22,6 +22,7 @@ public class LargestBSTInBinaryTree {
         int l = dfs(node.left);
         int r = dfs(node.right);
 
+        parent = null;
         if (isValidBST(node)) {
             largestSortedCount = Math.max(largestSortedCount, 1 + l + r);
         }
@@ -49,7 +50,7 @@ public class LargestBSTInBinaryTree {
 
     public static void main(String[] args) {
         // String str = "5,2,4,1,3";
-        String str = "6,6,2,null,2,1,3";
+        String str = "7,4,6,null,9";
 
         TreeNode root = BuildTreeSerializeAndDeserializeBinaryTree.deserialize(str);
         TreeNode.log(root);
