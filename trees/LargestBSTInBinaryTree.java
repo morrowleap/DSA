@@ -16,10 +16,10 @@ public class LargestBSTInBinaryTree {
         }
 
         largestBst(node.left);
-        TreeNode temp = parent;
+        TreeNode op = parent;
         parent = node;
-        if (temp != null) {
-            if (temp.val >= node.val) {
+        if (op != null) {
+            if (op.val >= node.val) {
                 largestSortedCount = Math.max(largestSortedCount, counter);
                 counter = 0;
             }
