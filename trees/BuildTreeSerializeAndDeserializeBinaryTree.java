@@ -10,7 +10,7 @@ import java.util.Queue;
 
 public class BuildTreeSerializeAndDeserializeBinaryTree {
     // Encodes a tree to a single string.
-    public String serialize(TreeNode root) {
+    public static String serialize(TreeNode root) {
         StringBuilder res = new StringBuilder();
         if (root == null)
             return res.toString();
@@ -30,7 +30,7 @@ public class BuildTreeSerializeAndDeserializeBinaryTree {
                 }
                 queue.add(node.right);
             } else {
-                res.append("#").append(",");
+                res.append("null").append(",");
             }
         }
         res.deleteCharAt(res.length() - 1);
@@ -38,7 +38,7 @@ public class BuildTreeSerializeAndDeserializeBinaryTree {
     }
 
     // Decodes your encoded data to tree.
-    public TreeNode deserialize(String data) {
+    public static TreeNode deserialize(String data) {
         String[] serialize = data.split(",");
 
         if (data.isEmpty()) {
@@ -57,10 +57,10 @@ public class BuildTreeSerializeAndDeserializeBinaryTree {
             String leftVal = serialize[levelOrderIdx++];
             String rightVal = serialize[levelOrderIdx++];
 
-            if (!leftVal.equals("#")) {
+            if (!leftVal.equals("null")) {
                 node.left = new TreeNode(Integer.valueOf(leftVal));
             }
-            if (!rightVal.equals("#")) {
+            if (!rightVal.equals("null")) {
                 node.right = new TreeNode(Integer.valueOf(rightVal));
             }
 
@@ -72,5 +72,11 @@ public class BuildTreeSerializeAndDeserializeBinaryTree {
             }
         }
         return root;
+    }
+
+    public static void main(String[] args) {
+        TreeNode root = deserialize("1,2,3,null,null,4,5");
+
+        TreeNode.log(root);
     }
 }
