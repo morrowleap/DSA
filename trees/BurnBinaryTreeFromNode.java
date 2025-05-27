@@ -27,13 +27,15 @@ public class BurnBinaryTreeFromNode {
         boolean l = calculateBurnTime(root.left, start);
         if (l) {
             singleStringCounter++; // for left node
-            burnTime = Math.max(burnTime, singleStringCounter + height(root.right));
+            int rightHeight = 1 + height(root.right);
+            burnTime = Math.max(burnTime, singleStringCounter + rightHeight);
             return true;
         }
         boolean r = calculateBurnTime(root.right, start);
         if (r) {
             singleStringCounter++; // for right node
-            burnTime = Math.max(burnTime, singleStringCounter + height(root.left));
+            int leftHeight = 1 + height(root.left);
+            burnTime = Math.max(burnTime, singleStringCounter + leftHeight);
             return true;
         }
 
