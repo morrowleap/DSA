@@ -6,41 +6,45 @@
 package trees;
 
 public class BurnBinaryTreeFromNode {
-
-    int level = 0;
-    int height = 0;
-    boolean startFound = false;
+    int burnTime = 0;
 
     public int amountOfTime(TreeNode root, int start) {
-        int height = distanceToStart(root, start);
-        return height + level;
+        calculateBurnTime(root, start);
+        return burnTime;
     }
 
-    private int distanceToStart(TreeNode root, int start) {
+    private boolean calculateBurnTime(TreeNode root, int start) {
+        if (root == null) {
+            return false; // burnt node not found
+        }
+
+        if (root.val == start) {
+            burnTime = Math.max(burnTime, height(root));
+            return true; // burnt node found
+        }
+
+        boolean l = calculateBurnTime(root.left, start);
+        boolean r = calculateBurnTime(root.right, start);
+
+        if (l) {
+            burnTime = 1 + burnTime; // for left node
+            burnTime = Math.max(burnTime, 1 + height(root.right));
+            return true;
+        }
+        if (r) {
+            burnTime = 1 + burnTime; // for right node
+            burnTime = Math.max(burnTime, 1 + height(root.left));
+            return true;
+        }
+
+        return false;
+    }
+
+    private int height(TreeNode root) {
         if (root == null) {
             return -1;
         }
-
-        if (startFound) {
-            level--;
-        }
-
-        int l = distanceToStart(root.left, start);
-        int r = distanceToStart(root.right, start);
-
-        if (root.val == start) {
-            startFound = true;
-            height = Math.max(height, 1 + Math.max(l, r));
-            return 0;
-        }
-
-        if (startFound) {
-            level++;
-        }
-
-        height = Math.max(height, 1 + Math.max(l, r));
-
-        return 1 + Math.max(l, r);
+        return 1 + Math.max(height(root.left), height(root.right));
     }
 
     public static void main(String[] args) {
