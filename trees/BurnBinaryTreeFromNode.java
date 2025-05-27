@@ -7,12 +7,13 @@ package trees;
 
 public class BurnBinaryTreeFromNode {
 
-    int heightBelowFire = 0;
+    int level = 0;
+    int height = 0;
     boolean startFound = false;
 
     public int amountOfTime(TreeNode root, int start) {
         int height = distanceToStart(root, start);
-        return height + startFoundAtDepth;
+        return height + level;
     }
 
     private int distanceToStart(TreeNode root, int start) {
@@ -20,15 +21,24 @@ public class BurnBinaryTreeFromNode {
             return -1;
         }
 
-        startFoundAtDepth++;
+        if (startFound) {
+            level--;
+        }
 
         int l = distanceToStart(root.left, start);
         int r = distanceToStart(root.right, start);
 
         if (root.val == start) {
-            heightBelowFire = 1 + Math.max(l, r);
+            startFound = true;
+            height = Math.max(height, 1 + Math.max(l, r));
             return 0;
         }
+
+        if (startFound) {
+            level++;
+        }
+
+        height = Math.max(height, 1 + Math.max(l, r));
 
         return 1 + Math.max(l, r);
     }
