@@ -7,6 +7,7 @@ package trees;
 
 public class BurnBinaryTreeFromNode {
     int burnTime = 0;
+    int singleStringCounter = 0;
 
     public int amountOfTime(TreeNode root, int start) {
         calculateBurnTime(root, start);
@@ -24,16 +25,15 @@ public class BurnBinaryTreeFromNode {
         }
 
         boolean l = calculateBurnTime(root.left, start);
-        boolean r = calculateBurnTime(root.right, start);
-
         if (l) {
-            burnTime = Math.max(burnTime, 1 + height(root.right));
-            burnTime = 1 + burnTime; // for left node
+            singleStringCounter++; // for left node
+            burnTime = Math.max(burnTime, singleStringCounter + height(root.right));
             return true;
         }
+        boolean r = calculateBurnTime(root.right, start);
         if (r) {
-            burnTime = Math.max(burnTime, 1 + height(root.left));
-            burnTime = 1 + burnTime; // for right node
+            singleStringCounter++; // for right node
+            burnTime = Math.max(burnTime, singleStringCounter + height(root.left));
             return true;
         }
 
@@ -48,7 +48,7 @@ public class BurnBinaryTreeFromNode {
     }
 
     public static void main(String[] args) {
-        String str = "1,2,null,3,null,4,null,5";
+        String str = "1,5,3,null,4,10,6,9,2";
 
         TreeNode root = BuildTreeSerializeAndDeserializeBinaryTree.deserialize(str);
         TreeNode.log(root);
