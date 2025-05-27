@@ -8,20 +8,25 @@ public class DiameterOfBinaryTree {
     int diameter = 0;
 
     public int diameterOfBinaryTree(TreeNode root) {
+        height(root);
+        return diameter;
+    }
+
+    public int height(TreeNode root) {
         if (root == null) {
-            return -1;
+            return 0;
         }
 
-        int l = diameterOfBinaryTree(root.left);
-        int r = diameterOfBinaryTree(root.right);
+        int l = height(root.left);
+        int r = height(root.right);
 
-        diameter = Math.max(diameter, 1 + l + r);
+        diameter = Math.max(diameter, l + r);
 
         return 1 + Math.max(l, r);
     }
 
     public static void main(String[] args) {
-        String A = "1,2,3,4,5";
+        String A = "2,1";
 
         TreeNode At = BuildTreeSerializeAndDeserializeBinaryTree.deserialize(A);
 
