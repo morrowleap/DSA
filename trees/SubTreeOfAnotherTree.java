@@ -6,42 +6,38 @@ package trees;
 
 public class SubTreeOfAnotherTree {
     public boolean isSubtree(TreeNode root, TreeNode subRoot) {
-        if (root == null) {
-            return false;
-        }
+        String A = serialize(root);
+        String B = serialize(subRoot);
 
-        boolean l = isSubtree(root.left, subRoot);
-        boolean r = isSubtree(root.right, subRoot);
-
-        if (root.val == subRoot.val) {
-            return isSameTree(root, subRoot) || l || r;
-        }
-
-        return l || r;
-    }
-
-    public boolean isSameTree(TreeNode A, TreeNode B) {
-        if (A == null && B == null) {
+        if (A.contains(B)) {
             return true;
         }
 
-        if ((A == null && B != null) || (A != null && B == null)) {
-            return false;
+        return false;
+    }
+
+    public String serialize(TreeNode root) {
+        StringBuilder str = new StringBuilder();
+        dfs(root, str);
+
+        return str.toString();
+    }
+
+    private void dfs(TreeNode root, StringBuilder str) {
+        if (root == null) {
+            str.append(",#");
+            return;
         }
 
-        if (A.val == B.val) {
-            boolean l = isSameTree(A.left, B.left);
-            boolean r = isSameTree(A.right, B.right);
+        str.append("," + root.val);
 
-            return l && r;
-        } else {
-            return false;
-        }
+        dfs(root.left, str);
+        dfs(root.right, str);
     }
 
     public static void main(String[] args) {
-        String A = "3,4,5,1,2";
-        String B = "4,1,2";
+        String A = "12";
+        String B = "2";
 
         TreeNode At = BuildTreeSerializeAndDeserializeBinaryTree.deserialize(A);
         TreeNode Bt = BuildTreeSerializeAndDeserializeBinaryTree.deserialize(B);
