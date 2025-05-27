@@ -46,6 +46,6 @@ public class SubTreeOfAnotherTree {
         TreeNode At = BuildTreeSerializeAndDeserializeBinaryTree.deserialize(A);
         TreeNode Bt = BuildTreeSerializeAndDeserializeBinaryTree.deserialize(B);
 
-        System.out.println(new SubTreeOfAnotherTree().isSubTree(At, Bt));
+        System.out.println(new SubTreeOfAnotherTree().isSubtree(At, Bt));
     }
 }
