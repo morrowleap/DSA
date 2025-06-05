@@ -5,6 +5,8 @@
  * Dynamic Graphs
 */
 
+// https://leetcode.com/problems/lexicographically-smallest-equivalent-string/submissions/1655069401/?envType=daily-question&envId=2025-06-05
+
 package graph;
 
 public class DisjointSet {
@@ -67,42 +69,43 @@ public class DisjointSet {
     }
 
     public static void main(String[] args) {
-        DisjointSet ds = new DisjointSet(7);
-        ds.unionByRank(1, 2);
-        ds.unionByRank(2, 3);
-        ds.unionByRank(4, 5);
-        ds.unionByRank(6, 7);
-        ds.unionByRank(5, 6);
+        System.out.println((char) ('a' + 1));
+        // DisjointSet ds = new DisjointSet(7);
+        // ds.unionByRank(1, 2);
+        // ds.unionByRank(2, 3);
+        // ds.unionByRank(4, 5);
+        // ds.unionByRank(6, 7);
+        // ds.unionByRank(5, 6);
 
-        // if 3 and 7 same or not
-        if (ds.findUltimateParent(3) == ds.findUltimateParent(7)) {
-            System.out.println("Same");
-        } else
-            System.out.println("Not Same");
+        // // if 3 and 7 same or not
+        // if (ds.findUltimateParent(3) == ds.findUltimateParent(7)) {
+        // System.out.println("Same");
+        // } else
+        // System.out.println("Not Same");
 
-        ds.unionByRank(3, 7);
-        if (ds.findUltimateParent(3) == ds.findUltimateParent(7)) {
-            System.out.println("Same");
-        } else
-            System.out.println("Not Same");
+        // ds.unionByRank(3, 7);
+        // if (ds.findUltimateParent(3) == ds.findUltimateParent(7)) {
+        // System.out.println("Same");
+        // } else
+        // System.out.println("Not Same");
 
-        DisjointSet ds2 = new DisjointSet(7);
-        ds2.unionBySize(1, 2);
-        ds2.unionBySize(2, 3);
-        ds2.unionBySize(4, 5);
-        ds2.unionBySize(6, 7);
-        ds2.unionBySize(5, 6);
+        // DisjointSet ds2 = new DisjointSet(7);
+        // ds2.unionBySize(1, 2);
+        // ds2.unionBySize(2, 3);
+        // ds2.unionBySize(4, 5);
+        // ds2.unionBySize(6, 7);
+        // ds2.unionBySize(5, 6);
 
-        // if 3 and 7 same or not
-        if (ds2.findUltimateParent(3) == ds2.findUltimateParent(7)) {
-            System.out.println("Same");
-        } else
-            System.out.println("Not Same");
+        // // if 3 and 7 same or not
+        // if (ds2.findUltimateParent(3) == ds2.findUltimateParent(7)) {
+        // System.out.println("Same");
+        // } else
+        // System.out.println("Not Same");
 
-        ds2.unionBySize(3, 7);
-        if (ds2.findUltimateParent(3) == ds2.findUltimateParent(7)) {
-            System.out.println("Same");
-        } else
-            System.out.println("Not Same");
+        // ds2.unionBySize(3, 7);
+        // if (ds2.findUltimateParent(3) == ds2.findUltimateParent(7)) {
+        // System.out.println("Same");
+        // } else
+        // System.out.println("Not Same");
     }
 }
