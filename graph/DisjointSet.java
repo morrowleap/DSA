@@ -21,20 +21,20 @@ public class DisjointSet {
         }
     }
 
-    private int findUPar(int node) {
+    private int findUltimateParent(int node) {
         if (node == parent[node]) {
             return node;
         }
 
-        int ulp = findUPar(parent[node]); // Recursion to at most parent node
+        int ulp = findUltimateParent(parent[node]); // Recursion to at most parent node
         parent[node] = ulp; // path compression technique, we are breaking the bond of node and its parent
                             // and making a bond of node and ultimate parent while backtracking
         return ulp;
     }
 
     private void unionByRank(int u, int v) {
-        int ulp_u = findUPar(u);
-        int ulp_v = findUPar(v);
+        int ulp_u = findUltimateParent(u);
+        int ulp_v = findUltimateParent(v);
 
         if (ulp_u != ulp_v) {
             if (rank[ulp_u] < rank[ulp_v]) {
@@ -49,8 +49,8 @@ public class DisjointSet {
     }
 
     private void unionBySize(int u, int v) {
-        int ulp_u = findUPar(u);
-        int ulp_v = findUPar(v);
+        int ulp_u = findUltimateParent(u);
+        int ulp_v = findUltimateParent(v);
 
         if (ulp_u != ulp_v) {
             if (size[ulp_u] < size[ulp_v]) {
@@ -75,13 +75,13 @@ public class DisjointSet {
         ds.unionByRank(5, 6);
 
         // if 3 and 7 same or not
-        if (ds.findUPar(3) == ds.findUPar(7)) {
+        if (ds.findUltimateParent(3) == ds.findUltimateParent(7)) {
             System.out.println("Same");
         } else
             System.out.println("Not Same");
 
         ds.unionByRank(3, 7);
-        if (ds.findUPar(3) == ds.findUPar(7)) {
+        if (ds.findUltimateParent(3) == ds.findUltimateParent(7)) {
             System.out.println("Same");
         } else
             System.out.println("Not Same");
@@ -94,13 +94,13 @@ public class DisjointSet {
         ds2.unionBySize(5, 6);
 
         // if 3 and 7 same or not
-        if (ds2.findUPar(3) == ds2.findUPar(7)) {
+        if (ds2.findUltimateParent(3) == ds2.findUltimateParent(7)) {
             System.out.println("Same");
         } else
             System.out.println("Not Same");
 
         ds2.unionBySize(3, 7);
-        if (ds2.findUPar(3) == ds2.findUPar(7)) {
+        if (ds2.findUltimateParent(3) == ds2.findUltimateParent(7)) {
             System.out.println("Same");
         } else
             System.out.println("Not Same");

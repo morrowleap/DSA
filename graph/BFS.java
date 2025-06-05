@@ -3,6 +3,8 @@
  * https://youtu.be/-tgVpUgsQ5k
 */
 
+// https://leetcode.com/problems/lexicographically-smallest-equivalent-string/submissions/1655021963/?envType=daily-question&envId=2025-06-05
+
 package graph;
 
 import java.util.LinkedList;
