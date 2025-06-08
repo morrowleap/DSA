@@ -130,7 +130,7 @@ class Trie {
 
 public class SpellingChecker {
 
-    public static ArrayList<Integer> solve(ArrayList<String> A, ArrayList<String> B) {
+    public ArrayList<Integer> solve(ArrayList<String> A, ArrayList<String> B) {
         ArrayList<Integer> res = new ArrayList<>();
         Trie trie = new Trie();
         for (int i = 0; i < A.size(); i++) {
@@ -145,9 +145,11 @@ public class SpellingChecker {
 
     public static void main(String[] args) {
         System.out
-                .println(solve(new ArrayList<>(List.of("hat", "cat", "rat")), new ArrayList<>(List.of("cat", "ball"))));
+                .println(new SpellingChecker().solve(new ArrayList<>(List.of("hat", "cat", "rat")),
+                        new ArrayList<>(List.of("cat", "ball"))));
         System.out
-                .println(solve(new ArrayList<>(List.of("tape", "bcci")), new ArrayList<>(List.of("table", "cci"))));
+                .println(new SpellingChecker().solve(new ArrayList<>(List.of("tape", "bcci")),
+                        new ArrayList<>(List.of("table", "cci"))));
     }
 
 }
