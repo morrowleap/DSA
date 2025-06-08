@@ -1,11 +1,4 @@
-package strings;
-
-import java.util.HashMap;
-
-public class LongestSubstringWithoutRepeat {
-    HashMap<Character, Integer> hash = new HashMap<>();
-
-    public int lengthOfLongestSubstring(String A) {
-
-    }
-}
+/*
+ * https://leetcode.com/problems/longest-substring-without-repeating-characters/
+ * description/
+ */
