@@ -109,13 +109,13 @@ class Node2 {
     Node2[] links;
     boolean flag;
     int terminalWeight;
-    int count;
+    int terminalCount;
 
     Node2() {
         links = new Node2[26];
         flag = false;
         terminalWeight = -1;
-        count = 0;
+        terminalCount = 0;
     }
 }
 
@@ -140,7 +140,7 @@ class Trie2 {
         }
 
         temp.terminalWeight = weight;
-        temp.count++;
+        temp.terminalCount++;
     }
 
     public boolean search(String word) {
@@ -196,7 +196,7 @@ class Trie2 {
 
     private void backtrack(Node2 node, StringBuilder temp, PriorityQueue<Pair> pairResHeap) {
         if (node.terminalWeight != -1) {
-            for (int i = 0; i < node.count; i++) {
+            for (int i = 0; i < node.terminalCount; i++) {
                 pairResHeap.add(new Pair(node.terminalWeight, temp.toString()));
             }
         }
