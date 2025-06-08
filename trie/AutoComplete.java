@@ -109,11 +109,13 @@ class Node2 {
     Node2[] links;
     boolean flag;
     int terminalWeight;
+    int count;
 
     Node2() {
         links = new Node2[26];
         flag = false;
         terminalWeight = -1;
+        count = 0;
     }
 }
 
@@ -138,6 +140,7 @@ class Trie2 {
         }
 
         temp.terminalWeight = weight;
+        temp.count++;
     }
 
     public boolean search(String word) {
@@ -193,7 +196,9 @@ class Trie2 {
 
     private void backtrack(Node2 node, StringBuilder temp, PriorityQueue<Pair> pairResHeap) {
         if (node.terminalWeight != -1) {
-            pairResHeap.add(new Pair(node.terminalWeight, temp.toString()));
+            for (int i = 0; i < node.count; i++) {
+                pairResHeap.add(new Pair(node.terminalWeight, temp.toString()));
+            }
         }
 
         for (int i = 0; i < 26; i++) {
@@ -233,9 +238,10 @@ public class AutoComplete {
             for (String b : B) {
                 ArrayList<String> res = trie.autoComplete(b);
                 if (res.isEmpty()) {
-                    System.out.println(-1);
+                    System.out.println("-1 ");
                 } else {
-                    System.out.println(res);
+                    res.forEach(word -> System.out.print(word + " "));
+                    System.out.println();
                 }
             }
         }
