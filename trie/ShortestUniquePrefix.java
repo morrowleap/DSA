@@ -88,11 +88,13 @@ class Node3 {
     Node3[] links;
     boolean flag;
     boolean isTerminal;
+    int count;
 
     Node3() {
         links = new Node3[26];
         flag = false;
         isTerminal = false;
+        count = 0;
     }
 }
 
@@ -113,6 +115,7 @@ class Trie3 {
                 temp.links[ch - 'a'] = new Node3();
             }
             temp.links[ch - 'a'].flag = true;
+            temp.links[ch - 'a'].count++;
             temp = temp.links[ch - 'a'];
         }
         temp.isTerminal = true;
@@ -127,7 +130,7 @@ class Trie3 {
             int count = 0;
             for (int j = 0; j < 26; j++) {
                 if (temp.links[j] != null) {
-                    count++;
+                    count += temp.links[j].count;
                 }
             }
 
