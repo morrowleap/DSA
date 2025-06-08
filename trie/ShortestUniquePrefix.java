@@ -159,5 +159,6 @@ public class ShortestUniquePrefix {
     public static void main(String[] args) {
         System.out.println(new ShortestUniquePrefix().prefix(new ArrayList<>(List.of("zebra", "dog", "duck", "dove"))));
         System.out.println(new ShortestUniquePrefix().prefix(new ArrayList<>(List.of("apple", "ball", "cat"))));
+        System.out.println(new ShortestUniquePrefix().prefix(new ArrayList<>(List.of("bearcat", "bert"))));
     }
 }
