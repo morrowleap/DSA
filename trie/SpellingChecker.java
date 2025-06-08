@@ -78,33 +78,33 @@ package trie;
 import java.util.ArrayList;
 import java.util.List;
 
-class Node {
-    Node[] links;
+class Node1 {
+    Node1[] links;
     boolean flag;
     boolean isTerminal;
 
-    Node() {
-        links = new Node[26];
+    Node1() {
+        links = new Node1[26];
         flag = false;
         isTerminal = false;
     }
 }
 
-class Trie {
-    Node head;
+class Trie1 {
+    Node1 head;
 
-    Trie() {
-        head = new Node();
+    Trie1() {
+        head = new Node1();
         head.flag = true;
     }
 
     public void insert(String word) {
         char[] chArr = word.toCharArray();
-        Node temp = head;
+        Node1 temp = head;
         for (int i = 0; i < chArr.length; i++) {
             char ch = chArr[i];
             if (temp.links[ch - 'a'] == null) {
-                temp.links[ch - 'a'] = new Node();
+                temp.links[ch - 'a'] = new Node1();
             }
             temp.links[ch - 'a'].flag = true;
             temp = temp.links[ch - 'a'];
@@ -115,7 +115,7 @@ class Trie {
 
     public boolean search(String word) {
         char[] chArr = word.toCharArray();
-        Node temp = head;
+        Node1 temp = head;
         for (int i = 0; i < chArr.length; i++) {
             char ch = chArr[i];
             if (temp.links[ch - 'a'] != null && temp.links[ch - 'a'].flag == true) {
@@ -132,7 +132,7 @@ public class SpellingChecker {
 
     public ArrayList<Integer> solve(ArrayList<String> A, ArrayList<String> B) {
         ArrayList<Integer> res = new ArrayList<>();
-        Trie trie = new Trie();
+        Trie1 trie = new Trie1();
         for (int i = 0; i < A.size(); i++) {
             trie.insert(A.get(i));
         }
