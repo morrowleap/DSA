@@ -84,12 +84,76 @@ package trie;
 import java.util.ArrayList;
 import java.util.List;
 
-class 
+class Node3 {
+    Node3[] links;
+    boolean flag;
+    boolean isTerminal;
+
+    Node3() {
+        links = new Node3[26];
+        flag = false;
+        isTerminal = false;
+    }
+}
+
+class Trie3 {
+    Node3 head;
+
+    Trie3() {
+        head = new Node3();
+    }
+
+    public void insert(String word) {
+        char[] chArr = word.toCharArray();
+        Node3 temp = head;
+        for (int i = 0; i < chArr.length; i++) {
+            char ch = chArr[i];
+
+            if (temp.links[ch - 'a'] == null) {
+                temp.links[ch - 'a'] = new Node3();
+            }
+            temp.links[ch - 'a'].flag = true;
+            temp = temp.links[ch - 'a'];
+        }
+        temp.isTerminal = true;
+    }
+
+    public String findUniquePrefix(String word) {
+        StringBuilder res = new StringBuilder();
+        Node3 temp = head;
+        for (int i = 0; i < word.length(); i++) {
+            char ch = word.charAt(i);
+
+            int count = 0;
+            for (int j = 0; j < 26; j++) {
+                if (temp.links[j] != null) {
+                    count++;
+                }
+            }
+
+            if (count == 1) {
+                break;
+            } else {
+                res.append(ch);
+                temp = temp.links[ch - 'a'];
+            }
+        }
+
+        return res.toString();
+    }
+}
 
 public class ShortestUniquePrefix {
     public ArrayList<String> prefix(ArrayList<String> A) {
-
-        return null;
+        Trie3 trie = new Trie3();
+        for (String a : A) {
+            trie.insert(a);
+        }
+        ArrayList<String> res = new ArrayList<>();
+        for (String a : A) {
+            res.add(trie.findUniquePrefix(a));
+        }
+        return res;
     }
 
     public static void main(String[] args) {
