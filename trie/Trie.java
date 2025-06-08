@@ -7,11 +7,12 @@ package trie;
 class Node {
     Node[] links;
     boolean flag;
-    boolean isTerminal = false;
+    boolean isTerminal;
 
     Node() {
         links = new Node[26];
         flag = false;
+        isTerminal = false;
     }
 }
 
