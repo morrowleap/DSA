@@ -615,6 +615,9 @@ int[] arr = new int[]{1, 2, 3, 4, 5}; // Explicit initialization
 int[] arr = {1, 2, 3, 4, 5}; // Shorthand syntax
 int[] arr = new int[5]; // Default initialization with zeroes
 
+// Clone
+int[] copy1 = src.clone();
+
 // Array Fill
 Arrays.fill(arr, 10); // Fill the array `arr` with 10s.
 
