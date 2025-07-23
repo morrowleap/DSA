@@ -2,5 +2,5 @@ Longest Subarray with Sum K:
 https://www.geeksforgeeks.org/problems/longest-sub-array-with-sum-k0809/1
 https://youtu.be/frf7qxiN2qU
 
-560. Subarray Sum Equals K:
+560. Count Subarray Sum Equals K:
 https://leetcode.com/problems/subarray-sum-equals-k/description/
