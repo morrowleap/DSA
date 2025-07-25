@@ -1,0 +1,12 @@
+Longest length problems:
+https://leetcode.com/problems/longest-substring-without-repeating-characters/description/
+
+Max values you can change/ignore
+https://leetcode.com/problems/max-consecutive-ones-iii/description/
+https://leetcode.com/problems/longest-repeating-character-replacement/description/
+
+Basket problem
+https://leetcode.com/problems/fruit-into-baskets/description/
+
+Count subarrays
+https://leetcode.com/problems/binary-subarrays-with-sum/description/
