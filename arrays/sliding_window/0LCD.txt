@@ -10,3 +10,5 @@ https://leetcode.com/problems/fruit-into-baskets/description/
 
 Count subarrays
 https://leetcode.com/problems/binary-subarrays-with-sum/description/
+https://leetcode.com/problems/count-number-of-nice-subarrays/description/
+https://leetcode.com/problems/number-of-substrings-containing-all-three-characters/
