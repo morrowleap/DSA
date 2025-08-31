@@ -132,16 +132,16 @@ Roman numerals are represented by seven different symbols and their values:
    Subtractive notation only allows one smaller numeral to precede a larger one, such as "IV" (4) or "IX" (9).
 
 #### Example Code Snippet:
-```cpp
-unordered_map<char, int> romanValues = {
-    {'I', 1},
-    {'V', 5},
-    {'X', 10},
-    {'L', 50},
-    {'C', 100},
-    {'D', 500},
-    {'M', 1000}
-};
+```java
+public static final Map<Character, Integer> romanValues = Map.of(
+        'I', 1,
+        'V', 5,
+        'X', 10,
+        'L', 50,
+        'C', 100,
+        'D', 500,
+        'M', 1000
+    );
 ```
 
 ### 5. ASCII Values of Digits [0 – 9]
