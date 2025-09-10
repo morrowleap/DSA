@@ -7,6 +7,8 @@
 
 package linked_list;
 
+import utils.ListNode;
+
 public class FindIntersectionPointOfYLL {
     public ListNode getIntersectionNode(ListNode headA, ListNode headB) {
         // Create a backlink

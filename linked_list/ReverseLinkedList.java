@@ -8,6 +8,8 @@
 
 package linked_list;
 
+import utils.ListNode;
+
 public class ReverseLinkedList {
 
     public ListNode reverseList(ListNode head) {

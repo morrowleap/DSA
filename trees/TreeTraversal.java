@@ -2,6 +2,8 @@ package trees;
 
 import java.util.ArrayList;
 
+import utils.TreeNode;
+
 public class TreeTraversal {
     public static ArrayList<Integer> inOrderTraversal(TreeNode root) {
         ArrayList<Integer> out = new ArrayList<Integer>();

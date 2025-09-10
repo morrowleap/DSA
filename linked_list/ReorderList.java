@@ -6,6 +6,8 @@
 
 package linked_list;
 
+import utils.ListNode;
+
 public class ReorderList {
     public void reorderList(ListNode head) {
         // Find middle of the linked List

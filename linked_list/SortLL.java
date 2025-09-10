@@ -1,5 +1,7 @@
 package linked_list;
 
+import utils.ListNode;
+
 public class SortLL {
     public ListNode mergeTwoLists(ListNode list1, ListNode list2) {
         ListNode dummy = new ListNode();

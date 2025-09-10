@@ -4,6 +4,8 @@ import java.util.ArrayDeque;
 import java.util.ArrayList;
 import java.util.Arrays;
 
+import utils.TreeNode;
+
 public class BuildTreeFromLevelorderInorder {
 
     private static int levelorderIdx = 0;

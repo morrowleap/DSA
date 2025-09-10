@@ -7,6 +7,8 @@
 
 package trees;
 
+import utils.TreeNode;
+
 public class KthSmallestElementBST {
     int count = 0;
     int val = -1;

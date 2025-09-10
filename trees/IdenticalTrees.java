@@ -7,6 +7,8 @@
 
 package trees;
 
+import utils.TreeNode;
+
 public class IdenticalTrees {
     public boolean isSameTree(TreeNode p, TreeNode q) {
         if (p == null && q == null) {

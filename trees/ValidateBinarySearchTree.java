@@ -4,6 +4,8 @@
 
 package trees;
 
+import utils.TreeNode;
+
 public class ValidateBinarySearchTree {
     TreeNode parent = null;
 

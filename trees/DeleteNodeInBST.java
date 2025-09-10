@@ -6,6 +6,8 @@
 
 package trees;
 
+import utils.TreeNode;
+
 public class DeleteNodeInBST {
     public TreeNode deleteNode(TreeNode root, int key) {
         TreeNode[] res = findNodeAndParent(root, key, null);

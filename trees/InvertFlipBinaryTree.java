@@ -6,6 +6,8 @@
 
 package trees;
 
+import utils.TreeNode;
+
 public class InvertFlipBinaryTree {
     public TreeNode invertTree(TreeNode root) {
         if (root == null) {

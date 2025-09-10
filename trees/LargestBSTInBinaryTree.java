@@ -4,6 +4,8 @@
 
 package trees;
 
+import utils.TreeNode;
+
 public class LargestBSTInBinaryTree {
 
     TreeNode parent = null;

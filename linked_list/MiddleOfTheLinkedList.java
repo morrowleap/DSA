@@ -7,6 +7,8 @@
 
 package linked_list;
 
+import utils.ListNode;
+
 public class MiddleOfTheLinkedList {
     public ListNode middleNode(ListNode head) {
         ListNode tortoise = head, hare = head;

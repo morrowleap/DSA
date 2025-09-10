@@ -4,6 +4,8 @@
 
 package linked_list;
 
+import utils.ListNode;
+
 public class ReverseLinkedListBetweenIndices {
 
     public ListNode reverseBetween(ListNode head, int left, int right) {

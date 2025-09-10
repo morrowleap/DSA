@@ -10,6 +10,8 @@
 
 package linked_list;
 
+import utils.ListNode;
+
 public class RemoveCycleLinkedList {
     public ListNode detectCycle(ListNode head) {
         ListNode slow = head, fast = head;

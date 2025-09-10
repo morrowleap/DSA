@@ -4,6 +4,8 @@
 
 package trees;
 
+import utils.TreeNode;
+
 public class MaximumPathSum {
     int maxPathSum = Integer.MIN_VALUE;
 

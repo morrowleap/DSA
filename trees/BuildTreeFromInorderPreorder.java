@@ -7,6 +7,8 @@ package trees;
 import java.util.ArrayList;
 import java.util.Arrays;
 
+import utils.TreeNode;
+
 public class BuildTreeFromInorderPreorder {
     private static int preOrderIdx = 0;
 

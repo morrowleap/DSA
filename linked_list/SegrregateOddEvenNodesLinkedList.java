@@ -7,6 +7,8 @@
 
 package linked_list;
 
+import utils.ListNode;
+
 public class SegrregateOddEvenNodesLinkedList {
     public ListNode oddEvenList(ListNode head) {
         if (head == null || head.next == null) {

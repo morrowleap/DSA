@@ -9,6 +9,8 @@ import java.util.ArrayList;
 import java.util.Queue;
 import java.util.TreeMap;
 
+import utils.TreeNode;
+
 public class BottomViewOfBinaryTree {
     public ArrayList<Integer> bottomView(TreeNode root) {
         ArrayList<Integer> res = new ArrayList<>();

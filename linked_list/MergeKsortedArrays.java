@@ -4,6 +4,8 @@
 
 package linked_list;
 
+import utils.ListNode;
+
 public class MergeKsortedArrays {
 
     public ListNode mergeKLists(ListNode[] lists) {

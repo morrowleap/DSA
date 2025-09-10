@@ -7,6 +7,8 @@
 
 package linked_list;
 
+import utils.ListNode;
+
 public class DetectCycleInLinkedList {
     public boolean hasCycle(ListNode head) {
         ListNode tortoise = head, hare = head;

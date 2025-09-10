@@ -5,6 +5,8 @@
 
 package trees;
 
+import utils.TreeNode;
+
 public class BurnBinaryTreeFromNode {
     int burnTime = 0;
     int singleStringCounter = 0;

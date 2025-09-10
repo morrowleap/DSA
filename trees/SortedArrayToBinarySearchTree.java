@@ -7,6 +7,8 @@ package trees;
 
 import java.util.Arrays;
 
+import utils.TreeNode;
+
 public class SortedArrayToBinarySearchTree {
     public TreeNode sortedArrayToBST(int[] nums) {
         int n = nums.length;

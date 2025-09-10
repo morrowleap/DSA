@@ -4,6 +4,8 @@
 
 package trees;
 
+import utils.TreeNode;
+
 public class LowestCommonAncestorBinarySearchTree {
     public TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
         if (root == null || p == null || q == null) {

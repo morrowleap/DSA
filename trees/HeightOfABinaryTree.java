@@ -7,6 +7,8 @@
 
 package trees;
 
+import utils.TreeNode;
+
 public class HeightOfABinaryTree {
     private int dfs(TreeNode root, int depth) {
         if (root == null) {
