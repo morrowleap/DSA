@@ -1,0 +1,13 @@
+https://leetcode.com/problems/combine-two-tables/description/
+https://leetcode.com/problems/customers-who-never-order/description/
+LEFT JOIN
+
+https://leetcode.com/problems/employees-earning-more-than-their-managers/description/
+Inner SELF Non-equi JOIN
+
+https://leetcode.com/problems/duplicate-emails/description/
+GROUP BY with HAVING, Checking duplicates
+
+https://leetcode.com/problems/delete-duplicate-emails/description/?envType=problem-list-v2&envId=v97khek6
+DELETE USING SELF JOIN, Deleting using group BY
+
